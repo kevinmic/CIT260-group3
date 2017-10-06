@@ -3,19 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package oregontrail;
-
+package byui.cit260.oregonTrail.model;
+import java.io.Serializable;
 /**
  *
  * @author Dresen_HP
  */
-public class OregonTrail {
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
-    }
-    
+public class Game implements Serializable{
+    // class instance variables
+    private 
 }
