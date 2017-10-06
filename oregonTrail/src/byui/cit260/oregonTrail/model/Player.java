@@ -16,6 +16,7 @@ public class Player implements Serializable{
     private String savedGameFile;
     private int pace;
     private int currentScore;
+    private ArrayList<Game> games = new ArrayList<Game>();
     
     // default constructor
 
@@ -55,6 +56,16 @@ public class Player implements Serializable{
     public void setCurrentScore(int currentScore) {
         this.currentScore = currentScore;
     }
+
+    public <any> getGames() {
+        return games;
+    }
+
+    public void setGames(<any> games) {
+        this.games = games;
+    }
+    
+    
 
     @Override
     public int hashCode() {
