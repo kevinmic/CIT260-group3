@@ -5,6 +5,9 @@
  */
 package byui.cit260.oregonTrail.model;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author Dresen_HP
@@ -16,8 +19,11 @@ public class Game implements Serializable{
     private double percentComplete;
     private int highScores;
     private int noPlayers;
-    private Player player;
-
+    // relationships with other classes
+    private Player player; // 1 to 1
+    private Map map; // 1 to 1
+    private List<Actor> actors = new ArrayList<>(); // 0-*
+    private List<InventoryItem> inventoryItems = new ArrayList<>(); // 0-*
 
     
    // constructor
@@ -73,6 +79,31 @@ public class Game implements Serializable{
     public void setPlayer(Player player) {
         this.player = player;
     }
+    
+    public Map getMap() {
+        return map;
+    }
+
+    public void setMap(Map map) {
+        this.map = map;
+    }
+    
+    public List<Actor> getActors() {
+        return actors;
+    }
+
+    public void setActors(List<Actor> actors) {
+        this.actors = actors;
+    }
+
+    public List<InventoryItem> getInventoryItems() {
+        return inventoryItems;
+    }
+
+    public void setInventoryItems(List<InventoryItem> inventoryItems) {
+        this.inventoryItems = inventoryItems;
+    }
+    
 
     @Override
     public int hashCode() {

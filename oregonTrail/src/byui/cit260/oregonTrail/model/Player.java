@@ -5,6 +5,7 @@
  */
 package byui.cit260.oregonTrail.model;
 import java.io.Serializable;
+import java.util.List;
 import java.util.ArrayList;
 import java.util.Objects;
 /**
@@ -17,7 +18,9 @@ public class Player implements Serializable{
     private String savedGameFile;
     private int pace;
     private int currentScore;
-    private ArrayList<Game> games = new ArrayList<Game>();
+    // relationships with other classes 
+    private List<Game> games = new ArrayList<>(); //0-*
+    private Actor actor; // 1-1
     
     // default constructor
 
@@ -58,12 +61,20 @@ public class Player implements Serializable{
         this.currentScore = currentScore;
     }
 
-    public ArrayList<Game> getGames() {
+    public List<Game> getGames() {
         return games;
     }
 
-    public void setGames(ArrayList<Game> games) {
+    public void setGames(List<Game> games) {
         this.games = games;
+    }
+
+    public Actor getActor() {
+        return actor;
+    }
+
+    public void setActor(Actor actor) {
+        this.actor = actor;
     }
     
     
