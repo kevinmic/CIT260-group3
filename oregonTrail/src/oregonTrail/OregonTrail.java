@@ -9,6 +9,9 @@ import byui.cit260.oregonTrail.model.Actor;
 import byui.cit260.oregonTrail.model.CharacterDialog;
 import byui.cit260.oregonTrail.model.Player;
 import byui.cit260.oregonTrail.model.Game;
+import byui.cit260.oregonTrail.model.Animal;
+import byui.cit260.oregonTrail.model.HuntingScene;
+import byui.cit260.oregonTrail.model.RiverScene;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -51,6 +54,32 @@ public class OregonTrail {
         // test CharacterDialog class
         System.out.println(CharacterDialog.FallMountain.getDialog());
         System.out.println(CharacterDialog.FallMountain.getType());
+        
+        // test Animal class
+        
+        System.out.println(Animal.Bear.getBaseWeight());
+        System.out.println(Animal.Bear.getDescription());
+        System.out.println(Animal.Bear.getDifficulty());
+        
+        // test RiverScene class
+        
+        RiverScene riverSceneOne = new RiverScene();
+        
+        riverSceneOne.setRiverHeight(45);
+        riverSceneOne.setSafetyWithGuide(.50);
+        riverSceneOne.setTravelChoice("Cross");
+        
+        System.out.println(riverSceneOne.toString());
+        
+        //test HuntingScene class
+        
+        HuntingScene huntingSceneOne = new HuntingScene();
+        
+        huntingSceneOne.setNoFoodCaught(0);
+        huntingSceneOne.setBonusWithGuide(5);
+       
+        System.out.println(huntingSceneOne.toString());
+        
         
     }
     
