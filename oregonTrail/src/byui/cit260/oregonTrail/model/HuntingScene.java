@@ -5,6 +5,8 @@
  */
 package byui.cit260.oregonTrail.model;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 /**
  *
@@ -17,7 +19,7 @@ public class HuntingScene implements Serializable {
     
     // relationships with other classes
     
-    private Animal animal; //0-* to 0-*
+    private List<Animal> animal = new ArrayList<>();
     private RegularSceneType regularSceneType; //-1
     
     // default constructor
@@ -43,11 +45,11 @@ public class HuntingScene implements Serializable {
         this.bonusWithGuide = bonusWithGuide;
     }
 
-    public Animal getAnimal() {
+    public List<Animal> getAnimal() {
         return animal;
     }
 
-    public void setAnimal(Animal animal) {
+    public void setAnimal(List<Animal> animal) {
         this.animal = animal;
     }
 
@@ -61,11 +63,11 @@ public class HuntingScene implements Serializable {
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 13 * hash + this.noFoodCaught;
-        hash = 13 * hash + this.bonusWithGuide;
-        hash = 13 * hash + Objects.hashCode(this.animal);
-        hash = 13 * hash + Objects.hashCode(this.regularSceneType);
+        int hash = 3;
+        hash = 59 * hash + this.noFoodCaught;
+        hash = 59 * hash + this.bonusWithGuide;
+        hash = 59 * hash + Objects.hashCode(this.animal);
+        hash = 59 * hash + Objects.hashCode(this.regularSceneType);
         return hash;
     }
 
@@ -96,9 +98,16 @@ public class HuntingScene implements Serializable {
         return true;
     }
 
-    
-    
+    @Override
+    public String toString() {
+        return "HuntingScene{" + "noFoodCaught=" + noFoodCaught + ", bonusWithGuide=" + bonusWithGuide + ", animal=" + animal + ", regularSceneType=" + regularSceneType + '}';
     }
+ 
+    
+    
+}
+
+
     
     
     

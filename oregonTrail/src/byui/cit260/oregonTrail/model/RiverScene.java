@@ -20,6 +20,11 @@ public class RiverScene implements Serializable{
     // relationships with other classes
     private RegularSceneType regularSceneType;
     
+    // default constructor
+    
+    public RiverScene () {
+    }
+    
     // methods
 
     public RegularSceneType getRegularSceneType() {
@@ -89,6 +94,13 @@ public class RiverScene implements Serializable{
             return false;
         }
         return true;
+        
+        
+    }
+
+    @Override
+    public String toString() {
+        return "RiverScene{" + "riverHeight=" + riverHeight + ", travelChoice=" + travelChoice + ", safetyWithGuide=" + safetyWithGuide + ", regularSceneType=" + regularSceneType + '}';
     }
     
     
