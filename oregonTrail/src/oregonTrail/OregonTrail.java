@@ -10,12 +10,12 @@ import byui.cit260.oregonTrail.model.CharacterDialog;
 import byui.cit260.oregonTrail.model.Player;
 import byui.cit260.oregonTrail.model.Game;
 import byui.cit260.oregonTrail.model.Animal;
-import byui.cit260.oregonTrail.model.Map;
 import byui.cit260.oregonTrail.model.HuntingScene;
 import byui.cit260.oregonTrail.model.RiverScene;
 import byui.cit260.oregonTrail.model.BarterScene;
 import byui.cit260.oregonTrail.model.InventoryItem;
 import byui.cit260.oregonTrail.model.RegularSceneType;
+import byui.cit260.oregonTrail.model.Map
 import java.util.HashSet;
 import java.util.Set;
 
