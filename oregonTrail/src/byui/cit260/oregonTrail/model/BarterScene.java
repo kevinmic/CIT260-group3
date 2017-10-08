@@ -13,7 +13,7 @@ import java.awt.Point;
  *
  * @author jones-jordan
  */
-public class BarterScene {
+public class BarterScene implements Serializable {
     // class instance variables
     private String itemsToTrade;
     
