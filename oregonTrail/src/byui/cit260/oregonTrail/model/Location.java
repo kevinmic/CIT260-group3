@@ -11,10 +11,10 @@ import java.util.List;
  *
  * @author Dresen_HP
  */
-class Location implements Serializable{
+public class Location implements Serializable{
 // instance variables
 private int currentMiles;
-private string locationVisited;
+private String locationVisited;
 private int milesRemaining;
 private String type;
 private int column;
