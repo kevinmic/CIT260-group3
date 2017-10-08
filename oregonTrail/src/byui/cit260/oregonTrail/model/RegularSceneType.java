@@ -116,5 +116,5 @@ public class RegularSceneType implements Serializable {
         return "RegularSceneType{" + "description=" + description + ", location=" + location + ", barterScene=" + barterScene + ", riverScene=" + riverScene + ", huntingScene=" + huntingScene + '}';
     }
     
-    
+   //test edit 
 }
