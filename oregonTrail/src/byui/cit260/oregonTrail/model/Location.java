@@ -23,10 +23,10 @@ private int amountremaining;
 private String type2;
 public String weather;
 
-// relationships with other classes
-public List<Location> location = new ArrayList<>(); //0-*
+// relationships with other classes public List<Location> location = new ArrayList<>(); //0-*
+
 // default constructor
-class Location {
+public Location() {
     
 }
 
