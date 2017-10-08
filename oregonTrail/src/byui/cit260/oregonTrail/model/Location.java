@@ -10,6 +10,7 @@ package byui.cit260.oregonTrail.model;
  *
  * @author Dresen_HP
  */
-class Location {
+public enum Location {
+
     
 }
