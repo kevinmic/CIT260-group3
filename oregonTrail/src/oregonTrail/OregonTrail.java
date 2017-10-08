@@ -105,7 +105,12 @@ public class OregonTrail {
         
         //test RegularSceneType
         
-        RegularSceneType
+        RegularSceneType regularSceneOne = new RegularSceneType ();
+        
+        regularSceneOne.setDescription("Hunting");
+        
+        System.out.println(regularSceneOne.toString());
+        
         
     }
     
