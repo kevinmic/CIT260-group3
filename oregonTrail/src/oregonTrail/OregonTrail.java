@@ -50,19 +50,20 @@ public class OregonTrail {
         System.out.println(gameOne.toString());
         
         // test Actor class
-        System.out.println(Actor.Cayusa.getName());
-        System.out.println(Actor.Cayusa.getDescription());
-        System.out.println(Actor.Cayusa.getCoordinates());
+        System.out.print("Actor" + '{' + "name=" + Actor.Cayusa.getName());
+        System.out.print(", description=" + Actor.Cayusa.getDescription());
+        System.out.println(", coordinates=" + Actor.Cayusa.getCoordinates() + '}');
         
         // test CharacterDialog class
-        System.out.println(CharacterDialog.FallMountain.getDialog());
-        System.out.println(CharacterDialog.FallMountain.getType());
+        System.out.print("CharacterDialog" + '{' + "dialog=" + CharacterDialog.FallMountain.getDialog());
+        System.out.println(", type=" + CharacterDialog.FallMountain.getType() + '}');
         
         // test Animal class
         
-        System.out.println(Animal.Bear.getBaseWeight());
-        System.out.println(Animal.Bear.getDescription());
-        System.out.println(Animal.Bear.getDifficulty());
+        System.out.print("Animal" + '{' + "baseWeight=" + Animal.Bear.getBaseWeight());
+        System.out.print(", description=" + Animal.Bear.getDescription());
+        System.out.println(", difficulty=" + Animal.Bear.getDifficulty() + '}');
+       
         
         // test RiverScene class
         
