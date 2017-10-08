@@ -14,7 +14,7 @@ import java.awt.Point;
  * @author jones-jordan
  */
 public class RegularSceneType implements Serializable {
-    private String regularStringType;
+    private String description;
     
     //relationship with other classes
     private List<Location> location = new ArrayList<>(); //0-*
@@ -23,17 +23,19 @@ public class RegularSceneType implements Serializable {
     private HuntingScene huntingScene; // 1-1
 
     // default constructor
+
     public RegularSceneType() {
     }
+      
 
     // methods
 
-    public String getRegularStringType() {
-        return regularStringType;
+    public String getDescription() {
+        return description;
     }
 
-    public void setRegularStringType(String regularStringType) {
-        this.regularStringType = regularStringType;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public List<Location> getLocation() {
@@ -68,17 +70,14 @@ public class RegularSceneType implements Serializable {
         this.huntingScene = huntingScene;
     }
 
-   
-    
-
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 19 * hash + Objects.hashCode(this.regularStringType);
-        hash = 19 * hash + Objects.hashCode(this.location);
-        hash = 19 * hash + Objects.hashCode(this.barterScene);
-        hash = 19 * hash + Objects.hashCode(this.riverScene);
-        hash = 19 * hash + Objects.hashCode(this.huntingScene);
+        int hash = 3;
+        hash = 53 * hash + Objects.hashCode(this.description);
+        hash = 53 * hash + Objects.hashCode(this.location);
+        hash = 53 * hash + Objects.hashCode(this.barterScene);
+        hash = 53 * hash + Objects.hashCode(this.riverScene);
+        hash = 53 * hash + Objects.hashCode(this.huntingScene);
         return hash;
     }
 
@@ -94,7 +93,7 @@ public class RegularSceneType implements Serializable {
             return false;
         }
         final RegularSceneType other = (RegularSceneType) obj;
-        if (!Objects.equals(this.regularStringType, other.regularStringType)) {
+        if (!Objects.equals(this.description, other.description)) {
             return false;
         }
         if (!Objects.equals(this.location, other.location)) {
@@ -114,10 +113,8 @@ public class RegularSceneType implements Serializable {
 
     @Override
     public String toString() {
-        return "RegularSceneType{" + "regularStringType=" + regularStringType + ", location=" + location + ", barter=" + barterScene + ", riverScene=" + riverScene + ", huntingScene=" + huntingScene + '}';
+        return "RegularSceneType{" + "description=" + description + ", location=" + location + ", barterScene=" + barterScene + ", riverScene=" + riverScene + ", huntingScene=" + huntingScene + '}';
     }
     
     
 }
-
-//test edit
