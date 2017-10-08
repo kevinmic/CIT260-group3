@@ -13,7 +13,7 @@ import java.util.Objects;
  *
  * @author Dresen_HP
  */
-class Map implements Serializable {
+public class Map implements Serializable {
     //class instace variables
     private String description;
     private double milesFromStart;
