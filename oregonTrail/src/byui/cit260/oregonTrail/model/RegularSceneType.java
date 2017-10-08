@@ -18,7 +18,7 @@ public class RegularSceneType implements Serializable {
     
     //relationship with other classes
     private List<Location> location = new ArrayList<>(); //0-*
-    private barterScene barterScene; // 1-1
+    private BarterScene barterScene; // 1-1
     private RiverScene riverScene; // 1-1
     private HuntingScene huntingScene; // 1-1
 
@@ -44,11 +44,11 @@ public class RegularSceneType implements Serializable {
         this.location = location;
     }
 
-    public barterScene getBarterScene() {
+    public BarterScene getBarterScene() {
         return barterScene;
     }
 
-    public void setBarterScene(barterScene barterScene) {
+    public void setBarterScene(BarterScene barterScene) {
         this.barterScene = barterScene;
     }
 
@@ -76,7 +76,7 @@ public class RegularSceneType implements Serializable {
         int hash = 7;
         hash = 19 * hash + Objects.hashCode(this.regularStringType);
         hash = 19 * hash + Objects.hashCode(this.location);
-        hash = 19 * hash + Objects.hashCode(this.barter);
+        hash = 19 * hash + Objects.hashCode(this.barterScene);
         hash = 19 * hash + Objects.hashCode(this.riverScene);
         hash = 19 * hash + Objects.hashCode(this.huntingScene);
         return hash;
@@ -100,7 +100,7 @@ public class RegularSceneType implements Serializable {
         if (!Objects.equals(this.location, other.location)) {
             return false;
         }
-        if (!Objects.equals(this.barter, other.barter)) {
+        if (!Objects.equals(this.barterScene, other.barterScene)) {
             return false;
         }
         if (!Objects.equals(this.riverScene, other.riverScene)) {
@@ -114,7 +114,7 @@ public class RegularSceneType implements Serializable {
 
     @Override
     public String toString() {
-        return "RegularSceneType{" + "regularStringType=" + regularStringType + ", location=" + location + ", barter=" + barter + ", riverScene=" + riverScene + ", huntingScene=" + huntingScene + '}';
+        return "RegularSceneType{" + "regularStringType=" + regularStringType + ", location=" + location + ", barter=" + barterScene + ", riverScene=" + riverScene + ", huntingScene=" + huntingScene + '}';
     }
     
     
