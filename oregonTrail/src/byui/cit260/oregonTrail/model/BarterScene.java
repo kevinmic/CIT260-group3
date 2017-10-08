@@ -74,6 +74,14 @@ public class BarterScene implements Serializable {
     public String toString() {
         return "BarterScene{" + "itemsToTrade=" + itemsToTrade + ", inventoryItem=" + inventoryItem + '}';
     }
+
+    public void setInventoryItem(int i) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void setItemsToTrade(int i) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
     
 }
