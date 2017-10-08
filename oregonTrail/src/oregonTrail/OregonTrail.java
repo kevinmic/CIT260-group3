@@ -10,6 +10,7 @@ import byui.cit260.oregonTrail.model.CharacterDialog;
 import byui.cit260.oregonTrail.model.Player;
 import byui.cit260.oregonTrail.model.Game;
 import byui.cit260.oregonTrail.model.Animal;
+import byui.cit260.oregonTrail.model.Map;
 import byui.cit260.oregonTrail.model.HuntingScene;
 import byui.cit260.oregonTrail.model.RiverScene;
 import byui.cit260.oregonTrail.model.BarterScene;
@@ -111,9 +112,15 @@ public class OregonTrail {
         
         System.out.println(regularSceneOne.toString());
         
+        //test Map
         
+        Map mapSceneOne = new Map ();
+        
+        mapSceneOne.setDescription("Oregon Trail Map");
+        mapSceneOne.setMilesFromStart(0);
+        mapSceneOne.setPathChosen("Trail A");
+        
+        System.out.println(mapSceneOne.toString());
     }
     
 }
-
-//test edit from Jordan
