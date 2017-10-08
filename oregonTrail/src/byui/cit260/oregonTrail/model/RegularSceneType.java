@@ -18,7 +18,7 @@ public class RegularSceneType implements Serializable {
     
     //relationship with other classes
     private List<Location> location = new ArrayList<>(); //0-*
-    private Barter barter; // 1-1
+    private barterScene barterScene; // 1-1
     private RiverScene riverScene; // 1-1
     private HuntingScene huntingScene; // 1-1
 
@@ -27,6 +27,7 @@ public class RegularSceneType implements Serializable {
     }
 
     // methods
+
     public String getRegularStringType() {
         return regularStringType;
     }
@@ -43,12 +44,12 @@ public class RegularSceneType implements Serializable {
         this.location = location;
     }
 
-    public Barter getBarter() {
-        return barter;
+    public barterScene getBarterScene() {
+        return barterScene;
     }
 
-    public void setBarter(Barter barter) {
-        this.barter = barter;
+    public void setBarterScene(barterScene barterScene) {
+        this.barterScene = barterScene;
     }
 
     public RiverScene getRiverScene() {
@@ -66,6 +67,9 @@ public class RegularSceneType implements Serializable {
     public void setHuntingScene(HuntingScene huntingScene) {
         this.huntingScene = huntingScene;
     }
+
+   
+    
 
     @Override
     public int hashCode() {
