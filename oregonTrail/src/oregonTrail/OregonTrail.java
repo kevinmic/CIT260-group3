@@ -88,8 +88,7 @@ public class OregonTrail {
         
         BarterScene barterSceneOne = new BarterScene();
         
-        barterSceneOne.setInventoryItem(10);
-        barterSceneOne.setItemsToTrade(11);
+        barterSceneOne.setItemsToTrade("Bullets");
         
         System.out.println(barterSceneOne.toString());
         
