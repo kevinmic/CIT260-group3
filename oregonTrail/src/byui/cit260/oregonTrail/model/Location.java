@@ -12,7 +12,7 @@ import java.util.Objects;
  *
  * @author James
  */
-public class Locations implements Serializable {
+public class Location implements Serializable {
     // class instance variables
     private int currentMiles;
     private String locationVisited;
@@ -29,7 +29,7 @@ public class Locations implements Serializable {
     private Map map;
     
 
-    public Locations() {
+    public Location() {
     }
     
     public int getCurrentMiles() {
@@ -140,7 +140,7 @@ public class Locations implements Serializable {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Locations other = (Locations) obj;
+        final Location other = (Location) obj;
         if (this.currentMiles != other.currentMiles) {
             return false;
         }
@@ -173,7 +173,7 @@ public class Locations implements Serializable {
 
     @Override
     public String toString() {
-        return "Locations{" + "currentMiles=" + currentMiles + ", locationVisited=" + locationVisited + ", milesRemaining=" + milesRemaining + ", type=" + type + ", column=" + column + ", visited=" + visited + ", amountremaining=" + amountremaining + ", type2=" + type2 + ", weather=" + weather + '}';
+        return "Location{" + "currentMiles=" + currentMiles + ", locationVisited=" + locationVisited + ", milesRemaining=" + milesRemaining + ", type=" + type + ", column=" + column + ", visited=" + visited + ", amountremaining=" + amountremaining + ", type2=" + type2 + ", weather=" + weather + '}';
     }
     
     
