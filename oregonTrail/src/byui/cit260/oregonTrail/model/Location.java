@@ -27,7 +27,7 @@ public class Location implements Serializable {
     // relationships with other classes
     private Actor actor;
     private Map map;
-    
+
 
     public Location() {
     }
