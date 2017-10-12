@@ -16,6 +16,7 @@ import byui.cit260.oregonTrail.model.BarterScene;
 import byui.cit260.oregonTrail.model.InventoryItem;
 import byui.cit260.oregonTrail.model.RegularSceneType;
 import byui.cit260.oregonTrail.model.Map;
+import byui.cit260.oregonTrail.model.Location;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -121,6 +122,28 @@ public class OregonTrail {
         mapSceneOne.setPathChosen("Trail A");
         
         System.out.println(mapSceneOne.toString());
+        
+        //test Locations
+        
+        Location locationOne = new Location();
+        
+        locationOne.setCurrentMiles(102);
+        locationOne.setLocationVisited("Visited");
+        locationOne.setMilesRemaining(1860);
+        locationOne.setType("River");
+        locationOne.setColumn(24);
+        locationOne.setVisited("Visited");
+        locationOne.setAmountRemaining(0.948);
+        locationOne.setType2("Not a Town");
+        locationOne.setWeather("Raining");
+       
+        System.out.println(locationOne.toString());
+        
+        
+        
+        
+        
+        
     }
     
 }
