@@ -5,6 +5,12 @@
  */
 package byui.cit260.oregonTrail.model;
 import java.io.Serializable;
+<<<<<<< HEAD
+=======
+import java.util.ArrayList;
+import java.util.List;
+
+>>>>>>> b9cf1f0b8929aeba0aeb371b363d6825b19fc87d
 /**
  *
  * @author Dresen_HP
@@ -16,8 +22,16 @@ public class Game implements Serializable{
     private double percentComplete;
     private int highScores;
     private int noPlayers;
+<<<<<<< HEAD
     private Player player;
 
+=======
+    // relationships with other classes
+    private Player player; // 1 to 1
+    private Map map; // 1 to 1
+    private List<Actor> actors = new ArrayList<>(); // 0-*
+    private List<InventoryItem> inventoryItems = new ArrayList<>(); // 0-*
+>>>>>>> b9cf1f0b8929aeba0aeb371b363d6825b19fc87d
 
     
    // constructor
@@ -73,6 +87,34 @@ public class Game implements Serializable{
     public void setPlayer(Player player) {
         this.player = player;
     }
+<<<<<<< HEAD
+=======
+    
+    public Map getMap() {
+        return map;
+    }
+
+    public void setMap(Map map) {
+        this.map = map;
+    }
+    
+    public List<Actor> getActors() {
+        return actors;
+    }
+
+    public void setActors(List<Actor> actors) {
+        this.actors = actors;
+    }
+
+    public List<InventoryItem> getInventoryItems() {
+        return inventoryItems;
+    }
+
+    public void setInventoryItems(List<InventoryItem> inventoryItems) {
+        this.inventoryItems = inventoryItems;
+    }
+    
+>>>>>>> b9cf1f0b8929aeba0aeb371b363d6825b19fc87d
 
     @Override
     public int hashCode() {
@@ -123,4 +165,10 @@ public class Game implements Serializable{
     
     
     
+<<<<<<< HEAD
 }
+=======
+
+}
+
+>>>>>>> b9cf1f0b8929aeba0aeb371b363d6825b19fc87d
