@@ -106,9 +106,3 @@ public class HuntingScene implements Serializable {
     
     
 }
-
-
-    
-    
-    
-
