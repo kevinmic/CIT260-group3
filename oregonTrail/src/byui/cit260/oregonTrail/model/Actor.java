@@ -26,9 +26,9 @@ public enum Actor{
    Daughter("Daughter", "She will travel the trail with you.", new Point(1,1));
    
    // class instance variables
-    private String name;
-    private String description;
-    private Point coordinates;
+    private final String name;
+    private final String description;
+    private final Point coordinates;
     // relationships with other classes
     private Player players; // 1-1
     private Game games; // 1-1
@@ -49,24 +49,12 @@ public enum Actor{
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public String getDescription() {
         return description;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
     public Point getCoordinates() {
         return coordinates;
-    }
-
-    public void setCoordinates(Point coordinates) {
-        this.coordinates = coordinates;
     }
 
     public Player getPlayers() {

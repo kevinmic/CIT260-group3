@@ -5,6 +5,7 @@
  */
 package byui.cit260.oregonTrail.control;
 
+import byui.cit260.oregonTrail.model.InventoryType;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -218,7 +219,6 @@ public class InventoryControlTest {
         result = instance.calcBarterPrice(basePriceGet, basePriceGive, percentComplete, barterCoefficient);
         // compare results to expected results
         assertEquals(expResult, result, 0.0001);
-        
     }
     
 }

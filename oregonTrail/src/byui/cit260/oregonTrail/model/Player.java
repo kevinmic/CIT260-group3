@@ -8,6 +8,8 @@ import java.io.Serializable;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Objects;
+import java.util.Map;
+import java.util.HashMap;
 /**
  *
  * @author Dresen_HP
@@ -19,8 +21,10 @@ public class Player implements Serializable{
     private int pace;
     private int currentScore;
     // relationships with other classes 
-    private List<Game> games = new ArrayList<>(); //0-*
-    private Actor actor; // 1-1
+    private List<Game> games = new ArrayList<>(); //0-* // TODO: Probably don't need because game higher.
+    private Actor actor; // 1-1 TODO: Add player type and change this.
+    private Map<InventoryType, InventoryItem> items = new HashMap();
+    
     
     // default constructor
 
@@ -76,25 +80,34 @@ public class Player implements Serializable{
     public void setActor(Actor actor) {
         this.actor = actor;
     }
-    
+
+    public Map getItems() {
+        return items;
+    }
+
+    public void setItems(Map items) {
+        this.items = items;
+    }
     
 
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 67 * hash + Objects.hashCode(this.name);
-        hash = 67 * hash + Objects.hashCode(this.savedGameFile);
-        hash = 67 * hash + this.pace;
-        hash = 67 * hash + this.currentScore;
+        int hash = 7;
+        hash = 19 * hash + Objects.hashCode(this.name);
+        hash = 19 * hash + Objects.hashCode(this.savedGameFile);
+        hash = 19 * hash + this.pace;
+        hash = 19 * hash + this.currentScore;
+        hash = 19 * hash + Objects.hashCode(this.games);
+        hash = 19 * hash + Objects.hashCode(this.actor);
+        hash = 19 * hash + Objects.hashCode(this.items);
         return hash;
     }
 
     @Override
     public String toString() {
-        return "Player{" + "name=" + name + ", savedGameFile=" + savedGameFile + ", pace=" + pace + ", currentScore=" + currentScore + '}';
+        return "Player{" + "name=" + name + ", savedGameFile=" + savedGameFile + ", pace=" + pace + ", currentScore=" + currentScore + ", games=" + games + ", actor=" + actor + ", items=" + items + '}';
     }
 
-    
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -119,8 +132,21 @@ public class Player implements Serializable{
         if (!Objects.equals(this.savedGameFile, other.savedGameFile)) {
             return false;
         }
+        if (!Objects.equals(this.games, other.games)) {
+            return false;
+        }
+        if (this.actor != other.actor) {
+            return false;
+        }
+        if (!Objects.equals(this.items, other.items)) {
+            return false;
+        }
         return true;
     }
+    
+    
+
+
     
     
     

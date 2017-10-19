@@ -14,6 +14,7 @@ import byui.cit260.oregonTrail.model.HuntingScene;
 import byui.cit260.oregonTrail.model.RiverScene;
 import byui.cit260.oregonTrail.model.BarterScene;
 import byui.cit260.oregonTrail.model.InventoryItem;
+import byui.cit260.oregonTrail.model.InventoryType;
 import byui.cit260.oregonTrail.model.Location;
 import byui.cit260.oregonTrail.model.RegularSceneType;
 import byui.cit260.oregonTrail.model.Map;
@@ -98,12 +99,13 @@ public class OregonTrail {
         
         InventoryItem inventoryItemOne = new InventoryItem();
         
-        inventoryItemOne.setInventoryType("Food");
         inventoryItemOne.setQuantityInStock(5);
-        inventoryItemOne.setRequiredAmount(5);
-        inventoryItemOne.setBasePrice(75);
         
         System.out.println(inventoryItemOne.toString());
+        
+        //test InventoryType
+        
+        System.out.print("InventoryType" + '{' + "Food: cost=" + InventoryType.Food.getCost());
         
         //test RegularSceneType
         

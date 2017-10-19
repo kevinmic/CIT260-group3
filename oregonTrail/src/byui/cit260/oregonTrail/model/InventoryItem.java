@@ -15,14 +15,12 @@ import java.awt.Point;
  */
 public class InventoryItem implements Serializable {
     //class instance variables
-    private String inventoryType;
-    private double quantityInStock;
-    private double requiredAmount;
-    private double basePrice;
+    private int quantityInStock;
     
     //relationships with other classes
-    private List<Game> games = new ArrayList<>(); //0-*
-    private List<BarterScene> barterScene = new ArrayList<>(); //0-*
+    private InventoryType[] inventoryType = new InventoryType[7];
+    
+    
     
     //default constructor
 
@@ -30,63 +28,29 @@ public class InventoryItem implements Serializable {
     }
     
     //getter and setter methods
-    public String getInventoryType() {
+
+    public InventoryType[] getInventoryType() {
         return inventoryType;
     }
 
-    public void setInventoryType(String inventoryType) {
+    public void setInventoryType(InventoryType[] inventoryType) {
         this.inventoryType = inventoryType;
     }
 
-    public double getQuantityInStock() {
+
+    public int getQuantityInStock() {
         return quantityInStock;
     }
 
-    public void setQuantityInStock(double quantityInStock) {
+    public void setQuantityInStock(int quantityInStock) {
         this.quantityInStock = quantityInStock;
-    }
-
-    public double getRequiredAmount() {
-        return requiredAmount;
-    }
-
-    public void setRequiredAmount(double requiredAmount) {
-        this.requiredAmount = requiredAmount;
-    }
-
-    public double getBasePrice() {
-        return basePrice;
-    }
-
-    public void setBasePrice(double basePrice) {
-        this.basePrice = basePrice;
-    }
-
-    public List<Game> getGames() {
-        return games;
-    }
-
-    public void setGames(List<Game> games) {
-        this.games = games;
-    }
-
-    public List<BarterScene> getBarterScene() {
-        return barterScene;
-    }
-
-    public void setBarterScene(List<BarterScene> barterScene) {
-        this.barterScene = barterScene;
     }
 
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 79 * hash + Objects.hashCode(this.inventoryType);
-        hash = 79 * hash + (int) (Double.doubleToLongBits(this.quantityInStock) ^ (Double.doubleToLongBits(this.quantityInStock) >>> 32));
-        hash = 79 * hash + (int) (Double.doubleToLongBits(this.requiredAmount) ^ (Double.doubleToLongBits(this.requiredAmount) >>> 32));
-        hash = 79 * hash + (int) (Double.doubleToLongBits(this.basePrice) ^ (Double.doubleToLongBits(this.basePrice) >>> 32));
-        hash = 79 * hash + Objects.hashCode(this.games);
-        hash = 79 * hash + Objects.hashCode(this.barterScene);
+        hash = 37 * hash + Objects.hashCode(this.inventoryType);
+        hash = 37 * hash + this.quantityInStock;
         return hash;
     }
 
@@ -102,22 +66,10 @@ public class InventoryItem implements Serializable {
             return false;
         }
         final InventoryItem other = (InventoryItem) obj;
-        if (Double.doubleToLongBits(this.quantityInStock) != Double.doubleToLongBits(other.quantityInStock)) {
+        if (this.quantityInStock != other.quantityInStock) {
             return false;
         }
-        if (Double.doubleToLongBits(this.requiredAmount) != Double.doubleToLongBits(other.requiredAmount)) {
-            return false;
-        }
-        if (Double.doubleToLongBits(this.basePrice) != Double.doubleToLongBits(other.basePrice)) {
-            return false;
-        }
-        if (!Objects.equals(this.inventoryType, other.inventoryType)) {
-            return false;
-        }
-        if (!Objects.equals(this.games, other.games)) {
-            return false;
-        }
-        if (!Objects.equals(this.barterScene, other.barterScene)) {
+        if (this.inventoryType != other.inventoryType) {
             return false;
         }
         return true;
@@ -125,8 +77,14 @@ public class InventoryItem implements Serializable {
 
     @Override
     public String toString() {
-        return "InventoryItem{" + "inventoryType=" + inventoryType + ", quantityInStock=" + quantityInStock + ", requiredAmount=" + requiredAmount + ", basePrice=" + basePrice + ", games=" + games + ", barterScene=" + barterScene + '}';
+        return "InventoryItem{" + "inventoryType=" + inventoryType + ", quantityInStock=" + quantityInStock + '}';
     }
+
+    public void setInventoryType(InventoryType type) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+ 
     
     
 }
