@@ -71,25 +71,31 @@ public class InventoryControl {
        item.setQuantityInStock(item.getQuantityInStock() + quantity);
     }
     public String barter(InventoryType owned, InventoryType desired, int desiredQuantity) {
+        // get desired item and owned item information for player's inventory.
         InventoryItem itemDesired = getItem(desired);
         InventoryItem itemOwned = getItem(owned);
+        System.out.println(itemOwned);
         // get cost from inventoryType for both itemDesired and itemOwned
-        //InventoryType[] itemTypeDesired = itemDesired.getInventoryType();
-        //int desiredPrice = itemTypeDesired[desired];
-        int costDesired = InventoryType.Bullets.getCost(); // How to do this with variable?
-        int costOwned = InventoryType.Clothing.getCost();
+
+        int costDesired = desired.getCost(); 
+        int costOwned = owned.getCost();
+        
+        // get percentComplete of player's game.
         double percentComplete = Database.INSTANCE.getGame().getPercentComplete();
+        // determine barterCoefficient Buy=1, Barter=2
         int barterCoefficient = 1;
         InventoryType purchase = InventoryType.Money;
         if (owned != purchase) {
             barterCoefficient = 2;
         }
+        // call calcBarterPrice function to figure cost of purchase.
         int costForOne = calcBarterPrice(costDesired, costOwned, percentComplete, barterCoefficient);
-                
+        // test to see if player has enough of item to trade.       
         if (itemOwned.getQuantityInStock() < desiredQuantity) {
              
             return "You do not have enough " + owned + " to complete the transaction.";
         }
+        // add desired item to inventory and remove desired item from inventory.
         addToInventory(desired, desiredQuantity);
         subtractFromInventory(owned, desiredQuantity);
         return "Transaction successful.";

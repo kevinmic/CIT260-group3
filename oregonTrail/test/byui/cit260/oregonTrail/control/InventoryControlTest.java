@@ -220,5 +220,6 @@ public class InventoryControlTest {
         // compare results to expected results
         assertEquals(expResult, result, 0.0001);
     }
+
     
 }

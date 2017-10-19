@@ -140,6 +140,8 @@ public class OregonTrail {
         locationOne.setWeather("Raining");
        
         System.out.println(locationOne.toString());
+        
+        
     }
     
 }
