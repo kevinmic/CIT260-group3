@@ -10,9 +10,6 @@ import java.awt.Point;
  * @author Dresen_HP
  */
 public enum Actor{
-   Farmer("Farmer", "He is skilled at growing food. He will receive a bonus when he reaches Oregon.", new Point(1,1)),
-   Blacksmith("Blacksmith", "He is good at fixing things. He will be able to fix most wagon breakdowns.", new Point(1,1)),
-   Merchant("Merchant", "He drives a hard bargain. He will receive a discount on any goods purchased.", new Point(1,1)),
    Settler("William", "Settler headed west with his family.", new Point(2,3)),
    Pioneer("Maggie", "Young pioneer woman who is waiting for her husband to return from the war before moving further west.", new Point(1,2)),
    Trapper("Jeb", "Grizzled trapper headed east to sell his furs.", new Point(3,3)),

@@ -5,7 +5,9 @@
  */
 package byui.cit260.oregonTrail.control;
 
+import byui.cit260.oregonTrail.model.InventoryItem;
 import byui.cit260.oregonTrail.model.InventoryType;
+import java.util.Map;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -221,5 +223,5 @@ public class InventoryControlTest {
         assertEquals(expResult, result, 0.0001);
     }
 
-    
+
 }

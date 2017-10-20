@@ -24,7 +24,9 @@ public class Player implements Serializable{
     private List<Game> games = new ArrayList<>(); //0-* // TODO: Probably don't need because game higher.
     private Actor actor; // 1-1 TODO: Add player type and change this.
     private Map<InventoryType, InventoryItem> items = new HashMap();
-    
+    private Occupation occupation; //
+
+
     
     // default constructor
 
@@ -89,23 +91,27 @@ public class Player implements Serializable{
         this.items = items;
     }
     
+    public void setOccupation(Occupation occupation) {
+        this.occupation = occupation;
+    }
 
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 19 * hash + Objects.hashCode(this.name);
-        hash = 19 * hash + Objects.hashCode(this.savedGameFile);
-        hash = 19 * hash + this.pace;
-        hash = 19 * hash + this.currentScore;
-        hash = 19 * hash + Objects.hashCode(this.games);
-        hash = 19 * hash + Objects.hashCode(this.actor);
-        hash = 19 * hash + Objects.hashCode(this.items);
+        hash = 71 * hash + Objects.hashCode(this.name);
+        hash = 71 * hash + Objects.hashCode(this.savedGameFile);
+        hash = 71 * hash + this.pace;
+        hash = 71 * hash + this.currentScore;
+        hash = 71 * hash + Objects.hashCode(this.games);
+        hash = 71 * hash + Objects.hashCode(this.actor);
+        hash = 71 * hash + Objects.hashCode(this.items);
+        hash = 71 * hash + Objects.hashCode(this.occupation);
         return hash;
     }
 
     @Override
     public String toString() {
-        return "Player{" + "name=" + name + ", savedGameFile=" + savedGameFile + ", pace=" + pace + ", currentScore=" + currentScore + ", games=" + games + ", actor=" + actor + ", items=" + items + '}';
+        return "Player{" + "name=" + name + ", savedGameFile=" + savedGameFile + ", pace=" + pace + ", currentScore=" + currentScore + ", games=" + games + ", actor=" + actor + ", items=" + items + ", occupation=" + occupation + '}';
     }
 
     @Override
@@ -141,8 +147,14 @@ public class Player implements Serializable{
         if (!Objects.equals(this.items, other.items)) {
             return false;
         }
+        if (this.occupation != other.occupation) {
+            return false;
+        }
         return true;
     }
+    
+
+    
     
     
 

@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Objects;
 import java.awt.Point;
+import java.util.Arrays;
 /**
  *
  * @author jones-jordan
@@ -18,7 +19,8 @@ public class InventoryItem implements Serializable {
     private int quantityInStock;
     
     //relationships with other classes
-    private InventoryType[] inventoryType = new InventoryType[7];
+    private InventoryType inventoryType;
+    private Game game;
     
     
     
@@ -29,14 +31,13 @@ public class InventoryItem implements Serializable {
     
     //getter and setter methods
 
-    public InventoryType[] getInventoryType() {
+    public InventoryType getInventoryType() {
         return inventoryType;
     }
 
-    public void setInventoryType(InventoryType[] inventoryType) {
+    public void setInventoryType(InventoryType inventoryType) {
         this.inventoryType = inventoryType;
     }
-
 
     public int getQuantityInStock() {
         return quantityInStock;
@@ -46,11 +47,20 @@ public class InventoryItem implements Serializable {
         this.quantityInStock = quantityInStock;
     }
 
+    public Game getGame() {
+        return game;
+    }
+
+    public void setGame(Game game) {
+        this.game = game;
+    }
+
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 37 * hash + Objects.hashCode(this.inventoryType);
-        hash = 37 * hash + this.quantityInStock;
+        hash = 61 * hash + this.quantityInStock;
+        hash = 61 * hash + Objects.hashCode(this.inventoryType);
+        hash = 61 * hash + Objects.hashCode(this.game);
         return hash;
     }
 
@@ -72,18 +82,20 @@ public class InventoryItem implements Serializable {
         if (this.inventoryType != other.inventoryType) {
             return false;
         }
+        if (!Objects.equals(this.game, other.game)) {
+            return false;
+        }
         return true;
     }
 
     @Override
     public String toString() {
-        return "InventoryItem{" + "inventoryType=" + inventoryType + ", quantityInStock=" + quantityInStock + '}';
+        return "InventoryItem{" + "quantityInStock=" + quantityInStock + ", inventoryType=" + inventoryType + ", game=" + game + '}';
     }
 
-    public void setInventoryType(InventoryType type) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 
+
+    
  
     
     
