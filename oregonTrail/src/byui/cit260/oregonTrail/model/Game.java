@@ -17,6 +17,7 @@ public class Game implements Serializable{
     // class instance variables
     private int milesTraveled;
     private int travelDays;
+    private int startDate;
     private double percentComplete;
     private int highScores;
     private int noPlayers;
@@ -28,6 +29,7 @@ public class Game implements Serializable{
     private Map map; // 1 to 1
     private List<Actor> actors = new ArrayList<>(); // 0-*
     private List<InventoryItem> inventoryItems = new ArrayList<>(); // 0-*
+    private Database INSTANCE;
 
     
    // constructor
@@ -132,21 +134,39 @@ public class Game implements Serializable{
         this.inventoryItems = inventoryItems;
     }
 
+    public Database getINSTANCE() {
+        return INSTANCE;
+    }
+
+    public void setINSTANCE(Database INSTANCE) {
+        this.INSTANCE = INSTANCE;
+    }
+
+    public int getStartDate() {
+        return startDate;
+    }
+
+    public void setStartDate(int startDate) {
+        this.startDate = startDate;
+    }
+
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 97 * hash + this.milesTraveled;
-        hash = 97 * hash + this.travelDays;
-        hash = 97 * hash + (int) (Double.doubleToLongBits(this.percentComplete) ^ (Double.doubleToLongBits(this.percentComplete) >>> 32));
-        hash = 97 * hash + this.highScores;
-        hash = 97 * hash + this.noPlayers;
-        hash = 97 * hash + Objects.hashCode(this.companion1);
-        hash = 97 * hash + Objects.hashCode(this.companion2);
-        hash = 97 * hash + Objects.hashCode(this.companion3);
-        hash = 97 * hash + Objects.hashCode(this.player);
-        hash = 97 * hash + Objects.hashCode(this.map);
-        hash = 97 * hash + Objects.hashCode(this.actors);
-        hash = 97 * hash + Objects.hashCode(this.inventoryItems);
+        int hash = 3;
+        hash = 53 * hash + this.milesTraveled;
+        hash = 53 * hash + this.travelDays;
+        hash = 53 * hash + this.startDate;
+        hash = 53 * hash + (int) (Double.doubleToLongBits(this.percentComplete) ^ (Double.doubleToLongBits(this.percentComplete) >>> 32));
+        hash = 53 * hash + this.highScores;
+        hash = 53 * hash + this.noPlayers;
+        hash = 53 * hash + Objects.hashCode(this.companion1);
+        hash = 53 * hash + Objects.hashCode(this.companion2);
+        hash = 53 * hash + Objects.hashCode(this.companion3);
+        hash = 53 * hash + Objects.hashCode(this.player);
+        hash = 53 * hash + Objects.hashCode(this.map);
+        hash = 53 * hash + Objects.hashCode(this.actors);
+        hash = 53 * hash + Objects.hashCode(this.inventoryItems);
+        hash = 53 * hash + Objects.hashCode(this.INSTANCE);
         return hash;
     }
 
@@ -166,6 +186,9 @@ public class Game implements Serializable{
             return false;
         }
         if (this.travelDays != other.travelDays) {
+            return false;
+        }
+        if (this.startDate != other.startDate) {
             return false;
         }
         if (Double.doubleToLongBits(this.percentComplete) != Double.doubleToLongBits(other.percentComplete)) {
@@ -198,19 +221,18 @@ public class Game implements Serializable{
         if (!Objects.equals(this.inventoryItems, other.inventoryItems)) {
             return false;
         }
+        if (!Objects.equals(this.INSTANCE, other.INSTANCE)) {
+            return false;
+        }
         return true;
     }
 
     @Override
     public String toString() {
-        return "Game{" + "milesTraveled=" + milesTraveled + ", travelDays=" + travelDays + ", percentComplete=" + percentComplete + ", highScores=" + highScores + ", noPlayers=" + noPlayers + ", companion1=" + companion1 + ", companion2=" + companion2 + ", companion3=" + companion3 + ", player=" + player + ", map=" + map + ", actors=" + actors + ", inventoryItems=" + inventoryItems + '}';
+        return "Game{" + "milesTraveled=" + milesTraveled + ", travelDays=" + travelDays + ", startDate=" + startDate + ", percentComplete=" + percentComplete + ", highScores=" + highScores + ", noPlayers=" + noPlayers + ", companion1=" + companion1 + ", companion2=" + companion2 + ", companion3=" + companion3 + ", player=" + player + ", map=" + map + ", actors=" + actors + ", inventoryItems=" + inventoryItems + ", INSTANCE=" + INSTANCE + '}';
     }
-
-   
     
 
     
     
-    
-
 }

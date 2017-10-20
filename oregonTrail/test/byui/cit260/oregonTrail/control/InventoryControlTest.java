@@ -5,7 +5,8 @@
  */
 package byui.cit260.oregonTrail.control;
 
-import byui.cit260.oregonTrail.model.InventoryItem;
+import byui.cit260.oregonTrail.model.Database;
+import byui.cit260.oregonTrail.model.Game;
 import byui.cit260.oregonTrail.model.InventoryType;
 import java.util.Map;
 import org.junit.Test;
@@ -19,6 +20,7 @@ public class InventoryControlTest {
     
     public InventoryControlTest() {
     }
+
 
     /**
      * Test of calcBarterPrice method, of class InventoryControl.

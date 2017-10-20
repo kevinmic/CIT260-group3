@@ -17,7 +17,7 @@ import java.util.Random;
  * 
  */
 public class RiverControl {
-    public int calcRiverSuccessProbability(int riverHeight, int guide,  long currentRiverWeather) {
+    public int calcRiverSuccessProbability(int riverHeight, int guide,  long currentRiverWeather, int startDate, int travelDays) {
     //validate inputs
     if (riverHeight < 0) {
             return -1;
@@ -36,8 +36,8 @@ public class RiverControl {
    int chanceOfSuccess = 0;
    long month = 0;
    int currentWeatherModifier = 0;
-   int sd = 0;
-   int dt = 0;
+   int sd = startDate;
+   int dt = travelDays;
    int adjustedRiverHeight = 0;
    int guideModifier = 0;
    int success = 0;
@@ -47,11 +47,9 @@ public class RiverControl {
    randomNum = rand.nextInt((max - min) + 1) + min;
    
    //get RiverHeight
-   riverHeight = RiverScene.getRiverHeight(riverHeight);
+   
    
    //calculate month
-    sd = (Database.INSTANCE.getGame().getStartDate());
-    dt = (Database.INSTANCE.getGame().getTravelDays());
 
     if ((sd + dt)/30 > 12) {
         month = (sd % dt)/12;

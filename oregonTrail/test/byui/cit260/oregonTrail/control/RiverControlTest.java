@@ -14,27 +14,11 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author jordan
+ * @author Dresen_HP
  */
 public class RiverControlTest {
     
     public RiverControlTest() {
-    }
-    
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
-    @Before
-    public void setUp() {
-    }
-    
-    @After
-    public void tearDown() {
     }
 
     /**
@@ -42,19 +26,21 @@ public class RiverControlTest {
      */
     @Test
     public void testCalcRiverSuccessProbability() {
-        System.out.println("calcRiverSuccessProbability");
-        
-        /********************
+ 
+    /********************
          * Test case #1
          ********************/
         System.out.println("\tTest case #1");
         int riverHeight = 5;
         int guide = 1;
         long currentRiverWeather = -2;
+        int startDate = 5;
+        int travelDays = 20;
         RiverControl instance = new RiverControl();
         int expResult = -1;
-        int result = instance.calcRiverSuccessProbability(riverHeight, guide, currentRiverWeather);
+        int result = instance.calcRiverSuccessProbability(riverHeight, guide, currentRiverWeather, startDate, travelDays);
         assertEquals(expResult, result);
+
         
         /********************
          * Test case #2
@@ -63,8 +49,10 @@ public class RiverControlTest {
         riverHeight = 21;
         guide = 0;
         currentRiverWeather = 0;
+        startDate = 5;
+        travelDays = 20;
         expResult = -1;
-        result = instance.calcRiverSuccessProbability(riverHeight, guide, currentRiverWeather);
+        result = instance.calcRiverSuccessProbability(riverHeight, guide, currentRiverWeather, startDate, travelDays);
         assertEquals(expResult, result);
         
         /********************
@@ -74,8 +62,10 @@ public class RiverControlTest {
         riverHeight = 10;
         guide = -1;
         currentRiverWeather = 0;
+        startDate = 5;
+        travelDays = 20;
         expResult = -1;
-        result = instance.calcRiverSuccessProbability(riverHeight, guide, currentRiverWeather);
+        result = instance.calcRiverSuccessProbability(riverHeight, guide, currentRiverWeather, startDate, travelDays);
         assertEquals(expResult, result);
         
         /********************
@@ -86,7 +76,7 @@ public class RiverControlTest {
         guide = 1;
         currentRiverWeather = 4;
         expResult = 41;
-        result = instance.calcRiverSuccessProbability(riverHeight, guide, currentRiverWeather);
+        result = instance.calcRiverSuccessProbability(riverHeight, guide, currentRiverWeather, startDate, travelDays);
         assertEquals(expResult, result);
         
         /********************
@@ -97,7 +87,7 @@ public class RiverControlTest {
         guide = 0;
         currentRiverWeather = -1;
         expResult = 50;
-        result = instance.calcRiverSuccessProbability(riverHeight, guide, currentRiverWeather);
+        result = instance.calcRiverSuccessProbability(riverHeight, guide, currentRiverWeather, startDate, travelDays);
         assertEquals(expResult, result);
         
         /********************
@@ -108,7 +98,7 @@ public class RiverControlTest {
         guide = 1;
         currentRiverWeather = 0;
         expResult = 40;
-        result = instance.calcRiverSuccessProbability(riverHeight, guide, currentRiverWeather);
+        result = instance.calcRiverSuccessProbability(riverHeight, guide, currentRiverWeather, startDate, travelDays);
         assertEquals(expResult, result);
         
         /********************
@@ -119,8 +109,7 @@ public class RiverControlTest {
         guide = 0;
         currentRiverWeather = 1;
         expResult =29;
-        result = instance.calcRiverSuccessProbability(riverHeight, guide, currentRiverWeather);
+        result = instance.calcRiverSuccessProbability(riverHeight, guide, currentRiverWeather, startDate, travelDays);
         assertEquals(expResult, result);
     }
-    
 }
