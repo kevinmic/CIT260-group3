@@ -21,7 +21,7 @@ import java.util.Map;
  */
 public class GameControl {
     
-    public void saveName(String name) {
+    public void CreateNewPlayer(String name) {
         
         Player player = new Player();
         String playerName = player.getName();
@@ -51,9 +51,20 @@ public class GameControl {
     }
     
     public void loadGame(Player player, Game game, Database INSTANCE) {
-        
+        //TODO: Add statements to load game.
+    }
+    //TODO: Create high scores list. Do we want to remove this to simplify? Probably need to create new class to hold high scores.
+    
+    //TODO: Create function to initialize map. Probably need to change how Location is structured, and add list of locations.
+    
+    public void quitGame() {
+        //TODO: Add statements to function.
     }
     
-    
+    public int calculateScore(Database INSTANCE) {
+        //TODO: Add statements to function. Do we want to remove score to simplify? Could just be you make it you win.
+        int score = 5;
+        return score;
+    }
 }
 
