@@ -5,8 +5,12 @@
  */
 package byui.cit260.oregonTrail.control;
 
+import org.junit.After;
+import org.junit.AfterClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import org.junit.Before;
+import org.junit.BeforeClass;
 
 /**
  *
@@ -15,6 +19,22 @@ import static org.junit.Assert.*;
 public class HuntControlTest {
     
     public HuntControlTest() {
+    }
+
+    @BeforeClass
+    public static void setUpClass() throws Exception {
+    }
+
+    @AfterClass
+    public static void tearDownClass() throws Exception {
+    }
+
+    @Before
+    public void setUp() throws Exception {
+    }
+
+    @After
+    public void tearDown() throws Exception {
     }
 
     /**
@@ -123,6 +143,93 @@ public class HuntControlTest {
         expResult = 50;
         result = instance.calcFoodWeight(baseWeight1, baseWeight2, guide);
         assertEquals(expResult, result, 0.0001);
-    }
+ 
     
 }
+
+    /**
+     * Test of calcHuntingSuccessProbability method, of class HuntControl.
+     */
+    @Test
+    public void testCalcHuntingSuccessProbability() {
+        System.out.println("calcHuntingSuccessProbability");
+       
+        /********************
+         * Test case #1
+         ********************/
+        System.out.println("\tTest case #1");
+        String difficulty = "Hard";
+        int startDate = 5;
+        int travelDays = 0;
+        HuntControl instance = new HuntControl();
+        double expResult = 0.0;
+        double result = instance.calcHuntingSuccessProbability(difficulty, startDate, travelDays);
+        assertEquals(expResult, result, 0.0001);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+        
+        
+        /********************
+         * Test case #2
+         ********************/
+        System.out.println("\tTest case #2");
+        difficulty = "Medium";
+        startDate = 10;
+        travelDays = 45;
+        expResult = 0.0;
+        result = instance.calcHuntingSuccessProbability(difficulty, startDate, travelDays);
+        assertEquals(expResult, result, 0.0001);
+        
+        
+        /********************
+         * Test case #3
+         ********************/
+        System.out.println("\tTest case #2");
+        difficulty = "Easy";
+        startDate = 0;
+        travelDays = 90;
+        expResult = 0.0;
+        result = instance.calcHuntingSuccessProbability(difficulty, startDate, travelDays);
+        assertEquals(expResult, result, 0.0001);
+        
+        /********************
+         * Test case #4
+         ********************/
+        System.out.println("\tTest case #2");
+        difficulty = "OK";
+        startDate = 1;
+        travelDays = -5;
+        expResult = 0.0;
+        result = instance.calcHuntingSuccessProbability(difficulty, startDate, travelDays);
+        assertEquals(expResult, result, 0.0001);
+        
+        /********************
+         * Test case #5
+         ********************/
+        System.out.println("\tTest case #2");
+        difficulty = "Easier";
+        startDate = 5;
+        travelDays = -4;
+        expResult = 0.0;
+        result = instance.calcHuntingSuccessProbability(difficulty, startDate, travelDays);
+        assertEquals(expResult, result, 0.0001);
+        
+        
+        /********************
+         * Test case #6
+         ********************/
+        System.out.println("\tTest case #2");
+        difficulty = "Fifty";
+        startDate = 12;
+        travelDays = -2;
+        expResult = 0.0;
+        result = instance.calcHuntingSuccessProbability(difficulty, startDate, travelDays);
+        assertEquals(expResult, result, 0.0001); }
+    
+        
+    
+        
+        
+     
+    
+    
