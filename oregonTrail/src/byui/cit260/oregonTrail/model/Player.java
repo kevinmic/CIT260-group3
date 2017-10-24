@@ -7,7 +7,6 @@ package byui.cit260.oregonTrail.model;
 import java.io.Serializable;
 import java.util.List;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.Objects;
 import java.util.Map;
 import java.util.HashMap;
@@ -19,14 +18,11 @@ public class Player implements Serializable{
     // class instance variables
     private String name;
     private String savedGameFile;
-    private Date startDate;
     private int pace;
 
    
 
-    public void setStartDate(Date startDate) {
-        this.startDate = startDate;
-    }
+    
     private int currentScore;
     // relationships with other classes 
     private List<Game> games = new ArrayList<>(); //0-* // TODO: Probably don't need because game higher.
@@ -49,10 +45,6 @@ public class Player implements Serializable{
 
     public void setName(String name) {
         this.name = name;
-    }
-    
-     public Date getStartDate() {
-        return startDate;
     }
      
     public String getSavedGameFile() {
