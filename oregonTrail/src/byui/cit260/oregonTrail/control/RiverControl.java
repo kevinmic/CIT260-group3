@@ -6,9 +6,7 @@
 package byui.cit260.oregonTrail.control;
 
 import byui.cit260.oregonTrail.model.Database;
-import byui.cit260.oregonTrail.model.Game;
 import byui.cit260.oregonTrail.model.RiverScene;
-import java.util.Date;
 import java.util.Random;
 
 /**
@@ -17,7 +15,7 @@ import java.util.Random;
  * 
  */
 public class RiverControl {
-    public int calcRiverSuccessProbability(int riverHeight, int guide,  long currentRiverWeather, int startDate, int travelDays) {
+    public int calcRiverSuccessProbability(int riverHeight, int guide,  long currentRiverWeather) {
     //validate inputs
     if (riverHeight < 0) {
             return -1;
@@ -25,31 +23,39 @@ public class RiverControl {
     if (guide != 0 && guide != 1) {
             return -1;
         }
-    if (currentRiverWeather < 0) {
+    if (currentRiverWeather < -2) {
             return -1;
         }
+    if (riverHeight > 20) {
+        return -1;
+    }
         
    //declare all the variables
    int max = 100;
    int min = 1;
-   int randomNum = 0;
+   int randomNum = 55;
    int chanceOfSuccess = 0;
    long month = 0;
    int currentWeatherModifier = 0;
-   int sd = startDate;
-   int dt = travelDays;
    int adjustedRiverHeight = 0;
    int guideModifier = 0;
    int success = 0;
+
    
-   //create random number
+   /**create random number - but not right now
    Random rand = new Random();
-   randomNum = rand.nextInt((max - min) + 1) + min;
+   randomNum = rand.nextInt((max - min) + 1) + min; **/
    
    //get RiverHeight
    
    
    //calculate month
+
+   // sd = (Database.INSTANCE.getGame().getStartDate());
+   // dt = (Database.INSTANCE.getGame().getTravelDays());
+   int sd = 60;
+   int dt = 94;
+
 
     if ((sd + dt)/30 > 12) {
         month = (sd % dt)/12;
@@ -87,7 +93,7 @@ public class RiverControl {
         guideModifier = 50;
     }
     
-    chanceOfSuccess = 100 + (adjustedRiverHeight + guideModifier);
+    chanceOfSuccess = adjustedRiverHeight + guideModifier;
     if (randomNum <= chanceOfSuccess) {
         success = 1;
     }
