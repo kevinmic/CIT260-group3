@@ -18,6 +18,7 @@ import byui.cit260.oregonTrail.model.InventoryType;
 import byui.cit260.oregonTrail.model.Location;
 import byui.cit260.oregonTrail.model.RegularSceneType;
 import byui.cit260.oregonTrail.model.Map;
+import byui.cit260.oregonTrail.view.StartProgramView;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -31,116 +32,9 @@ public class OregonTrail {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // test Player class
-        Player playerOne = new Player();
-        
-        playerOne.setName("Tammy");
-        playerOne.setCurrentScore(0);
-        playerOne.setPace(0);
-        playerOne.setSavedGameFile("Game.save");
-        
-        System.out.println(playerOne.toString());
-        //test Game class
-        Game gameOne = new Game();
-        
-        gameOne.setMilesTraveled(0);
-        gameOne.setHighScores(0);
-        gameOne.setNoPlayers(2);
-        gameOne.setPercentComplete(0);
-        gameOne.setPlayer(playerOne);
-        gameOne.setTravelDays(0);
-        
-        System.out.println(gameOne.toString());
-        
-        // test Actor class
-        System.out.print("Actor" + '{' + "name=" + Actor.Cayusa.getName());
-        System.out.print(", description=" + Actor.Cayusa.getDescription());
-        System.out.println(", coordinates=" + Actor.Cayusa.getCoordinates() + '}');
-        
-        // test CharacterDialog class
-        System.out.print("CharacterDialog" + '{' + "dialog=" + CharacterDialog.FallMountain.getDialog());
-        System.out.println(", type=" + CharacterDialog.FallMountain.getType() + '}');
-        
-        // test Animal class
-        
-        System.out.print("Animal" + '{' + "baseWeight=" + Animal.Bear.getBaseWeight());
-        System.out.print(", description=" + Animal.Bear.getDescription());
-        System.out.println(", difficulty=" + Animal.Bear.getDifficulty() + '}');
-       
-        
-        // test RiverScene class
-        
-        RiverScene riverSceneOne = new RiverScene();
-        
-        riverSceneOne.setRiverHeight(45);
-        riverSceneOne.setSafetyWithGuide(.50);
-        riverSceneOne.setTravelChoice("Cross");
-        
-        System.out.println(riverSceneOne.toString());
-        
-        //test HuntingScene class
-        
-        HuntingScene huntingSceneOne = new HuntingScene();
-        
-        huntingSceneOne.setNoFoodCaught(0);
-        huntingSceneOne.setBonusWithGuide(5);
-       
-        System.out.println(huntingSceneOne.toString());
-        
-        //test BarterScene
-        
-        BarterScene barterSceneOne = new BarterScene();
-        
-        barterSceneOne.setItemsToTrade("Bullets");
-        
-        System.out.println(barterSceneOne.toString());
-        
-        //test InventoryItem
-        
-        InventoryItem inventoryItemOne = new InventoryItem();
-        
-        inventoryItemOne.setQuantityInStock(5);
-        
-        System.out.println(inventoryItemOne.toString());
-        
-        //test InventoryType
-        
-        System.out.print("InventoryType" + '{' + "Food: cost=" + InventoryType.Food.getCost());
-        
-        //test RegularSceneType
-        
-        RegularSceneType regularSceneOne = new RegularSceneType ();
-        
-        regularSceneOne.setDescription("Hunting");
-        
-        System.out.println(regularSceneOne.toString());
-        
-        //test Map
-        
-        Map mapSceneOne = new Map ();
-        
-        mapSceneOne.setDescription("Oregon Trail Map");
-        mapSceneOne.setMilesFromStart(0);
-        mapSceneOne.setPathChosen("Trail A");
-        
-        System.out.println(mapSceneOne.toString());
-        
-        //test Locations
-        
-        Location locationOne = new Location();
-        
-        locationOne.setCurrentMiles(102);
-        locationOne.setLocationVisited("Visited");
-        locationOne.setMilesRemaining(1860);
-        locationOne.setType("River");
-        locationOne.setColumn(24);
-        locationOne.setVisited(true);
-        locationOne.setAmountRemaining(0.948);
-        locationOne.setType2("Not a Town");
-        locationOne.setWeather("Raining");
-       
-        System.out.println(locationOne.toString());
-        
+    
+        StartProgramView startProgramView = new StartProgramView();
+        startProgramView.displayStartProgramView();
         
     }
     

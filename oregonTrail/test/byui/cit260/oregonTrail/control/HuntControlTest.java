@@ -5,20 +5,23 @@
  */
 package byui.cit260.oregonTrail.control;
 
-/*import org.junit.After;
+import static org.junit.Assert.assertEquals;
+import org.junit.Test;
+
+import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.BeforeClass;
-*/
+
 /**
  *
  * @author Dresen_HP
  */
 public class HuntControlTest {
     
-  /*  public HuntControlTest() {
+    public HuntControlTest() {
     }
 
     @BeforeClass
@@ -54,7 +57,7 @@ public class HuntControlTest {
         HuntControl instance = new HuntControl();
         double expResult = 100;
         double result = instance.calcFoodWeight(baseWeight1, baseWeight2, guide);
-        assertEquals(expResult, result, 0.0001);
+        assertEquals(expResult, result, 0.0001); 
         
         /********************
          * Test case #2
@@ -224,7 +227,8 @@ public class HuntControlTest {
         travelDays = -2;
         expResult = 0.0;
         result = instance.calcHuntingSuccessProbability(difficulty, startDate, travelDays);
-        assertEquals(expResult, result, 0.0001); */}
+        assertEquals(expResult, result, 0.0001); 
+    }}
     
         
     
