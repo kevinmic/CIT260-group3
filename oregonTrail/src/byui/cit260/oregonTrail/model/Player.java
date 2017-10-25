@@ -19,6 +19,7 @@ public class Player implements Serializable{
     private String name;
     private String savedGameFile;
     private int pace;
+    private double totalHealth;
 
    
 
@@ -102,20 +103,16 @@ public class Player implements Serializable{
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 71 * hash + Objects.hashCode(this.name);
-        hash = 71 * hash + Objects.hashCode(this.savedGameFile);
-        hash = 71 * hash + this.pace;
-        hash = 71 * hash + this.currentScore;
-        hash = 71 * hash + Objects.hashCode(this.games);
-        hash = 71 * hash + Objects.hashCode(this.actor);
-        hash = 71 * hash + Objects.hashCode(this.items);
-        hash = 71 * hash + Objects.hashCode(this.occupation);
+        hash = 23 * hash + Objects.hashCode(this.name);
+        hash = 23 * hash + Objects.hashCode(this.savedGameFile);
+        hash = 23 * hash + this.pace;
+        hash = 23 * hash + (int) (Double.doubleToLongBits(this.totalHealth) ^ (Double.doubleToLongBits(this.totalHealth) >>> 32));
+        hash = 23 * hash + this.currentScore;
+        hash = 23 * hash + Objects.hashCode(this.games);
+        hash = 23 * hash + Objects.hashCode(this.actor);
+        hash = 23 * hash + Objects.hashCode(this.items);
+        hash = 23 * hash + Objects.hashCode(this.occupation);
         return hash;
-    }
-
-    @Override
-    public String toString() {
-        return "Player{" + "name=" + name + ", savedGameFile=" + savedGameFile + ", pace=" + pace + ", currentScore=" + currentScore + ", games=" + games + ", actor=" + actor + ", items=" + items + ", occupation=" + occupation + '}';
     }
 
     @Override
@@ -131,6 +128,9 @@ public class Player implements Serializable{
         }
         final Player other = (Player) obj;
         if (this.pace != other.pace) {
+            return false;
+        }
+        if (Double.doubleToLongBits(this.totalHealth) != Double.doubleToLongBits(other.totalHealth)) {
             return false;
         }
         if (this.currentScore != other.currentScore) {
@@ -156,6 +156,12 @@ public class Player implements Serializable{
         }
         return true;
     }
+
+    @Override
+    public String toString() {
+        return "Player{" + "name=" + name + ", savedGameFile=" + savedGameFile + ", pace=" + pace + ", totalHealth=" + totalHealth + ", currentScore=" + currentScore + ", games=" + games + ", actor=" + actor + ", items=" + items + ", occupation=" + occupation + '}';
+    }
+
     
 
     

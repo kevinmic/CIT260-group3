@@ -5,20 +5,20 @@
  */
 package byui.cit260.oregonTrail.control;
 
-import org.junit.After;
+/*import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.BeforeClass;
-
+*/
 /**
  *
  * @author Dresen_HP
  */
 public class HuntControlTest {
     
-    public HuntControlTest() {
+  /*  public HuntControlTest() {
     }
 
     @BeforeClass
@@ -224,7 +224,7 @@ public class HuntControlTest {
         travelDays = -2;
         expResult = 0.0;
         result = instance.calcHuntingSuccessProbability(difficulty, startDate, travelDays);
-        assertEquals(expResult, result, 0.0001); }
+        assertEquals(expResult, result, 0.0001); */}
     
         
     
