@@ -14,12 +14,26 @@ import static byui.cit260.oregonTrail.model.InventoryType.Money;
 import byui.cit260.oregonTrail.model.Occupation;
 import byui.cit260.oregonTrail.model.Player;
 import java.util.Map;
+import oregonTrail.OregonTrail;
 
 /**
  *
  * @author Dresen_HP
  */
 public class GameControl {
+
+    public static Player createPlayer(String name) {
+        if (name == null) {
+            return null;
+        }
+        
+        Player player = new Player();
+        player.setName(name);
+        
+        OregonTrail.setPlayer(player); // save the player
+        
+        return player;
+    }
     
     public void CreateNewPlayer(String name) {
         

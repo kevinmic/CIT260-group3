@@ -27,7 +27,10 @@ import java.util.Set;
  * @author Dresen_HP
  */
 public class OregonTrail {
-
+    
+    private static Game currentGame = null;
+    private static Player player = null;
+    
     /**
      * @param args the command line arguments
      */
@@ -36,6 +39,22 @@ public class OregonTrail {
         StartProgramView startProgramView = new StartProgramView();
         startProgramView.displayStartProgramView();
         
+    }
+        
+    public static Game getCurrentGame() {
+        return currentGame;
+    }
+    
+    public static void setCurrentGame(Game currentGame) {
+        OregonTrail.currentGame = currentGame;
+    }
+    
+    public static Player getPlayer() {
+        return player;
+    }
+    
+    public static void setPlayer(Player player) {
+        OregonTrail.player = player;
     }
     
 }
