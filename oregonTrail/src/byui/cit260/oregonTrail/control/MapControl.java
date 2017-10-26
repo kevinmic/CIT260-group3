@@ -8,54 +8,51 @@ import java.util.Date;
 import java.util.Random;
 import byui.cit260.oregonTrail.model.Database;
 import byui.cit260.oregonTrail.model.Player;
-//import byui.cit260.oregonTrail.mobel.Location;
+import byui.cit260.oregonTrail.model.Location;
+import byui.cit260.oregonTrail.model.Game;
 
 /**
  *
- * @author Dresen_HP
+ * @author Clausi,James
  */
 public class MapControl {
-    public double calcDistanceTraveled(){
-       /* //validate inputs
+    public int calcDistanceTraveled( int pace, int totalHealth){
+       // validate inputs
+	   // pace must be an integar >= 0 
         if (pace < 0 ) {
             return -1;
         }
+		// lower boundary, health cannot be less than 0 
         if (totalHealth < 0) {
             return -1;
         }
+		// cannot travel if dead aka totalHealth is 0
         if (totalHealth == 0) {
             return 1;
-        if (pace = 0) {
+    }			
+		// if pace is 0, the party is resting	
+        if (pace == 0) {
             return 2;
     }
     
-        //declare all variables
-        int th = 5;
+        // declare all variables
+        int p = 15;
+	int tH = 2;
+	int travelDays = 10;
         
-        pace = pace * th;
-                
-        int paceChoice = boolean true;
-            if (paceChoice == Rest){
-                paceChoice = 0;
-            }
-            if (paceChoiceUser == 'Slow'){
-                paceChoice = 7;
-            }
-            if (paceChoiceUser == 'Normal'){
-                paceChoice = 10;
-            }
-            if (paceChoiceUser == 'Fast'){
-                paceChoice = 15;
-            }
-            if (paceChoiceUser == 'Breakneck'){
-                paceChoice = 20;*/
-    return 0;        
-    }
-}
+        pace = p * tH;
+		
+	int distanceTraveled = pace * travelDays;				
+		
+    return distanceTraveled;        
+    }    
+}   
+/*
+move(actor, locations)
+visitHuntingLocation(huntingScene, actor)
+visitFortLocation(fortScene, actor)
+visitRiverScene(riverScene, actor)
+visitBarterScene(barterScene, actor)
+*/
 
-/*+move(actor, locations)
-+visitHuntingLocation(huntingScene, actor)
-+visitFortLocation(fortScene, actor)
-+visitRiverScene(riverScene, actor)
-+visitBarterScene(barterScene, actor)
-+calcDistanceTraveled(pace, totalHealth):double*/
+
