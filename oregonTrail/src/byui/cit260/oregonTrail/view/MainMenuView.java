@@ -17,6 +17,7 @@ class MainMenuView {
     
     private String menu;
     private String promptMessage;
+    private String helpMenu;
         
 
     public MainMenuView() {
@@ -111,7 +112,91 @@ class MainMenuView {
     }
 
     private void displayHelpMenu() {
-        System.out.println("*** displayHelpMenu() function called ***");
+        this.promptMessage = "\nPlease enter your choice: ";
+    //    this.displayMainMenuView();
+        //display the banner when view is created
+        
+        this.helpMenu = "\n"
+                    +"\n----------------------------------------------------"
+                    +"\n| Help Menu                                        |"
+                    +"\n----------------------------------------------------"
+                    +"\nL - Learn more about the Oregon Trail"
+                    +"\nO - Objectives of the game"
+                    +"\nS - Learn about each occupation"
+                    +"\nQ - Quit to main menu"
+                    +"\n----------------------------------------------------";
+        
+  
+        System.out.print(helpMenu);
+            boolean done = false; //set flag to not done
+            do {
+                //prompt for and get players name
+                String helpMenuOption = this.getHelpMenuOption();
+                if (helpMenuOption.toUpperCase().equals("Q")) //user wants to quit
+                    return; //exit the game
+
+                //do the requested actiona and display the next view
+                done = this.helpAction(helpMenuOption);
+
+            } while (!done);
+            
+}
+    
+    private String getHelpMenuOption() { 
+        Scanner keyboard = new Scanner(System.in); //get infile for keyboard
+        String value = ""; //value to be returned
+        boolean valid = false; //initialize to not valid
+        
+        while (!valid) { //loop while an invalid value is entered
+            System.out.println("\n" + this.promptMessage);
+            
+            value = keyboard.nextLine(); //get next line typed on keyboard
+            value = value.trim(); //trim off leading and trailing blanks
+            
+            if (value.length() < 1) { //value is blank
+                System.out.println("\nInvalid value: value cannot be blank");
+                continue;
+            }
+            
+            break; //end the loop
+        }
+        
+        return value; //return the value entered
+    }
+    
+    private boolean helpAction(String choice) {
+        choice = choice.toUpperCase(); //convert choicd to upper case
+        switch (choice) {
+            case "L": //learn about the Oregon Trail
+                this.displayLearnOregonTrail();
+                break;
+            case "O": //show the game's objectives
+                this.displayObjectives();
+                break;
+            case "S": //display different occupation options
+                this.displayOccupations();
+                break;
+            case "Q": //quit to main menu
+                this.displayMainMenuView();
+                break;
+            default:
+                System.out.println("\n*** Invalid selection *** Try again");
+                break;
+        }
+        
+        return false;
+    }
+
+    private void displayLearnOregonTrail() {
+        System.out.println("\n*** displayLearnOregonTrail() stub function called ***");
+    }
+
+    private void displayObjectives() {
+        System.out.println("\n*** displayObjectives() stub function called ***");
+    }
+
+    private void displayOccupations() {
+        System.out.println("\n*** displayOccupations() stub function called ***");
     }
 
     private void saveGame() {
