@@ -34,6 +34,10 @@ public class GameControl {
         
         return player;
     }
+
+    public static void createNewGame(Player player) {
+        System.out.println("\n*** createNewGame() stub function called ***");
+    }
     
     public void CreateNewPlayer(String name) {
         
@@ -45,7 +49,7 @@ public class GameControl {
             }               
         }   
     } 
-    public void startNewGame(String companion1, String companion2, String companion3, Occupation occupation) {
+    /**public void startNewGame(String companion1, String companion2, String companion3, Occupation occupation) {
         Game game = new Game();  //TODO: How do I start database with new game?
         game.setCompanion1(companion1);
         game.setCompanion2(companion2);
@@ -59,6 +63,7 @@ public class GameControl {
         }
         item.setQuantityInStock(startingPurse);
     }
+    * **/
     
     public void saveGame(Player player, Game game, Database INSTANCE) {
         //TODO: Learn how to save the game.
