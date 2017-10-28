@@ -15,16 +15,17 @@ import java.util.Scanner;
  */
 public class StartProgramView {
     
-    public String promptMessage;
+    public String promptMessage; // Class instance variable
 
-    public StartProgramView(){
+    public StartProgramView(){  // Constructor function. Called from main() in OregonTrail class. 
+        //Saves message in promptMessage class instance variable.
         this.promptMessage = "\nPlease enter your name: ";
-        //display the banner when view is created
+        //calls displayBanner() which  the welcome banner when view is created
         this.displayBanner();
         
     }
 
-    public void displayBanner() {
+    public void displayBanner() { // called from constructor function in this class. Prints welcome message.
         System.out.println(
               "\n**************************************************************"
             + "\n*                                                            *"
@@ -57,32 +58,32 @@ public class StartProgramView {
             );
     }
 
-    public void displayStartProgramView() {
+    public void displayStartProgramView() {  //called from main() in OregonTrail.java
                               
             boolean done = false; // set flag to not done
             do {
                 //prompt for and get player's name
-                String playersName = this.getPlayersName();
+                String playersName = this.getPlayersName(); // calls getPlayersName() from this class, stores in string playersName
                 if (playersName.toUpperCase().equals("Q")) // user wants to quit
                     return; //exit the game
                  
                 //do the requested action and display the next view
-                done = this.doAction(playersName);
+                done = this.doAction(playersName);// Calls doAction()in this class and passes in name. Return value changes boolean to true to exit do while loop.
             } while (!done);
     }
 
-    private String getPlayersName() {
+    private String getPlayersName() { // called from displayStartProgramView() in this class.
         Scanner keyboard = new Scanner(System.in); //get infile for keyboard
-        String value = ""; //value to be returned
+        String value = ""; //create variable value to be returned
         boolean valid = false; //initialize to not valid
         
         while (!valid) { //loop while an invalid value is entered
-            System.out.println("\n" + this.promptMessage);
+            System.out.println("\n" + this.promptMessage); // print out the message asking for name stored in class instance variable.
             
-            value = keyboard.nextLine(); //get next line typed on keyboard
+            value = keyboard.nextLine(); //get next line typed on keyboard and store in value
             value = value.trim(); //trim off leading and trailing blanks
             
-            if (value.length() < 1) { //value is blank
+            if (value.length() < 1) { //if value is blank print error message, starts loop again
                 System.out.println("\nInvalid value: value cannot be blank");
                 continue;
             }
@@ -90,31 +91,31 @@ public class StartProgramView {
             break; //end the loop
         }
         
-        return value; //return the value entered
+        return value; //return the value entered to displayStartProgramView()
     }
 
-    private boolean doAction(String playersName) {
-        if (playersName.length() < 2) {
+    private boolean doAction(String playersName) { //called from displayStartProgramView in this class.  Player's name passed in.
+        if (playersName.length() < 2) { // checks name length and prints error message if name is too short
             System.out.println("\nInvalid players name: "
             + "The name must be greater than one character in length");
-            return false;
+            return false; //returns false to displayStartProgramView so loop is repeated.
         }
         
-        // call createPlayer() control function
+        // call createPlayer() control function from GameControl class to create player and set name.
         Player player = GameControl.createPlayer(playersName);
         
-        if (player == null) { //if unsuccessful
+        if (player == null) { //Checks to see if player created. if unsuccessful, print error message.
             System.out.println("\nError creating the player.");
-            return false;
+            return false; // if unsuccsful, returns false to displayStartProgramView so loop is repeated.
         }
         
-        //display next view
-        this.displayNextView(player);
+        //Calls displayNextView from this class and passes in player object to display next view. 
+        this.displayNextView(player);// 
         
         return true; //success!
     }
 
-    private void displayNextView(Player player) {
+    private void displayNextView(Player player) { // called from doAction() in this class
         //dispaly a custom welcome message
         System.out.println("\n==========================================="
                            +"\n Welcome to the game " + player.getName()
@@ -122,10 +123,10 @@ public class StartProgramView {
                            +"\n==========================================="
                            );
         
-        //create MainMenuView object
+        //Calls constructor function in MainMenuView to create new mainMenuView object
         MainMenuView mainMenuView = new MainMenuView();
                 
-        //display the main menue view
+        //Calls displayMainMenuView() from mainMenuView object.
         mainMenuView.displayMainMenuView();
         
     }

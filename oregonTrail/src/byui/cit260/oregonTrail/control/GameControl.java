@@ -35,15 +35,15 @@ public class GameControl {
         return player;
     }
 
-    public static void createNewGame(Player player) {
+    public static void createNewGame(Player player) { // Called from startNewGame() in MainMenuView class. Player object passed in.
         System.out.println("\n*** createNewGame() stub function called ***");
     }
     
-    public void CreateNewPlayer(String name) {
+    public void CreateNewPlayer(String name) { // called from doAction() in StartProgramView class
         
-        Player player = new Player();
-        String playerName = player.getName();
-        if (name != null) {
+        Player player = new Player(); // creates new Player instance named player
+        String playerName = player.getName(); //calls getter function for player object to get player's name.
+        if (name != null) { // If the player doesn't have a name set, setter function called to set name with value passed in.
             if (playerName == null) {
                 player.setName(name);
             }               
