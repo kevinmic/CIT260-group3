@@ -133,7 +133,7 @@ class MainMenuView {
                 //prompt for and get players name
                 String helpMenuOption = this.getHelpMenuOption();
                 if (helpMenuOption.toUpperCase().equals("Q")) //user wants to quit
-                    return; //exit the game
+                    this.displayMainMenuView(); // return to main menu
 
                 //do the requested actiona and display the next view
                 done = this.helpAction(helpMenuOption);
@@ -176,9 +176,7 @@ class MainMenuView {
             case "S": //display different occupation options
                 this.displayOccupations();
                 break;
-            case "Q": //quit to main menu
-                this.displayMainMenuView();
-                break;
+                // case Q not needed because it is handled in displayHelpMenu()
             default:
                 System.out.println("\n*** Invalid selection *** Try again");
                 break;
