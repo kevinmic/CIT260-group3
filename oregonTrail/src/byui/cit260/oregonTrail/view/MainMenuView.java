@@ -126,9 +126,11 @@ class MainMenuView {
             boolean done = false; //set flag to not done
             do {
                 //prompt for and get players name
+
                 String helpMenuOption = this.getHelpMenuOption();// calls getHelpMenuOption() from this class. 
                 if (helpMenuOption.toUpperCase().equals("Q")) // if user wants to return to main menu
                     this.displayMainMenuView(); // calls displayMainMenuView() in this class to display the main menu.
+
 
                 //do the requested action and display the next view
                 done = this.helpAction(helpMenuOption);// calls helpAction() from this view and passes in helpMenuOption
@@ -169,9 +171,11 @@ class MainMenuView {
                 this.displayObjectives();//calls displayLObjectives() from this class.
                 break;
             case "S": //display different occupation options
+
                 this.displayOccupations(); //calls displayOccupations() from this class.
                 break;
             // no need for case "Q" because this is handled in displayHelpMenu() before this function called.
+
             default:
                 System.out.println("\n*** Invalid selection *** Try again");
                 break;  // if invalid option selected, error message displayed and loop exited.
