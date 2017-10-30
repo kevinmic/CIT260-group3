@@ -28,16 +28,21 @@ import java.util.Set;
  */
 public class OregonTrail {
     
-    private static Game currentGame = null;
+    // class instance variables
+    private static Game currentGame = null; 
     private static Player player = null;
     
     /**
      * @param args the command line arguments
      */
+    
+    // main function starts the program
     public static void main(String[] args) {
     
+        // calls contstructor function in StartProgramView to create new instance of StartProgramView object named startProgramView. 
+        //This constructor function creates and displays the welcome banner that explains game.
         StartProgramView startProgramView = new StartProgramView();
-        startProgramView.displayStartProgramView();
+        startProgramView.displayStartProgramView(); //call displayStartProgramView() in StartProgramView to prompt user for name.
         
     }
         
