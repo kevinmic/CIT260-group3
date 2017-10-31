@@ -6,6 +6,7 @@
 package byui.cit260.oregonTrail.model;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Objects;
 
@@ -28,7 +29,7 @@ public class Game implements Serializable{
     private Player player; // 1 to 1
     private Map map; // 1 to 1
     private List<Actor> actors = new ArrayList<>(); // 0-*
-    private List<InventoryItem> inventoryItems = new ArrayList<>(); // 0-*
+    private java.util.Map<InventoryType, InventoryItem> items = new HashMap();
     private Database INSTANCE;
 
     
@@ -126,12 +127,12 @@ public class Game implements Serializable{
         this.actors = actors;
     }
 
-    public List<InventoryItem> getInventoryItems() {
-        return inventoryItems;
+    public java.util.Map<InventoryType, InventoryItem> getItems() {
+        return items;
     }
 
-    public void setInventoryItems(List<InventoryItem> inventoryItems) {
-        this.inventoryItems = inventoryItems;
+    public void setItems(java.util.Map<InventoryType, InventoryItem> items) {
+        this.items = items;
     }
 
     public Database getINSTANCE() {
@@ -153,20 +154,20 @@ public class Game implements Serializable{
     @Override
     public int hashCode() {
         int hash = 3;
-        hash = 53 * hash + this.milesTraveled;
-        hash = 53 * hash + this.travelDays;
-        hash = 53 * hash + this.startDate;
-        hash = 53 * hash + (int) (Double.doubleToLongBits(this.percentComplete) ^ (Double.doubleToLongBits(this.percentComplete) >>> 32));
-        hash = 53 * hash + this.highScores;
-        hash = 53 * hash + this.noPlayers;
-        hash = 53 * hash + Objects.hashCode(this.companion1);
-        hash = 53 * hash + Objects.hashCode(this.companion2);
-        hash = 53 * hash + Objects.hashCode(this.companion3);
-        hash = 53 * hash + Objects.hashCode(this.player);
-        hash = 53 * hash + Objects.hashCode(this.map);
-        hash = 53 * hash + Objects.hashCode(this.actors);
-        hash = 53 * hash + Objects.hashCode(this.inventoryItems);
-        hash = 53 * hash + Objects.hashCode(this.INSTANCE);
+        hash = 89 * hash + this.milesTraveled;
+        hash = 89 * hash + this.travelDays;
+        hash = 89 * hash + this.startDate;
+        hash = 89 * hash + (int) (Double.doubleToLongBits(this.percentComplete) ^ (Double.doubleToLongBits(this.percentComplete) >>> 32));
+        hash = 89 * hash + this.highScores;
+        hash = 89 * hash + this.noPlayers;
+        hash = 89 * hash + Objects.hashCode(this.companion1);
+        hash = 89 * hash + Objects.hashCode(this.companion2);
+        hash = 89 * hash + Objects.hashCode(this.companion3);
+        hash = 89 * hash + Objects.hashCode(this.player);
+        hash = 89 * hash + Objects.hashCode(this.map);
+        hash = 89 * hash + Objects.hashCode(this.actors);
+        hash = 89 * hash + Objects.hashCode(this.items);
+        hash = 89 * hash + Objects.hashCode(this.INSTANCE);
         return hash;
     }
 
@@ -218,7 +219,7 @@ public class Game implements Serializable{
         if (!Objects.equals(this.actors, other.actors)) {
             return false;
         }
-        if (!Objects.equals(this.inventoryItems, other.inventoryItems)) {
+        if (!Objects.equals(this.items, other.items)) {
             return false;
         }
         if (!Objects.equals(this.INSTANCE, other.INSTANCE)) {
@@ -229,10 +230,10 @@ public class Game implements Serializable{
 
     @Override
     public String toString() {
-        return "Game{" + "milesTraveled=" + milesTraveled + ", travelDays=" + travelDays + ", startDate=" + startDate + ", percentComplete=" + percentComplete + ", highScores=" + highScores + ", noPlayers=" + noPlayers + ", companion1=" + companion1 + ", companion2=" + companion2 + ", companion3=" + companion3 + ", player=" + player + ", map=" + map + ", actors=" + actors + ", inventoryItems=" + inventoryItems + ", INSTANCE=" + INSTANCE + '}';
+        return "Game{" + "milesTraveled=" + milesTraveled + ", travelDays=" + travelDays + ", startDate=" + startDate + ", percentComplete=" + percentComplete + ", highScores=" + highScores + ", noPlayers=" + noPlayers + ", companion1=" + companion1 + ", companion2=" + companion2 + ", companion3=" + companion3 + ", player=" + player + ", map=" + map + ", actors=" + actors + ", items=" + items + ", INSTANCE=" + INSTANCE + '}';
     }
-    
 
-    
-    
+
+
+ 
 }

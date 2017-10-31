@@ -6,7 +6,9 @@
 package byui.cit260.oregonTrail.model;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 /**
  *
@@ -21,7 +23,7 @@ public class HuntingScene implements Serializable {
     
     private List<Animal> animal = new ArrayList<>();
     private RegularSceneType regularSceneType; //-1
-    
+    private java.util.Map<InventoryType, InventoryItem> items = new HashMap();
     // default constructor
 
     public HuntingScene () {
@@ -61,13 +63,22 @@ public class HuntingScene implements Serializable {
         this.regularSceneType = regularSceneType;
     }
 
+    public Map<InventoryType, InventoryItem> getItems() {
+        return items;
+    }
+
+    public void setItems(Map<InventoryType, InventoryItem> items) {
+        this.items = items;
+    }
+
     @Override
     public int hashCode() {
         int hash = 3;
-        hash = 59 * hash + this.noFoodCaught;
-        hash = 59 * hash + this.bonusWithGuide;
-        hash = 59 * hash + Objects.hashCode(this.animal);
-        hash = 59 * hash + Objects.hashCode(this.regularSceneType);
+        hash = 53 * hash + this.noFoodCaught;
+        hash = 53 * hash + this.bonusWithGuide;
+        hash = 53 * hash + Objects.hashCode(this.animal);
+        hash = 53 * hash + Objects.hashCode(this.regularSceneType);
+        hash = 53 * hash + Objects.hashCode(this.items);
         return hash;
     }
 
@@ -95,14 +106,17 @@ public class HuntingScene implements Serializable {
         if (!Objects.equals(this.regularSceneType, other.regularSceneType)) {
             return false;
         }
+        if (!Objects.equals(this.items, other.items)) {
+            return false;
+        }
         return true;
     }
 
     @Override
     public String toString() {
-        return "HuntingScene{" + "noFoodCaught=" + noFoodCaught + ", bonusWithGuide=" + bonusWithGuide + ", animal=" + animal + ", regularSceneType=" + regularSceneType + '}';
+        return "HuntingScene{" + "noFoodCaught=" + noFoodCaught + ", bonusWithGuide=" + bonusWithGuide + ", animal=" + animal + ", regularSceneType=" + regularSceneType + ", items=" + items + '}';
     }
- 
     
     
+  
 }

@@ -34,10 +34,66 @@ public class GameControl {
         
         return player; // returns player object back to doAction in StartProgramView
     }
-
-    public static void createNewGame(Player player) { // Called from startNewGame() in MainMenuView class. Player object passed in.
-        System.out.println("\n*** createNewGame() stub function called ***");
+    public static Game createNewGame(Player player) {
+        if (player == null)  // if no player passed in, return null back to startNewGame() in MainMenuView
+            return null;
+            Game currentGame =  new Game(); // create new game object.
+            currentGame.setPlayer(player);
+            currentGame.setCompanion1("");
+            currentGame.setCompanion2("");
+            currentGame.setCompanion3("");
+            
+            OregonTrail.setCurrentGame(currentGame); // calls setCurrentGame() in OregonTrail.java and passes in the game object.
+            
+            return currentGame; // returns current game back to StartGameView
+   
     }
+
+
+
+    public static void setCompanionName(String companion) {
+        Game game = OregonTrail.getCurrentGame();
+        String companion1 = game.getCompanion1();
+        String companion2 = game.getCompanion2();
+        String companion3 = game.getCompanion3();
+        if (companion1 == "")
+            OregonTrail.getCurrentGame().setCompanion1(companion);
+        else if (companion2 == "")
+            OregonTrail.getCurrentGame().setCompanion2(companion);
+        else if (companion3 == "")
+            OregonTrail.getCurrentGame().setCompanion3(companion);
+        else
+            return;
+        
+    }
+
+    public static void setOccupation(Occupation choice) {
+        Game game = OregonTrail.getCurrentGame();
+        Occupation occupation = game.getPlayer().getOccupation();
+        if (occupation == null) {
+            OregonTrail.getCurrentGame().getPlayer().setOccupation(choice);
+            
+        }
+    
+
+    //public static void setCompanionName(String name) {
+        //Game game = OregonTrail.getCurrentGame();
+        //String companion1 = game.getCompanion1();
+        //String companion2 = game.getCompanion2();
+        //String companion3 = game.getCompanion3();
+        /*if (companion1 = null) {
+            game.setCompanion1(name);
+        } else if { (companion2 = null)
+            game.setCompanion2(name);
+        } else if { (companion3 = null)
+            game.setCompanion3(name);
+        } else {
+            return;
+        }
+                
+    }
+
+
     
     public void CreateNewPlayer(String name) { // called from doAction() in StartProgramView class
         
@@ -65,25 +121,25 @@ public class GameControl {
     }
     * **/
     
-    public void saveGame(Player player, Game game, Database INSTANCE) {
+    //public void saveGame(Player player, Game game, Database INSTANCE) {
         //TODO: Learn how to save the game.
-    }
+    //}
     
-    public void loadGame(Player player, Game game, Database INSTANCE) {
+    //public void loadGame(Player player, Game game, Database INSTANCE) {
         //TODO: Add statements to load game.
-    }
+    //}
     //TODO: Create high scores list. Do we want to remove this to simplify? Probably need to create new class to hold high scores.
     
     //TODO: Create function to initialize map. Probably need to change how Location is structured, and add list of locations.
     
-    public void quitGame() {
+    //public void quitGame() {
         //TODO: Add statements to function.
-    }
+    //}
     
-    public int calculateScore(Database INSTANCE) {
+    //public int calculateScore(Database INSTANCE) {
         //TODO: Add statements to function. Do we want to remove score to simplify? Could just be you make it you win.
-        int score = 5;
-        return score;
+        //int score = 5;
+       // return score;
     }
 }
-
+    

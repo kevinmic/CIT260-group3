@@ -11,9 +11,9 @@ package byui.cit260.oregonTrail.model;
  * @author Dresen_HP
  */
 public enum Occupation {
-    Farmer("Farmer", "He is skilled at growing food. He will receive a bonus when he reaches Oregon."),
-   Blacksmith("Blacksmith", "He is good at fixing things. He will be able to fix most wagon breakdowns."),
-   Merchant("Merchant", "He drives a hard bargain. He will start with an extra $200.");
+    Farmer("Farmer", "Skilled at growing food. Receives a bonus upon reaching Oregon."),
+   Blacksmith("Blacksmith", "Good at fixing things. Wagon will not break down."),
+   Merchant("Merchant", "Drives a hard bargain. Starts game with an extra $200.");
    
    // class instance variables
     private final String name;

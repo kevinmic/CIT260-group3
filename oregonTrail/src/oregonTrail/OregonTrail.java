@@ -61,5 +61,5 @@ public class OregonTrail {
     public static void setPlayer(Player player) { // called from createPlayer() in GameControl
         OregonTrail.player = player;
     }
-    
-}
+  
+}    

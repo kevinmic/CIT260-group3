@@ -47,7 +47,7 @@ public class Player implements Serializable{
     public void setName(String name) {
         this.name = name;
     }
-     
+
     public String getSavedGameFile() {
         return savedGameFile;
     }
@@ -62,6 +62,14 @@ public class Player implements Serializable{
 
     public void setPace(int pace) {
         this.pace = pace;
+    }
+
+    public double getTotalHealth() {
+        return totalHealth;
+    }
+
+    public void setTotalHealth(double totalHealth) {
+        this.totalHealth = totalHealth;
     }
 
     public int getCurrentScore() {
@@ -88,17 +96,23 @@ public class Player implements Serializable{
         this.actor = actor;
     }
 
-    public Map getItems() {
+    public Map<InventoryType, InventoryItem> getItems() {
         return items;
     }
 
-    public void setItems(Map items) {
+    public void setItems(Map<InventoryType, InventoryItem> items) {
         this.items = items;
     }
-    
+
+    public Occupation getOccupation() {
+        return occupation;
+    }
+
     public void setOccupation(Occupation occupation) {
         this.occupation = occupation;
     }
+
+
 
     @Override
     public int hashCode() {

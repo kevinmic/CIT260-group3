@@ -4,6 +4,7 @@
 package byui.cit260.oregonTrail.view;
 
 import byui.cit260.oregonTrail.control.GameControl;
+import byui.cit260.oregonTrail.model.Game;
 import java.util.Scanner;
 import oregonTrail.OregonTrail;
 
@@ -96,13 +97,22 @@ class MainMenuView {
                       // false will be returned to displayMainMenuView() triggering repeat of do-while loop.
     }
 
-    private void startNewGame() { // Called from doAction() case N in this class.
+    private boolean startNewGame() { // Called from doAction() case N in this class.
             //create a new game
-        GameControl.createNewGame(OregonTrail.getPlayer()); //Calls createNewGame() from GameControl and passes in player object.
+            Game currentGame = GameControl.createNewGame(OregonTrail.getPlayer()); //Calls createNewGame() from GameControl and passes in player object.
+            if (currentGame == null) { //Checks to see if player created. if unsuccessful, print error message.
+            System.out.println("\nError creating the game.");
+            return false; // if unsuccsful, returns false to doAction so loop is repeated.
+        }
+
+            StartGameView startGameView = new StartGameView(); // creates new startGameView object by calling construtor function in StartGameView.
+            startGameView.displayStartGameView(); //calls DisplayStartGameView() in StartGameView
+            
+            return true; //success!
+            
         
-        //Creates new gameMenu object by calling constructor function in GameMenuView class. 
-        GameMenuView gameMenu = new GameMenuView();
-        gameMenu.displayMenu(); //calls displayMenu() from game menu object.
+        
+        
     }
 
     private void startExistingGame() {
