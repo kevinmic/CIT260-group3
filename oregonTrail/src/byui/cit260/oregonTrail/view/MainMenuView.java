@@ -16,7 +16,7 @@ class MainMenuView {
     // class instance variables
     private String menu; // main menu
     private String promptMessage; // enter choice prompt
-    private String helpMenu; // help menu
+
         
     // constructor function Called from displayNextView() in StartProgramView. 
     public MainMenuView() {
@@ -33,7 +33,7 @@ class MainMenuView {
                     +"\nS - Save game"
                     +"\nQ - Quit"
                     +"\n----------------------------------------------------";
-    }
+    } // returns control back to displayNextView() in StartProgramView
 
     public void displayMainMenuView() { // Called from displayNextView() in StartProgramView class.
         System.out.print(menu); // Prints out the menu.
@@ -108,97 +108,15 @@ class MainMenuView {
     private void startExistingGame() {
         System.out.println("*** startExistingGame() function called ***");
     }
-
+    
     private void displayHelpMenu() { //Called from doAction() case H in this class
-        //stores help menu in class instance variable.
-        this.helpMenu = "\n"
-                    +"\n----------------------------------------------------"
-                    +"\n| Help Menu                                        |"
-                    +"\n----------------------------------------------------"
-                    +"\nL - Learn more about the Oregon Trail"
-                    +"\nO - Objectives of the game"
-                    +"\nS - Learn about each occupation"
-                    +"\nQ - Quit to main menu"
-                    +"\n----------------------------------------------------";
-        
-  
-        System.out.print(helpMenu); // Prints out helpMenu class instance variable.
-            boolean done = false; //set flag to not done
-            do {
-                //prompt for and get players name
-
-                String helpMenuOption = this.getHelpMenuOption();// calls getHelpMenuOption() from this class. 
-                if (helpMenuOption.toUpperCase().equals("Q")) // if user wants to return to main menu
-                    this.displayMainMenuView(); // calls displayMainMenuView() in this class to display the main menu.
-
-
-                //do the requested action and display the next view
-                done = this.helpAction(helpMenuOption);// calls helpAction() from this view and passes in helpMenuOption
-
-            } while (!done); // repeats the loop if done = false. False will be returned from helpAction() if invalid response entered. 
-            
-}
-    
-    private String getHelpMenuOption() { 
-        Scanner keyboard = new Scanner(System.in); //get infile for keyboard
-        String value = ""; //value to be returned
-        boolean valid = false; //initialize to not valid
-        
-        while (!valid) { //loop while an invalid value is entered
-            System.out.println("\n" + this.promptMessage);
-            
-            value = keyboard.nextLine(); //get next line typed on keyboard
-            value = value.trim(); //trim off leading and trailing blanks
-            
-            if (value.length() < 1) { //value is blank
-                System.out.println("\nInvalid value: value cannot be blank");
-                continue;
-            }
-            
-            break; //end the loop
-        }
-        
-        return value; //return the value entered
+        HelpMenuView helpMenuView = new HelpMenuView(); // creates new helpMenuView object by calling constructor function in HelpMenuView
+        helpMenuView.displayHelpMenuView(); // calls DisplayHelpMenuView() from helpMenuView object.
+        this.displayMainMenuView(); // if user quits main menu, control returns here and displays the main menu.
     }
     
-    private boolean helpAction(String choice) { // called from displayHelpMenu() in this class. helpMenuOption passed in.
-        choice = choice.toUpperCase(); //convert choicd to upper case
-        switch (choice) {
-            case "L": //learn about the Oregon Trail
-                this.displayLearnOregonTrail();//calls displayLearnOregonTrail() from this class.
-                break;
-            case "O": //show the game's objectives
-                this.displayObjectives();//calls displayLObjectives() from this class.
-                break;
-            case "S": //display different occupation options
 
-                this.displayOccupations(); //calls displayOccupations() from this class.
-                break;
-            // no need for case "Q" because this is handled in displayHelpMenu() before this function called.
-
-            default:
-                System.out.println("\n*** Invalid selection *** Try again");
-                break;  // if invalid option selected, error message displayed and loop exited.
-        }
-        
-        return false; // if this return is reached, it is because an invalid option was entered.
-                      // false is returned to displayHelpMenu() which causes do-while loop to repeat.
-    }
-
-    private void displayLearnOregonTrail() { // called from helpOption() in this class
-        System.out.println("\n*** displayLearnOregonTrail() stub function called ***");
-    }
-
-    private void displayObjectives() { // called from helpOption() in this class
-        System.out.println("\n*** displayObjectives() stub function called ***");
-    }
-
-    private void displayOccupations() { // called from helpOption() in this class
-        System.out.println("\n*** displayOccupations() stub function called ***");
-    }
-
-    private void saveGame() { // called from doOption() in this class
+        private void saveGame() { // called from doOption() in this class
         System.out.println("*** saveGame() function called ***");
     }
-    
 }

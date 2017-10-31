@@ -54,11 +54,11 @@ public class OregonTrail {
         OregonTrail.currentGame = currentGame;
     }
     
-    public static Player getPlayer() {
+    public static Player getPlayer() { 
         return player;
     }
     
-    public static void setPlayer(Player player) {
+    public static void setPlayer(Player player) { // called from createPlayer() in GameControl
         OregonTrail.player = player;
     }
     

@@ -22,17 +22,17 @@ import oregonTrail.OregonTrail;
  */
 public class GameControl {
 
-    public static Player createPlayer(String name) {
-        if (name == null) {
+    public static Player createPlayer(String name) { // called from doAction() in StartProgramViewClass. Player's name passed in.
+        if (name == null) {  // if no player name passed in, return null back to doAction()
             return null;
         }
         
-        Player player = new Player();
-        player.setName(name);
+        Player player = new Player(); // Create new player object using constructor function in Player class
+        player.setName(name); // set the name in the new player object.
         
-        OregonTrail.setPlayer(player); // save the player
+        OregonTrail.setPlayer(player); // calls setPlayer in OregonTrail.java and passes in the player object.
         
-        return player;
+        return player; // returns player object back to doAction in StartProgramView
     }
 
     public static void createNewGame(Player player) { // Called from startNewGame() in MainMenuView class. Player object passed in.

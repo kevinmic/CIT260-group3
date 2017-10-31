@@ -14,7 +14,7 @@ import java.util.HashMap;
  *
  * @author Dresen_HP
  */
-public class Player implements Serializable{
+public class Player implements Serializable{ 
     // class instance variables
     private String name;
     private String savedGameFile;
@@ -35,7 +35,7 @@ public class Player implements Serializable{
     
     // default constructor
 
-    public Player() {
+    public Player() { //called from createPlayer() in GameControl
     }
     
     // methods

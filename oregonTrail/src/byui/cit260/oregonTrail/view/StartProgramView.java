@@ -23,7 +23,7 @@ public class StartProgramView {
         //calls displayBanner() which  the welcome banner when view is created
         this.displayBanner();
         
-    }
+    } // returns control back to main() in OregonTrail.java
 
     public void displayBanner() { // called from constructor function in this class. Prints welcome message.
         System.out.println(
@@ -56,7 +56,7 @@ public class StartProgramView {
             + "\n*                                                            *"
             + "\n**************************************************************"
             );
-    }
+    } // returns control to constructor function.
 
     public void displayStartProgramView() {  //called from main() in OregonTrail.java
                               
@@ -128,6 +128,7 @@ public class StartProgramView {
                 
         //Calls displayMainMenuView() from mainMenuView object.
         mainMenuView.displayMainMenuView();
+        
         
     }
 }
