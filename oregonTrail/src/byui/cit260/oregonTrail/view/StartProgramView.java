@@ -8,6 +8,7 @@ package byui.cit260.oregonTrail.view;
 import byui.cit260.oregonTrail.control.GameControl;
 import byui.cit260.oregonTrail.model.Player;
 import java.util.Scanner;
+import oregonTrail.OregonTrail;
 
 /**
  *
@@ -125,11 +126,11 @@ public class StartProgramView {
         
         //Calls constructor function in MainMenuView to create new mainMenuView object
         MainMenuView mainMenuView = new MainMenuView();
-                
+                     
         //Calls displayMainMenuView() from mainMenuView object.
         mainMenuView.displayMainMenuView();
         
-        
+              
     }
 }
 

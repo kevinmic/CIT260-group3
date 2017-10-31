@@ -37,7 +37,7 @@ class HelpMenuView {
             do { //prompt for and get help menu choice
                 String helpMenuOption = this.getHelpMenuOption();// calls getHelpMenuOption() from this class. 
                 if (helpMenuOption.toUpperCase().equals("Q")) // if user wants to return to main menu
-                return; // returns control backt o displayHelpMenu() in MainMenuView
+                return; // returns control back to displayHelpMenu() in MainMenuView
 
 
                 //do the requested action and display the next view
@@ -47,7 +47,7 @@ class HelpMenuView {
             
 }
     
-    private String getHelpMenuOption() { 
+    private String getHelpMenuOption() { //called from displayHelpMenuView() in this Class
         Scanner keyboard = new Scanner(System.in); //get infile for keyboard
         String value = ""; //value to be returned
         boolean valid = false; //initialize to not valid
@@ -66,7 +66,7 @@ class HelpMenuView {
             break; //end the loop
         }
         
-        return value; //return the value entered
+        return value; //return the value entered to displayHelpMenuView() in this function 
     }
     
     private boolean helpAction(String choice) { // called from displayHelpMenu() in this class. helpMenuOption passed in.
