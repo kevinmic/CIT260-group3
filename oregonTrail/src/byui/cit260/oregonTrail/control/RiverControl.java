@@ -15,7 +15,8 @@ import java.util.Random;
  * 
  */
 public class RiverControl {
-    public int calcRiverSuccessProbability(int riverHeight, int guide,  long currentRiverWeather) {
+
+    public static int calcRiverSuccessProbability(int riverHeight, int guide,  long currentRiverWeather) {
     //validate inputs
     if (riverHeight < 0) {
             return -1;
@@ -105,4 +106,9 @@ public class RiverControl {
    //return chanceOfSuccess
    return success;
 }
+
+    public static void calcRiverSuccessProbability() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 }
