@@ -51,21 +51,7 @@ public class GameControl {
 
 
 
-    public static void setCompanionName(String companion) {
-        Game game = OregonTrail.getCurrentGame();
-        String companion1 = game.getCompanion1();
-        String companion2 = game.getCompanion2();
-        String companion3 = game.getCompanion3();
-        if (companion1 == "")
-            OregonTrail.getCurrentGame().setCompanion1(companion);
-        else if (companion2 == "")
-            OregonTrail.getCurrentGame().setCompanion2(companion);
-        else if (companion3 == "")
-            OregonTrail.getCurrentGame().setCompanion3(companion);
-        else
-            return;
-        
-    }
+    
 
     public static void setOccupation(Occupation choice) {
         Game game = OregonTrail.getCurrentGame();
