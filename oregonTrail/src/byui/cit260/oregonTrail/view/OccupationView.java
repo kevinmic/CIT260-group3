@@ -126,7 +126,7 @@ class OccupationView {
     }
 
     private void displayNextView() {
-        System.out.println("\n*** Stub Function ***");
+        System.out.println("\n*** displayNextView() function called ***");
         
     }
 }
