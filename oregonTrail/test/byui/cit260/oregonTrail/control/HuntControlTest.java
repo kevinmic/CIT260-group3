@@ -163,13 +163,12 @@ public class HuntControlTest {
         System.out.println("\tTest case #1");
         String difficulty = "Hard";
         int startDate = 5;
-        int travelDays = 0;
+        int travelDays = 1;
         HuntControl instance = new HuntControl();
-        double expResult = 0.0;
+        double expResult = 0.2;
         double result = instance.calcHuntingSuccessProbability(difficulty, startDate, travelDays);
         assertEquals(expResult, result, 0.0001);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+
         
         
         /********************
@@ -179,7 +178,7 @@ public class HuntControlTest {
         difficulty = "Medium";
         startDate = 10;
         travelDays = 45;
-        expResult = 0.0;
+        expResult = 0.25;
         result = instance.calcHuntingSuccessProbability(difficulty, startDate, travelDays);
         assertEquals(expResult, result, 0.0001);
         
@@ -189,9 +188,9 @@ public class HuntControlTest {
          ********************/
         System.out.println("\tTest case #2");
         difficulty = "Easy";
-        startDate = 0;
+        startDate = 1;
         travelDays = 90;
-        expResult = 0.0;
+        expResult = 0.4;
         result = instance.calcHuntingSuccessProbability(difficulty, startDate, travelDays);
         assertEquals(expResult, result, 0.0001);
         
@@ -202,7 +201,7 @@ public class HuntControlTest {
         difficulty = "OK";
         startDate = 1;
         travelDays = -5;
-        expResult = 0.0;
+        expResult = -1;
         result = instance.calcHuntingSuccessProbability(difficulty, startDate, travelDays);
         assertEquals(expResult, result, 0.0001);
         
@@ -213,7 +212,7 @@ public class HuntControlTest {
         difficulty = "Easier";
         startDate = 5;
         travelDays = -4;
-        expResult = 0.0;
+        expResult = -1;
         result = instance.calcHuntingSuccessProbability(difficulty, startDate, travelDays);
         assertEquals(expResult, result, 0.0001);
         
@@ -225,7 +224,7 @@ public class HuntControlTest {
         difficulty = "Fifty";
         startDate = 12;
         travelDays = -2;
-        expResult = 0.0;
+        expResult = -1;
         result = instance.calcHuntingSuccessProbability(difficulty, startDate, travelDays);
         assertEquals(expResult, result, 0.0001); 
     }}
