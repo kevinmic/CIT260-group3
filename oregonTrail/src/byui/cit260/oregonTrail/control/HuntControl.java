@@ -48,7 +48,7 @@ public class HuntControl {
 
     public double calcHuntingSuccessProbability(String difficulty, int startDate, int travelDays ) {
             //validate inputs
-            if ("Hard" != difficulty || difficulty != "Medium" || difficulty != "Easy") {
+            if ( difficulty != "Hard" && difficulty != "Medium" && difficulty != "Easy") {
                 return -1;
             }
           
@@ -68,37 +68,37 @@ public class HuntControl {
         month = (sd % dt)/12;
     }
     else {
-        month = (sd % dt)/12;
+        month = (sd + dt)/30;
     }
      
     //calculate currentHuntWeather using month
     
-    if (month <= 1 && month >= 2) {
+    if (month >= 0 && month <= 2) {
         currentHuntWeatherModifier = .10;
     }
-    if (month <= 3 && month >= 4) {
+    if (month >= 3 && month <= 4) {
         currentHuntWeatherModifier = .15;
     }
-    if (month <= 5 && month >= 8) {
+    if (month >= 5 && month <= 8) {
         currentHuntWeatherModifier = .20;
     }
-    if (month <= 9 && month >= 11) {
+    if (month >= 9 && month <= 11) {
         currentHuntWeatherModifier = .15;
     }
-    if (month == 12) {
+    if (month >= 11 && month <= 12) {
         currentHuntWeatherModifier = .10;
     }
     
     //calculate difficultyModifier by turning string into number
     
     if (difficulty == "Hard") {
-        difficultyModifier = .25;
+        difficultyModifier = .1;
     }
     if (difficulty == "Medium") {
         difficultyModifier = .15;
     }
     if (difficulty == "Easy") {
-        difficultyModifier = .10;
+        difficultyModifier = .25;
     }
        
     huntSuccess = (double) (difficultyModifier + currentHuntWeatherModifier);
