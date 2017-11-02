@@ -18,6 +18,10 @@ public class HuntView {
     
     private String menu; 
     private String promptMessage;
+    private String probability;
+    private String success;
+    private String failure;
+ 
     
     public HuntView() {
     
@@ -32,6 +36,15 @@ public class HuntView {
                     +"\nD - Rabbit - Rabbits are herbivores. They are fast with a great sense of smell."
                     +"\nQ - Quit"
                     +"\n----------------------------------------------------";
+        
+        double successProbability = 0;
+        
+        
+        String Animal = null; 
+        
+        this.probability = "\nYour hunt success probability is " + successProbability; 
+        this.success = "\n You successfully shot the " + Animal + "! Would you like to hunt again?";
+        this.failure = "\n You failed to shoot the " + Animal + ". Would you like to hunt again?";
     }
     
     public void displayHuntView() {
@@ -52,11 +65,8 @@ public class HuntView {
             
             double successProbability = huntControl.calcHuntingSuccessProbability(difficulty, startdate, traveldays);
             
-            System.out.println("Success Probability "+ successProbability);
+            System.out.print(probability);
             
-                
-            //Calls doAction() in this class and passes in menu option. 
-            //done = this.dcalcHuntingSuccessProbabilityoAction(menuOption); //do the requested action and display the next view
             
             
         
