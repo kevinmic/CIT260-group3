@@ -6,6 +6,7 @@
 package byui.cit260.oregonTrail.view;
 
 import byui.cit260.oregonTrail.control.GameControl;
+import byui.cit260.oregonTrail.model.Game;
 import java.util.Scanner;
 import oregonTrail.OregonTrail;
 
@@ -81,9 +82,24 @@ class StartGameView {
             + "The name must be greater than one character in length");
             this.getCompanionName(); // calls getCompanionName() from this class to prompt user to re-enter name.
         }
-        GameControl.setCompanionName(companion);
+        this.setCompanionName(companion);
         return;
     } 
+    public static void setCompanionName(String companion) {
+        Game game = OregonTrail.getCurrentGame();
+        String companion1 = game.getCompanion1();
+        String companion2 = game.getCompanion2();
+        String companion3 = game.getCompanion3();
+        if (companion1 == "")
+            OregonTrail.getCurrentGame().setCompanion1(companion);
+        else if (companion2 == "")
+            OregonTrail.getCurrentGame().setCompanion2(companion);
+        else if (companion3 == "")
+            OregonTrail.getCurrentGame().setCompanion3(companion);
+        else
+            return;
+        
+    }
     private void displayNextView() {
         OccupationView occupationView = new OccupationView();
         occupationView.displayOccupationView();

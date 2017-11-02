@@ -120,13 +120,17 @@ class OccupationView {
 
     private void saveOccupation(Occupation occupation) {
         GameControl.setOccupation(occupation);
-        System.out.println("\nOccupation chosen: " + OregonTrail.getPlayer().getOccupation().getName());
+        System.out.println("\n*************************************************"
+                          + "\n| Occupation chosen: " + OregonTrail.getPlayer().getOccupation().getName()
+                          + "\n************************************************");
         this.displayNextView();
         
     }
 
     private void displayNextView() {
-        System.out.println("\n*** displayNextView() function called ***");
+        System.out.println("\n*** displayNextVeiw() called ***");
+        /*StartDateView startDateView = new StartDateView();
+        startDateView.displayStartDateView();*/
         
     }
 }
