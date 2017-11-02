@@ -60,28 +60,101 @@ public class GameControl {
             OregonTrail.getCurrentGame().getPlayer().setOccupation(choice);
             
         }
-    
+    }
 
-    //public static void setCompanionName(String name) {
-        //Game game = OregonTrail.getCurrentGame();
-        //String companion1 = game.getCompanion1();
-        //String companion2 = game.getCompanion2();
-        //String companion3 = game.getCompanion3();
-        /*if (companion1 = null) {
-            game.setCompanion1(name);
-        } else if { (companion2 = null)
-            game.setCompanion2(name);
-        } else if { (companion3 = null)
-            game.setCompanion3(name);
-        } else {
-            return;
-        }
-                
+    public static void setStartDate(int startDate) {
+        Game game = OregonTrail.getCurrentGame();
+        int gameStartDate = game.getStartDate();
+        if (gameStartDate == 0) 
+            game.setStartDate(startDate);
+                   
     }
 
 
+
+    public static String thisDay(int monthNumber, int day) {
+        String month = null;
+        String calendarDate = null;
+        // get month
+        
+        
+        switch (monthNumber) {
+            case 1:
+                month = "January";
+                break;
+            case 2:
+                month = "February";
+                break;
+                case 3:
+                month = "March";
+                break;
+                case 4:
+                month = "April";
+                break;
+                case 5:
+                month = "May";
+                break;
+                case 6:
+                month = "June";
+                break;
+                case 7:
+                month = "July";
+                break;
+                case 8:
+                month = "August";
+                break;
+                case 9:
+                month = "September";
+                break;
+                case 10:
+                month = "October";
+                break;
+                case 11:
+                month = "November";
+                break;
+                case 12:
+                month = "December";
+                break;   
+        }
+        
+        //construct calendarDate string of month and days
+        calendarDate = month + day;
+        // return calendarDate
+        
+        return calendarDate;
+    }
+
+    public static int findMonth(int startDate, int travelDays) {
+        if (startDate < 0) 
+            return -1;
+        if (travelDays < 1)
+            return -1;
+        double quotient;
+        int monthNumber = 1;
+        double calDate = startDate + travelDays;
+        quotient = calDate/30;
+        monthNumber = (int) Math.ceil(quotient);
+        if (monthNumber > 12)
+            monthNumber = monthNumber % 12;
+        if (monthNumber == 0)
+            monthNumber = 12;
+
+        return monthNumber;
+    }
     
-    public void CreateNewPlayer(String name) { // called from doAction() in StartProgramView class
+    public static int findDay(int startDate, int travelDays) {
+        if (startDate < 0)
+            return -1;
+        if (travelDays < 0)
+            return -1;
+        int calDate = startDate + travelDays;
+        int days = calDate%30;
+        if (days == 0)
+            days = 30;
+        return days;
+    }
+    
+   public void CreateNewPlayer(String name) { // called from doAction() in StartProgramView class
         
         Player player = new Player(); // creates new Player instance named player
         String playerName = player.getName(); //calls getter function for player object to get player's name.
@@ -90,7 +163,7 @@ public class GameControl {
                 player.setName(name);
             }               
         }   
-    } 
+   }}
     /**public void startNewGame(String companion1, String companion2, String companion3, Occupation occupation) {
         Game game = new Game();  //TODO: How do I start database with new game?
         game.setCompanion1(companion1);
@@ -126,6 +199,8 @@ public class GameControl {
         //TODO: Add statements to function. Do we want to remove score to simplify? Could just be you make it you win.
         //int score = 5;
        // return score;
-    }
-}
+
+
+
+
     

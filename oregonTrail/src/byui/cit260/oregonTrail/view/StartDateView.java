@@ -5,6 +5,7 @@
  */
 package byui.cit260.oregonTrail.view;
 
+import byui.cit260.oregonTrail.control.GameControl;
 import java.util.Scanner;
 import oregonTrail.OregonTrail;
 
@@ -65,25 +66,46 @@ public class StartDateView {
 
     private boolean doAction(String menuOption) {
         menuOption = menuOption.toUpperCase();
-        System.out.println(menuOption);
+        int startDate = 1;
         
-        if (menuOption == "M") {
-            System.out.println("\nStartDate is March 1");
-            return true;
-            
-        } else if (menuOption == "J") {
-            OregonTrail.getCurrentGame().setStartDate(151);
-            
-        } else if (menuOption == "S") {
-            OregonTrail.getCurrentGame().setStartDate(241);
-            
-        } else {
-            System.out.println("\n*** Invalid selection *** Try again");
-                
-        } return true;
+        switch (menuOption) {
+            case "M":
+                startDate = 61;
+                this.saveStartDate(startDate);
+                break;
+            case "J":
+                startDate = 151;
+                this.saveStartDate(startDate);
+                break;
+            case "S":
+                startDate = 241;
+                this.saveStartDate(startDate);
+                break;
+            default:
+                System.out.println("\n Invalid selection: Try again.");
+                break;   
+        }
+        return false;
     } 
 
     private void displayNextView() {
         System.out.println("\n *** displayNextView() called ***");
+    }
+
+    private void saveStartDate(int startDate) {
+        GameControl.setStartDate(startDate);
+        this.findThisDay(startDate);
+        
+    }
+    private void findThisDay(int startDate) {
+        int travelDays = OregonTrail.getCurrentGame().getTravelDays();
+        int monthDate = GameControl.findMonth(startDate, travelDays); 
+        int day = GameControl.findDay(startDate, travelDays);
+        String calDate = GameControl.thisDay(monthDate, day);
+        System.out.println("\n*************************************************"
+                          + "\n| StartDate: " + calDate
+                          + "\n************************************************");
+        this.displayNextView();
+        
     }
 }

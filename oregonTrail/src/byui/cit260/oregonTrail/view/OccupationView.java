@@ -128,9 +128,9 @@ class OccupationView {
     }
 
     private void displayNextView() {
-        System.out.println("\n*** displayNextVeiw() called ***");
-        /*StartDateView startDateView = new StartDateView();
-        startDateView.displayStartDateView();*/
+
+        StartDateView startDateView = new StartDateView();
+        startDateView.displayStartDateView();
         
     }
 }
