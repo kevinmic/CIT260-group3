@@ -124,11 +124,12 @@ public class InventoryControl {
         if (itemOwned.getQuantityInStock() < desiredQuantity) {
              
             return 2; // 2 will display message "You do not have enough " + owned + " to complete the transaction.";
-        }
+        } else {
         // add desired item to inventory and remove desired item from inventory.
         addToInventory(desired, desiredQuantity);
         subtractFromInventory(owned, desiredQuantity);
         return 3; // 3 will display message "Transaction successful.";
+        }
     }
     
     //calculate the price of one item for barter or purchase
