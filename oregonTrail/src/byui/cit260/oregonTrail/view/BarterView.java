@@ -9,17 +9,14 @@ package byui.cit260.oregonTrail.view;
  *
  * @author Dresen_HP
  */
-public class BarterView {
+public class BarterView extends View {
     // class instance variables
     private String menu; // barter menu
     private String promptMessage; // enter choice prompt
     
     // constructor funtion called from GameMenuView
     public BarterView() {
-        // stores prompt message in class instance variable
-        this.promptMessage = "\nPlease enter your choice: ";
-        // stores barter menu in class instance variable.
-        this.menu = "\n"
+        super("\n"
                     +"\n----------------------------------------------------"
                     +"\n| Barter Menu                                        |"
                     +"\n----------------------------------------------------"
@@ -27,7 +24,13 @@ public class BarterView {
                     +"\nO - Objectives of the game"
                     +"\nS - Learn about each occupation"
                     +"\nQ - Quit to main menu"
-                    +"\n----------------------------------------------------";
+                    +"\n----------------------------------------------------");
+    }
+
+    @Override
+    public boolean doAction(String value) {
+        System.out.println("***doAction function called***");
+        return false;
     }
     
 }

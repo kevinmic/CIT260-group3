@@ -11,7 +11,7 @@ import java.util.Map;
  *
  * @author Dresen_HP
  */
-public class InventoryView {
+public class InventoryView extends View {
     // class instance variables
     private Map inventory; // inventory list
     private String promptMessage; // enter choice prompt
@@ -20,5 +20,11 @@ public class InventoryView {
     public InventoryView() {
         this.promptMessage = "Please enter your choice";
         //this.inventory = player.getItems();
+    }
+
+    @Override
+    public boolean doAction(String value) {
+        System.out.println("***doAction stub function called***");
+        return false;
     }
 }

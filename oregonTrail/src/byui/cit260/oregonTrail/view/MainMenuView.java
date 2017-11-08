@@ -86,7 +86,7 @@ public class MainMenuView extends View {
     
     private void displayHelpMenu() { //Called from doAction() case H in this class
         HelpMenuView helpMenuView = new HelpMenuView(); // creates new helpMenuView object by calling constructor function in HelpMenuView
-        helpMenuView.displayHelpMenuView(); // calls DisplayHelpMenuView() from helpMenuView object.
+        helpMenuView.display(); // calls DisplayHelpMenuView() from helpMenuView object.
         this.display(); // if user quits main menu, control returns here and displays the main menu.
     }
     

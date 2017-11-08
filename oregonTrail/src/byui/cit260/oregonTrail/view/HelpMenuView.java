@@ -11,7 +11,7 @@ import java.util.Scanner;
  *
  * @author Dresen_HP
  */
-class HelpMenuView {
+class HelpMenuView extends View {
     
     // class instance variables
     private String menu; // help menu
@@ -19,9 +19,7 @@ class HelpMenuView {
     
     // constructor function called from displayHelpMenu() in MainMenuView
     public HelpMenuView(){ 
-        //stores help menu and promptMessage in class instance variable.
-        this.promptMessage = "\nPlease enter your choice: ";
-        this.menu = "\n"
+        super("\n"
                     +"\n----------------------------------------------------"
                     +"\n| Help Menu                                        |"
                     +"\n----------------------------------------------------"
@@ -29,47 +27,11 @@ class HelpMenuView {
                     +"\nO - Objectives of the game"
                     +"\nS - Learn about each occupation"
                     +"\nQ - Quit to main menu"
-                    +"\n----------------------------------------------------";
+                    +"\n----------------------------------------------------");
     } // returns control back to displayHelpMenu() in MainMenuView
-    public void displayHelpMenuView() {
-        System.out.print(menu); // Prints out helpMenu class instance variable.
-            boolean done = false; //set flag to not done
-            do { //prompt for and get help menu choice
-                String helpMenuOption = this.getHelpMenuOption();// calls getHelpMenuOption() from this class. 
-                if (helpMenuOption.toUpperCase().equals("Q")) // if user wants to return to main menu
-                    return; // returns control back to displayHelpMenu() in MainMenuView
-
-
-                //do the requested action and display the next view
-                done = this.doAction(helpMenuOption);// calls helpAction() from this view and passes in helpMenuOption
-
-            } while (!done); // repeats the loop if done = false. False will be returned from helpAction() if invalid response entered. 
-            
-}
-    
-    private String getHelpMenuOption() { //called from displayHelpMenuView() in this Class
-        Scanner keyboard = new Scanner(System.in); //get infile for keyboard
-        String value = ""; //value to be returned
-        boolean valid = false; //initialize to not valid
-        
-        while (!valid) { //loop while an invalid value is entered
-            System.out.println("\n" + this.promptMessage);
-            
-            value = keyboard.nextLine(); //get next line typed on keyboard
-            value = value.trim(); //trim off leading and trailing blanks
-            
-            if (value.length() < 1) { //value is blank
-                System.out.println("\nInvalid value: value cannot be blank");
-                continue;
-            }
-            
-            break; //end the loop
-        }
-        
-        return value; //return the value entered to displayHelpMenuView() in this function 
-    }
-    
-    private boolean doAction(String choice) { // called from displayHelpMenu() in this class. helpMenuOption passed in.
+ 
+    @Override
+    public boolean doAction(String choice) { // called from displayHelpMenu() in this class. helpMenuOption passed in.
         choice = choice.toUpperCase(); //convert choicd to upper case
         switch (choice) {
             case "L": //learn about the Oregon Trail
@@ -125,7 +87,7 @@ class HelpMenuView {
                             + "\n**************************************************************"
                             + "\n"
         );
-                            this.displayHelpMenuView();
+                            this.display();
     }
     
 
@@ -149,13 +111,13 @@ class HelpMenuView {
                             + "\n**************************************************************"
                             + "\n"
         );
-        this.displayHelpMenuView();
+        this.display();
     }
 
     private void displayOccupations() { // called from helpOption() in this class
                 OccupationView occupationView = new OccupationView();
                 occupationView.displayOccupationHelp();
-                this.displayHelpMenuView();
+                this.display();
     }
 
 

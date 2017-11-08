@@ -128,7 +128,7 @@ public class StartProgramView {
         MainMenuView mainMenuView = new MainMenuView();
                      
         //Calls displayMainMenuView() from mainMenuView object.
-        mainMenuView.displayMainMenuView();
+        mainMenuView.display();
         
               
     }
