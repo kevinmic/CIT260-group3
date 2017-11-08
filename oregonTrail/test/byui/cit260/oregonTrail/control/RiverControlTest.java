@@ -48,7 +48,7 @@ public class RiverControlTest {
          * Test case #1
          ********************/
         System.out.println("\tTest case #1");
-        int riverHeight = 5;
+        int riverHeight = 30;
         int guide = 1;
         long currentRiverWeather = -2;
         RiverControl instance = new RiverControl();
@@ -85,7 +85,7 @@ public class RiverControlTest {
         riverHeight = 5;
         guide = 1;
         currentRiverWeather = 4;
-        expResult = 41;
+        expResult = 0;
         result = instance.calcRiverSuccessProbability(riverHeight, guide, currentRiverWeather);
         assertEquals(expResult, result);
         
@@ -96,7 +96,7 @@ public class RiverControlTest {
         riverHeight = 2;
         guide = 0;
         currentRiverWeather = -1;
-        expResult = 50;
+        expResult = 0;
         result = instance.calcRiverSuccessProbability(riverHeight, guide, currentRiverWeather);
         assertEquals(expResult, result);
         
@@ -107,7 +107,7 @@ public class RiverControlTest {
         riverHeight = 9;
         guide = 1;
         currentRiverWeather = 0;
-        expResult = 40;
+        expResult = 1;
         result = instance.calcRiverSuccessProbability(riverHeight, guide, currentRiverWeather);
         assertEquals(expResult, result);
         
@@ -118,7 +118,7 @@ public class RiverControlTest {
         riverHeight = 20;
         guide = 0;
         currentRiverWeather = 1;
-        expResult =29;
+        expResult = 0;
         result = instance.calcRiverSuccessProbability(riverHeight, guide, currentRiverWeather);
         assertEquals(expResult, result);
     }

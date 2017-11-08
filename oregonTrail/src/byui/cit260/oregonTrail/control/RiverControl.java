@@ -66,16 +66,16 @@ public class RiverControl {
     }
         
     //calculate currentWeatherModifier using the current month (colder weather lowers the riverHieght)       
-    if (month <= 1 && month >= 2) {
+    if (month >= 1 && month <= 2) {
         currentWeatherModifier = -2;
     }
-    if (month <= 3 && month >= 4) {
+    if (month >= 3 && month <= 4) {
         currentWeatherModifier = -1;
     }
-    if (month <= 5 && month >= 8) {
+    if (month >= 5 && month <= 8) {
         currentWeatherModifier = 0;
     }
-    if (month <= 9 && month >= 11) {
+    if (month >= 9 && month <= 11) {
         currentWeatherModifier = 1;
     }
     if (month == 12) {
