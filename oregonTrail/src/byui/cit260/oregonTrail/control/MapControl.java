@@ -6,7 +6,6 @@
 package byui.cit260.oregonTrail.control;
 import java.util.Date;
 import java.util.Random;
-import byui.cit260.oregonTrail.model.Database;
 import byui.cit260.oregonTrail.model.Player;
 import byui.cit260.oregonTrail.model.Location;
 import byui.cit260.oregonTrail.model.Game;

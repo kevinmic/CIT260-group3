@@ -30,7 +30,7 @@ public class Game implements Serializable{
     private Map map; // 1 to 1
     private List<Actor> actors = new ArrayList<>(); // 0-*
     private java.util.Map<InventoryType, InventoryItem> items = new HashMap();
-    private Database INSTANCE;
+
 
     
    // constructor
@@ -135,13 +135,7 @@ public class Game implements Serializable{
         this.items = items;
     }
 
-    public Database getINSTANCE() {
-        return INSTANCE;
-    }
 
-    public void setINSTANCE(Database INSTANCE) {
-        this.INSTANCE = INSTANCE;
-    }
 
     public int getStartDate() {
         return startDate;
@@ -167,7 +161,7 @@ public class Game implements Serializable{
         hash = 89 * hash + Objects.hashCode(this.map);
         hash = 89 * hash + Objects.hashCode(this.actors);
         hash = 89 * hash + Objects.hashCode(this.items);
-        hash = 89 * hash + Objects.hashCode(this.INSTANCE);
+
         return hash;
     }
 
@@ -222,15 +216,12 @@ public class Game implements Serializable{
         if (!Objects.equals(this.items, other.items)) {
             return false;
         }
-        if (!Objects.equals(this.INSTANCE, other.INSTANCE)) {
-            return false;
-        }
         return true;
     }
 
     @Override
     public String toString() {
-        return "Game{" + "milesTraveled=" + milesTraveled + ", travelDays=" + travelDays + ", startDate=" + startDate + ", percentComplete=" + percentComplete + ", highScores=" + highScores + ", noPlayers=" + noPlayers + ", companion1=" + companion1 + ", companion2=" + companion2 + ", companion3=" + companion3 + ", player=" + player + ", map=" + map + ", actors=" + actors + ", items=" + items + ", INSTANCE=" + INSTANCE + '}';
+        return "Game{" + "milesTraveled=" + milesTraveled + ", travelDays=" + travelDays + ", startDate=" + startDate + ", percentComplete=" + percentComplete + ", highScores=" + highScores + ", noPlayers=" + noPlayers + ", companion1=" + companion1 + ", companion2=" + companion2 + ", companion3=" + companion3 + ", player=" + player + ", map=" + map + ", actors=" + actors + ", items=" + items +  '}';
     }
 
 

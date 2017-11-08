@@ -5,7 +5,7 @@
  */
 package byui.cit260.oregonTrail.control;
 
-import byui.cit260.oregonTrail.model.Database;
+
 import byui.cit260.oregonTrail.model.Game;
 import byui.cit260.oregonTrail.model.Animal;
 import java.util.Date;
