@@ -102,7 +102,7 @@ class StartGameView {
     }
     private void displayNextView() {
         OccupationView occupationView = new OccupationView();
-        occupationView.displayOccupationView();
+        occupationView.display();
     }
 }
 /*GameMenuView gameMenu = new GameMenuView();
