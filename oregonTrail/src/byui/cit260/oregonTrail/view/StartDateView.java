@@ -25,6 +25,7 @@ public class StartDateView extends View{
                     +"\nM - March 1"
                     +"\nJ - June 1"
                     +"\nS - September 1"
+                    +"\nQ - Quit"
                     +"\n----------------------------------------------------"
                     +"\n"
                     +"\nPlease enter your choice.");

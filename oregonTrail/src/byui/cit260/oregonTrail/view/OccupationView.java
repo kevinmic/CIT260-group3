@@ -30,6 +30,7 @@ class OccupationView extends View {
                     +"\nF - Farmer"
                     +"\nM - Merchant"
                     +"\nL - Learn about occupations"
+                    + "\nQ - Quit"
                     +"\n----------------------------------------------------"
                     + "\n"
                     + "\nPlease Enter Your Choice");
