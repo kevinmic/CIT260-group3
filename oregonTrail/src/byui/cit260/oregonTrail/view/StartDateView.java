@@ -13,7 +13,7 @@ import oregonTrail.OregonTrail;
  *
  * @author Dresen_HP
  */
-public class StartDateView extends View {
+public class StartDateView extends View{
     
     // constructor function called from displayNextView() in StartGameView
     public StartDateView() {
@@ -25,9 +25,11 @@ public class StartDateView extends View {
                     +"\nM - March 1"
                     +"\nJ - June 1"
                     +"\nS - September 1"
-                    +"\n----------------------------------------------------");
+                    +"\n----------------------------------------------------"
+                    +"\n"
+                    +"\nPlease enter your choice.");
     }
-    
+
     @Override
     public boolean doAction(String value) {
         value = value.toUpperCase();
@@ -54,7 +56,8 @@ public class StartDateView extends View {
     } 
 
     private void displayNextView() {
-        System.out.println("\n *** displayNextView() called ***");
+        InventoryView inventoryView = new InventoryView();
+        inventoryView.display();
     }
 
     private void saveStartDate(int startDate) {

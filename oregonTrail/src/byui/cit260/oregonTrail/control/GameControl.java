@@ -127,7 +127,7 @@ public class GameControl {
     public static int findMonth(int startDate, int travelDays) {
         if (startDate < 0) 
             return -1;
-        if (travelDays < 1)
+        if (travelDays < 0)
             return -1;
         double quotient;
         int monthNumber = 1;
@@ -199,8 +199,3 @@ public class GameControl {
         //TODO: Add statements to function. Do we want to remove score to simplify? Could just be you make it you win.
         //int score = 5;
        // return score;
-
-
-
-
-    

@@ -12,23 +12,25 @@ import byui.cit260.oregonTrail.model.Game;
 import byui.cit260.oregonTrail.model.InventoryItem;
 import byui.cit260.oregonTrail.model.Player;
 import java.util.Map;
+import oregonTrail.OregonTrail;
 
 /**
  *
  * @author Dresen_HP
  */
 public class InventoryControl {
-    /* Gets the player's inventory from the database. I THINK! 
+    /* Gets the player's inventory from the current game. 
     * Map<> is object that maps keys to values.  It is the datatype here because the player's
     * inventory is stored in a map, so that is what will be returned by the method.
-    * In the return statement, it accesses the getGame method inside the Database class.
+    * In the return statement, it accesses the getCurrentGame method inside the OregonTrail.java class.
     * This gives access to the Game method, which has a getPlayer method. Inside the Player
     * class, it uses the getItems method which returns the items object that contains
     * a hashmap of the player's inventory items. This makes the player's inventory (which is
     * stored in Database class) available to the controller to manipulate.
     */
     private Map<InventoryType, InventoryItem> getItemDatabase() {
-        return Database.INSTANCE.getGame().getPlayer().getItems();
+        Map inventory = OregonTrail.getCurrentGame().getPlayer().getItems();
+        return inventory;
     }
     
     /* Gets one item from the player's inventory. 

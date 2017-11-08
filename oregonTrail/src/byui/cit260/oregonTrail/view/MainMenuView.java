@@ -13,10 +13,6 @@ import oregonTrail.OregonTrail;
  * @author jordan
  */
 public class MainMenuView extends View {
-    
-    // class instance variables
-    private String menu; // main menu
-    private String promptMessage; // enter choice prompt
 
         
     // constructor function Called from displayNextView() in StartProgramView. 
@@ -71,7 +67,7 @@ public class MainMenuView extends View {
         }
 
             StartGameView startGameView = new StartGameView(); // creates new startGameView object by calling construtor function in StartGameView.
-            startGameView.displayStartGameView(); //calls DisplayStartGameView() in StartGameView
+            startGameView.display(); //calls DisplayStartGameView() in StartGameView
             
             return true; //success!
             
