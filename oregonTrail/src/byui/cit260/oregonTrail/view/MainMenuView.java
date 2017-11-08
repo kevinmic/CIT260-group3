@@ -12,7 +12,7 @@ import oregonTrail.OregonTrail;
  *
  * @author jordan
  */
-class MainMenuView {
+public class MainMenuView extends View {
     
     // class instance variables
     private String menu; // main menu
@@ -21,10 +21,7 @@ class MainMenuView {
         
     // constructor function Called from displayNextView() in StartProgramView. 
     public MainMenuView() {
-        // stores prompt message in class instance variable
-        this.promptMessage = "\nPlease enter your choice: ";
-        // stores main menu in class instance variable.
-        this.menu = "\n"
+        super("\n"
                     +"\n----------------------------------------------------"
                     +"\n| Main Menu                                        |"
                     +"\n----------------------------------------------------"
@@ -33,49 +30,17 @@ class MainMenuView {
                     +"\nH - Get help on how to play the game"
                     +"\nS - Save game"
                     +"\nQ - Quit"
-                    +"\n----------------------------------------------------";
+                    +"\n----------------------------------------------------"
+                    +"\n"
+                    +"\n Please enter your choice:");
+   
     } // returns control back to displayNextView() in StartProgramView
 
-    public void displayMainMenuView() { // Called from displayNextView() in StartProgramView class.
-        System.out.print(menu); // Prints out the menu.
-        boolean done = false; //set flag to not done
-        do {
-            String menuOption = this.getMenuOption();//calls GetMenuOption from this class
-            if (menuOption.toUpperCase().equals("Q")) //user wants to quit
-                return; // Returns control to displayNextView() in StartProgramView. (Exit game) TODO: Why does this exit game?
-            
-            //Calls doAction() in this class and passes in menu option. 
-            done = this.doAction(menuOption); //do the requested action and display the next view
+    @Override
+    public boolean doAction(String value) { //called from displayMainMenuView() in this class. menu choice passed in.
+        value = value.toUpperCase(); //convert choice to upper case
         
-        } while (!done); // repeats the loop if done = false. False value will be returned from doAction() if menuOption is invalid.
-    }
-
-    private String getMenuOption() { //Called from displayMainMenuView in this class.
-        Scanner keyboard = new Scanner(System.in); //get infile for keyboard
-        String value = ""; //create variable value to be returned
-        boolean valid = false; //initialize to not valid
-        
-        while (!valid) { //loop while an invalid value is entered
-            System.out.println("\n" + this.promptMessage); // prints out promptMessage class instance variable.
-            
-            value = keyboard.nextLine(); //get next line typed on keyboard
-            value = value.trim(); //trim off leading and trailing blanks
-            
-            if (value.length() < 1) { // if value is blank, print error message and repeat loop.
-                System.out.println("\nInvalid value: value cannot be blank");
-                continue;
-            }
-            
-            break; //end the loop
-        }
-        
-        return value; //return the value entered to displayMainMenuView
-    }
-
-    private boolean doAction(String choice) { //called from displayMainMenuView() in this class. menu choice passed in.
-        choice = choice.toUpperCase(); //convert choice to upper case
-        
-        switch (choice) {
+        switch (value) {
             case "N": //Calls startNewGame() in this class. create and start a new game
                 this.startNewGame();
                 break;
@@ -122,7 +87,7 @@ class MainMenuView {
     private void displayHelpMenu() { //Called from doAction() case H in this class
         HelpMenuView helpMenuView = new HelpMenuView(); // creates new helpMenuView object by calling constructor function in HelpMenuView
         helpMenuView.displayHelpMenuView(); // calls DisplayHelpMenuView() from helpMenuView object.
-        this.displayMainMenuView(); // if user quits main menu, control returns here and displays the main menu.
+        this.display(); // if user quits main menu, control returns here and displays the main menu.
     }
     
 
