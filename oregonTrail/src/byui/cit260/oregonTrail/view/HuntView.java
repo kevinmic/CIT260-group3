@@ -14,19 +14,14 @@ import oregonTrail.OregonTrail;
  *
  * @author hannahwilliams
  */
-public class HuntView {
+public class HuntView extends View{
     
-    private String menu; 
-    private String promptMessage;
-    private String probability;
-    private String success;
-    private String failure;
+
+
+
  
-    
     public HuntView() {
-    
-        this.promptMessage = "\nWhich animal would you like to hunt?";
-        this.menu = "\n"
+        super("\n"
                     +"\n----------------------------------------------------"
                     +"\n| Animal Menu                                        |"
                     +"\n----------------------------------------------------"
@@ -35,89 +30,77 @@ public class HuntView {
                     +"\nC - Bear - Bears are omnivores. They can be lazy but vicious if feeling threatened."
                     +"\nD - Rabbit - Rabbits are herbivores. They are fast with a great sense of smell."
                     +"\nQ - Quit"
-                    +"\n----------------------------------------------------";
+                    +"\n----------------------------------------------------"
+                    +"\n"
+                    +"\nWhich animal would you like to hunt?");
         
-        double successProbability = 0;
+
         
         
-        String Animal = null; 
+ 
         
-        this.probability = "\nYour hunt success probability is " + successProbability; 
-        this.success = "\n You successfully shot the " + Animal + "! Would you like to hunt again?";
-        this.failure = "\n You failed to shoot the " + Animal + ". Would you like to hunt again?";
+
+       
     }
-    
-    public void displayHuntView() {
-         System.out.print(menu); // Prints out the menu.
+    @Override
+    public void display() {
         boolean done = false; //set flag to not done
         do {
-            String menuOption = this.getMenuOption();//calls GetMenuOption from this class
-            if (menuOption.toUpperCase().equals("Q")) //user wants to quit
+            String value = this.getInput();//calls GetMenuOption from this class
+            if (value.toUpperCase().equals("Q")) //user wants to quit
                 return; // Returns control to displayNextView() in StartProgramView. (Exit game) TODO: Why does this exit game?
            
-            
-            HuntControl huntControl = new HuntControl();
-            
-            Animal animal = this.animalselection(menuOption);
-            String difficulty = animal.getDifficulty();
-            int startdate = OregonTrail.getCurrentGame().getStartDate();
-            int traveldays = OregonTrail.getCurrentGame().getTravelDays();
-            
-            double successProbability = huntControl.calcHuntingSuccessProbability(difficulty, startdate, traveldays);
-            
-            System.out.print(probability);
-            
-            
+            done = this.doAction(value);
+ 
             
         
         } while (!done); // repeats the loop if done = false. False value will be returned from doAction() if menuOption is invalid.
     
 }
 
-   
-       private String getMenuOption() { //Called from displayMainMenuView in this class.
-        Scanner keyboard = new Scanner(System.in); //get infile for keyboard
-        String value = ""; //create variable value to be returned
-        boolean valid = false; //initialize to not valid
-        
-        while (!valid) { //loop while an invalid value is entered
-            System.out.println("\n" + this.promptMessage); // prints out promptMessage class instance variable.
-            
-            value = keyboard.nextLine(); //get next line typed on keyboard
-            value = value.trim(); //trim off leading and trailing blanks
-            
-            if (value.length() < 1) { // if value is blank, print error message and repeat loop.
-                System.out.println("\nInvalid value: value cannot be blank");
-                continue;
-            }
-            
-            break; //end the loop
-        }
-        
-        return value; //return the value entered to displayMainMenuView
-    
-    }
 
  
-       
-       public static Animal animalselection(String menuOption) {
+       @Override
+       public boolean doAction(String value) {
         Animal animal = null;
         String difficulty;
-        
-        
-        switch (menuOption) {
+        boolean done = false;
+      
+        switch (value) {
             case "A":
-                animal = Animal.Bison;  
+                animal = Animal.Bison; 
+                storeAnimal(animal);
+                break;
             case "B":
                 animal = Animal.Wolf;
+                storeAnimal(animal);
+                break;
             case "C":
                 animal = Animal.Bear;
+                storeAnimal(animal);
+                break;
             case "D":
                 animal = Animal.Rabbit;
+                storeAnimal(animal);
+                break;
         }
         
-        return animal;
+        return false;
         
+    }
+
+    private void storeAnimal(Animal animal) {
+            HuntControl huntControl = new HuntControl();
+            String animalChoice = animal.name();
+            String difficulty = animal.getDifficulty();
+            int startdate = OregonTrail.getCurrentGame().getStartDate();
+            int traveldays = OregonTrail.getCurrentGame().getTravelDays();
+            double successProbability = huntControl.calcHuntingSuccessProbability(difficulty, startdate, traveldays);
+            String probability = "\nYour hunt success probability is " + successProbability;
+            System.out.print(probability);
+            String success = "\n You successfully shot the " + animalChoice + "! Would you like to hunt again?";
+            String failure = "\n You failed to shoot the " + animalChoice + ". Would you like to hunt again?";
+            // TODO: Fix the rest of this
     }
     
 }

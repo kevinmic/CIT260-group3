@@ -57,8 +57,11 @@ public class StartDateView extends View{
     } 
 
     private void displayNextView() {
-        InventoryView inventoryView = new InventoryView();
-        inventoryView.display();
+        GameMenuView gameMenuView = new GameMenuView();
+        gameMenuView.display();
+        // TODO: needs to change to inventory view.  
+        // Still need to add money to inventory and let user purchase supplies.
+        // Still need to set pace.
     }
 
     private void saveStartDate(int startDate) {

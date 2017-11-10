@@ -13,7 +13,7 @@ public class GameMenuView extends View{
     
     // constructor function
     public GameMenuView() {
-        super("/n"
+        super("\n"
                 +"\n----------------------------------------------------"
                     +"\n| Game Menu                                        |"
                     +"\n----------------------------------------------------"
@@ -58,7 +58,7 @@ public class GameMenuView extends View{
                break;
            case "H":
                HuntView huntView = new HuntView();
-               huntView.displayHuntView();
+               huntView.display();
                break;
            case "P":
                PurchaseGoodsView purchaseGoodsView = new PurchaseGoodsView();
