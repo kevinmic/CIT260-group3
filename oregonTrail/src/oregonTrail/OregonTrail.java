@@ -42,7 +42,7 @@ public class OregonTrail {
         // calls contstructor function in StartProgramView to create new instance of StartProgramView object named startProgramView. 
         //This constructor function creates and displays the welcome banner that explains game.
         StartProgramView startProgramView = new StartProgramView();
-        startProgramView.displayStartProgramView(); //call displayStartProgramView() in StartProgramView to prompt user for name.
+        startProgramView.display(); //call displayStartProgramView() in StartProgramView to prompt user for name.
         
     }
         

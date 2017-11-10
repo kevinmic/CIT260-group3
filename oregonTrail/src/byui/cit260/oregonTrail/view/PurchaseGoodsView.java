@@ -9,10 +9,13 @@ package byui.cit260.oregonTrail.view;
  *
  * @author Dresen_HP
  */
-class PurchaseGoodsView {
+public class PurchaseGoodsView extends View {
 
-    void display() {
+    public void display() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+            @Override
+    public boolean doAction(String value) {
+        return false;
+    }
 }

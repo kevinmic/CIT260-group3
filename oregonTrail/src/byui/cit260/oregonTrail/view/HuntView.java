@@ -19,7 +19,8 @@ public class HuntView extends View{
 
 
 
- 
+
+    
     public HuntView() {
         super("\n"
                     +"\n----------------------------------------------------"
