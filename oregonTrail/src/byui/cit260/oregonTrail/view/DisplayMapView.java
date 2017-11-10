@@ -12,7 +12,7 @@ package byui.cit260.oregonTrail.view;
 public class DisplayMapView extends View{
 
     public void display() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("\n *** DisplayMapView called ***");
     }
         @Override
     public boolean doAction(String value) {

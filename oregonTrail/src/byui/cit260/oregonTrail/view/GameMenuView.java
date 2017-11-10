@@ -45,28 +45,34 @@ public class GameMenuView extends View{
                changePaceView.display();
                break;
            case "F":
-               RiverMenuView riverMenuView = new RiverMenuView();
-               riverMenuView.display();
+               System.out.println("*** RiverMenuView() function called ***");
+                //RiverMenuView riverMenuView = new RiverMenuView();
+               //riverMenuView.display();
                break;
            case "G":
-               HireGuideView hireGuideView = new HireGuideView();
-               hireGuideView.display();
+               System.out.println("*** HireGuideView() function called ***");
+               //HireGuideView hireGuideView = new HireGuideView();
+               //hireGuideView.display();
                break;
            case "V":
-               InventoryView inventoryView = new InventoryView();
-               inventoryView.display();
+               System.out.println("*** InventoryView() function called ***");
+               //InventoryView inventoryView = new InventoryView();
+               //inventoryView.display();
                break;
            case "H":
-               HuntView huntView = new HuntView();
-               huntView.display();
+               System.out.println("*** HuntView() function called ***");
+               //HuntView huntView = new HuntView();
+               //huntView.display();
                break;
            case "P":
-               PurchaseGoodsView purchaseGoodsView = new PurchaseGoodsView();
-               purchaseGoodsView.display();
+               System.out.println("*** PurchaseGoodsView() function called ***");
+               //PurchaseGoodsView purchaseGoodsView = new PurchaseGoodsView();
+               //purchaseGoodsView.display();
                break;
            case "M":
-               DisplayMapView displayMapView = new DisplayMapView();
-               displayMapView.display();
+               System.out.println("*** DisplayMapView() function called ***");
+               //DisplayMapView displayMapView = new DisplayMapView();
+               //displayMapView.display();
                
            
        } return false;

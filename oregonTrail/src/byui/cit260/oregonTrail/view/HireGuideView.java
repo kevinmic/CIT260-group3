@@ -12,7 +12,6 @@ package byui.cit260.oregonTrail.view;
 class HireGuideView {
 
     void display() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+        System.out.println("\n *** HireGuideView called ***");    }
     
 }

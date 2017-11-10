@@ -18,7 +18,8 @@ public class InventoryView extends View {
     
     // constructor function called from ??? TODO: Would this be called from game menu or from startGame?
     public InventoryView() {
-        this.promptMessage = "Please enter your choice";
+        System.out.println("*** InventoryView() function called ***");
+        //this.promptMessage = "Please enter your choice";
         //this.inventory = player.getItems();
     }
 
