@@ -6,6 +6,7 @@
 package byui.cit260.oregonTrail.model;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -23,7 +24,7 @@ public class HuntingScene implements Serializable {
     
     private List<Animal> animal = new ArrayList<>();
     private RegularSceneType regularSceneType; //-1
-    private java.util.Map<InventoryType, InventoryItem> items = new HashMap();
+    private InventoryItem[] inventory = new InventoryItem[8];
     // default constructor
 
     public HuntingScene () {
@@ -63,22 +64,22 @@ public class HuntingScene implements Serializable {
         this.regularSceneType = regularSceneType;
     }
 
-    public Map<InventoryType, InventoryItem> getItems() {
-        return items;
+    public InventoryItem[] getInventory() {
+        return inventory;
     }
 
-    public void setItems(Map<InventoryType, InventoryItem> items) {
-        this.items = items;
+    public void setInventory(InventoryItem[] inventory) {
+        this.inventory = inventory;
     }
 
     @Override
     public int hashCode() {
         int hash = 3;
-        hash = 53 * hash + this.noFoodCaught;
-        hash = 53 * hash + this.bonusWithGuide;
-        hash = 53 * hash + Objects.hashCode(this.animal);
-        hash = 53 * hash + Objects.hashCode(this.regularSceneType);
-        hash = 53 * hash + Objects.hashCode(this.items);
+        hash = 37 * hash + this.noFoodCaught;
+        hash = 37 * hash + this.bonusWithGuide;
+        hash = 37 * hash + Objects.hashCode(this.animal);
+        hash = 37 * hash + Objects.hashCode(this.regularSceneType);
+        hash = 37 * hash + Arrays.deepHashCode(this.inventory);
         return hash;
     }
 
@@ -106,7 +107,7 @@ public class HuntingScene implements Serializable {
         if (!Objects.equals(this.regularSceneType, other.regularSceneType)) {
             return false;
         }
-        if (!Objects.equals(this.items, other.items)) {
+        if (!Arrays.deepEquals(this.inventory, other.inventory)) {
             return false;
         }
         return true;
@@ -114,9 +115,8 @@ public class HuntingScene implements Serializable {
 
     @Override
     public String toString() {
-        return "HuntingScene{" + "noFoodCaught=" + noFoodCaught + ", bonusWithGuide=" + bonusWithGuide + ", animal=" + animal + ", regularSceneType=" + regularSceneType + ", items=" + items + '}';
+        return "HuntingScene{" + "noFoodCaught=" + noFoodCaught + ", bonusWithGuide=" + bonusWithGuide + ", animal=" + animal + ", regularSceneType=" + regularSceneType + ", inventory=" + inventory + '}';
     }
+
     
-    
-  
 }

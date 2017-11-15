@@ -33,19 +33,44 @@ public class GameControl {
         
         return player; // returns player object back to doAction in StartProgramView
     }
-    public static Game createNewGame(Player player) {
-        if (player == null)  // if no player passed in, return null back to startNewGame() in MainMenuView
-            return null;
+    public static int createNewGame(Player player) {
+       if (player == null)  // if no player passed in, return null back to startNewGame() in MainMenuView
+            return -1;
             Game currentGame =  new Game(); // create new game object.
             currentGame.setPlayer(player);
-            currentGame.setCompanion1("");
-            currentGame.setCompanion2("");
-            currentGame.setCompanion3("");
+            OregonTrail.setCurrentGame(currentGame);
+            InventoryItem[] items = createItems();
+            int noOfColumns = 0;
+            int noOfRows = 0;
+            byui.cit260.oregonTrail.model.Map map = MapControl.createMap(noOfRows, noOfColumns);
+            OregonTrail.getCurrentGame().setInventory(items); 
+            OregonTrail.getCurrentGame().setMap(map);
             
-            OregonTrail.setCurrentGame(currentGame); // calls setCurrentGame() in OregonTrail.java and passes in the game object.
             
-            return currentGame; // returns current game back to StartGameView
-   
+            
+            
+            /*
+        actors = createActors()
+        Save the list of actors in the Game object
+        Assign an actor to the player
+        items = createItems()
+        Save the list of items in the game
+        map = createMap(noOfRows, noOfColumns)
+        IF map == null THEN
+        RETURN -1
+        ENDIF
+        Assign the map to the game
+        RETURN 1 // indicates success */
+        /*if (player == null)  // if no player passed in, return null back to startNewGame() in MainMenuView
+        return null;
+        Game currentGame =  new Game(); // create new game object.
+        currentGame.setPlayer(player);
+        currentGame.setCompanion1("");
+        currentGame.setCompanion2("");
+        currentGame.setCompanion3("");
+        OregonTrail.setCurrentGame(currentGame); // calls setCurrentGame() in OregonTrail.java and passes in the game object.
+        return currentGame; // returns current game back to StartGameView */
+        return 1;
     }
 
 
@@ -152,6 +177,14 @@ public class GameControl {
             days = 30;
         return days;
     }
+
+    private static InventoryItem[] createItems() {
+        System.out.println("\n*** createItems() called ***"); //To change body of generated methods, choose Tools | Templates.
+        InventoryItem[] inventoryItems = new InventoryItem[8];
+        return inventoryItems;
+    }
+
+    
     
    public void CreateNewPlayer(String name) { // called from doAction() in StartProgramView class
         

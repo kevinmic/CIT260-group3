@@ -7,6 +7,7 @@ package byui.cit260.oregonTrail.model;
 import java.io.Serializable;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Objects;
 import java.util.Map;
 import java.util.HashMap;
@@ -28,7 +29,7 @@ public class Player implements Serializable{
     // relationships with other classes 
     private List<Game> games = new ArrayList<>(); //0-* // TODO: Probably don't need because game higher.
     private Actor actor; // 1-1 TODO: Add player type and change this.
-    private Map<InventoryType, InventoryItem> items = new HashMap();
+    private InventoryItem[] inventory = new InventoryItem[8];
     private Occupation occupation; //
 
 
@@ -96,13 +97,7 @@ public class Player implements Serializable{
         this.actor = actor;
     }
 
-    public Map<InventoryType, InventoryItem> getItems() {
-        return items;
-    }
-
-    public void setItems(Map<InventoryType, InventoryItem> items) {
-        this.items = items;
-    }
+    
 
     public Occupation getOccupation() {
         return occupation;
@@ -112,20 +107,26 @@ public class Player implements Serializable{
         this.occupation = occupation;
     }
 
+    public InventoryItem[] getInventory() {
+        return inventory;
+    }
 
+    public void setInventory(InventoryItem[] inventory) {
+        this.inventory = inventory;
+    }
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 23 * hash + Objects.hashCode(this.name);
-        hash = 23 * hash + Objects.hashCode(this.savedGameFile);
-        hash = 23 * hash + this.pace;
-        hash = 23 * hash + (int) (Double.doubleToLongBits(this.totalHealth) ^ (Double.doubleToLongBits(this.totalHealth) >>> 32));
-        hash = 23 * hash + this.currentScore;
-        hash = 23 * hash + Objects.hashCode(this.games);
-        hash = 23 * hash + Objects.hashCode(this.actor);
-        hash = 23 * hash + Objects.hashCode(this.items);
-        hash = 23 * hash + Objects.hashCode(this.occupation);
+        int hash = 5;
+        hash = 79 * hash + Objects.hashCode(this.name);
+        hash = 79 * hash + Objects.hashCode(this.savedGameFile);
+        hash = 79 * hash + this.pace;
+        hash = 79 * hash + (int) (Double.doubleToLongBits(this.totalHealth) ^ (Double.doubleToLongBits(this.totalHealth) >>> 32));
+        hash = 79 * hash + this.currentScore;
+        hash = 79 * hash + Objects.hashCode(this.games);
+        hash = 79 * hash + Objects.hashCode(this.actor);
+        hash = 79 * hash + Arrays.deepHashCode(this.inventory);
+        hash = 79 * hash + Objects.hashCode(this.occupation);
         return hash;
     }
 
@@ -162,7 +163,7 @@ public class Player implements Serializable{
         if (this.actor != other.actor) {
             return false;
         }
-        if (!Objects.equals(this.items, other.items)) {
+        if (!Arrays.deepEquals(this.inventory, other.inventory)) {
             return false;
         }
         if (this.occupation != other.occupation) {
@@ -173,17 +174,9 @@ public class Player implements Serializable{
 
     @Override
     public String toString() {
-        return "Player{" + "name=" + name + ", savedGameFile=" + savedGameFile + ", pace=" + pace + ", totalHealth=" + totalHealth + ", currentScore=" + currentScore + ", games=" + games + ", actor=" + actor + ", items=" + items + ", occupation=" + occupation + '}';
+        return "Player{" + "name=" + name + ", savedGameFile=" + savedGameFile + ", pace=" + pace + ", totalHealth=" + totalHealth + ", currentScore=" + currentScore + ", games=" + games + ", actor=" + actor + ", inventory=" + inventory + ", occupation=" + occupation + '}';
     }
 
-    
-
-    
-    
-    
 
 
-    
-    
-    
 }

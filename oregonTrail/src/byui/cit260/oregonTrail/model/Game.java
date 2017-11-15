@@ -6,6 +6,7 @@
 package byui.cit260.oregonTrail.model;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Objects;
@@ -29,7 +30,7 @@ public class Game implements Serializable{
     private Player player; // 1 to 1
     private Map map; // 1 to 1
     private List<Actor> actors = new ArrayList<>(); // 0-*
-    private java.util.Map<InventoryType, InventoryItem> items = new HashMap();
+    private InventoryItem[] inventory = new InventoryItem[8];
 
 
     
@@ -127,13 +128,15 @@ public class Game implements Serializable{
         this.actors = actors;
     }
 
-    public java.util.Map<InventoryType, InventoryItem> getItems() {
-        return items;
+    public InventoryItem[] getInventory() {
+        return inventory;
     }
 
-    public void setItems(java.util.Map<InventoryType, InventoryItem> items) {
-        this.items = items;
+    public void setInventory(InventoryItem[] inventory) {
+        this.inventory = inventory;
     }
+
+
 
 
 
@@ -147,21 +150,20 @@ public class Game implements Serializable{
 
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 89 * hash + this.milesTraveled;
-        hash = 89 * hash + this.travelDays;
-        hash = 89 * hash + this.startDate;
-        hash = 89 * hash + (int) (Double.doubleToLongBits(this.percentComplete) ^ (Double.doubleToLongBits(this.percentComplete) >>> 32));
-        hash = 89 * hash + this.highScores;
-        hash = 89 * hash + this.noPlayers;
-        hash = 89 * hash + Objects.hashCode(this.companion1);
-        hash = 89 * hash + Objects.hashCode(this.companion2);
-        hash = 89 * hash + Objects.hashCode(this.companion3);
-        hash = 89 * hash + Objects.hashCode(this.player);
-        hash = 89 * hash + Objects.hashCode(this.map);
-        hash = 89 * hash + Objects.hashCode(this.actors);
-        hash = 89 * hash + Objects.hashCode(this.items);
-
+        int hash = 5;
+        hash = 37 * hash + this.milesTraveled;
+        hash = 37 * hash + this.travelDays;
+        hash = 37 * hash + this.startDate;
+        hash = 37 * hash + (int) (Double.doubleToLongBits(this.percentComplete) ^ (Double.doubleToLongBits(this.percentComplete) >>> 32));
+        hash = 37 * hash + this.highScores;
+        hash = 37 * hash + this.noPlayers;
+        hash = 37 * hash + Objects.hashCode(this.companion1);
+        hash = 37 * hash + Objects.hashCode(this.companion2);
+        hash = 37 * hash + Objects.hashCode(this.companion3);
+        hash = 37 * hash + Objects.hashCode(this.player);
+        hash = 37 * hash + Objects.hashCode(this.map);
+        hash = 37 * hash + Objects.hashCode(this.actors);
+        hash = 37 * hash + Arrays.deepHashCode(this.inventory);
         return hash;
     }
 
@@ -213,7 +215,7 @@ public class Game implements Serializable{
         if (!Objects.equals(this.actors, other.actors)) {
             return false;
         }
-        if (!Objects.equals(this.items, other.items)) {
+        if (!Arrays.deepEquals(this.inventory, other.inventory)) {
             return false;
         }
         return true;
@@ -221,9 +223,8 @@ public class Game implements Serializable{
 
     @Override
     public String toString() {
-        return "Game{" + "milesTraveled=" + milesTraveled + ", travelDays=" + travelDays + ", startDate=" + startDate + ", percentComplete=" + percentComplete + ", highScores=" + highScores + ", noPlayers=" + noPlayers + ", companion1=" + companion1 + ", companion2=" + companion2 + ", companion3=" + companion3 + ", player=" + player + ", map=" + map + ", actors=" + actors + ", items=" + items +  '}';
+        return "Game{" + "milesTraveled=" + milesTraveled + ", travelDays=" + travelDays + ", startDate=" + startDate + ", percentComplete=" + percentComplete + ", highScores=" + highScores + ", noPlayers=" + noPlayers + ", companion1=" + companion1 + ", companion2=" + companion2 + ", companion3=" + companion3 + ", player=" + player + ", map=" + map + ", actors=" + actors + ", inventory=" + inventory + '}';
     }
-
 
 
  

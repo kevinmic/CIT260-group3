@@ -9,12 +9,26 @@ import java.util.Random;
 import byui.cit260.oregonTrail.model.Player;
 import byui.cit260.oregonTrail.model.Location;
 import byui.cit260.oregonTrail.model.Game;
+import byui.cit260.oregonTrail.model.Map;
+
 
 /**
  *
  * @author Clausi,James
  */
+
+
 public class MapControl {
+    
+    public static Map createMap(int noOfRows, int noOfColumns) {
+        System.out.println("\n*** createMap() called ***");
+        Map gameMap = new Map();
+        return gameMap;
+    }
+
+
+    
+    
     public int calcDistanceTraveled( int pace, int totalHealth){
        // validate inputs
 	   // pace must be an integar >= 0 

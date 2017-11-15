@@ -16,7 +16,8 @@ public enum InventoryType {
     Bullets(1),
     Oxen(40),
     WagonWheel(10),
-    Money(1);
+    Money(1),
+    Guide(50);
     
     private final int cost;
     // constructor function
