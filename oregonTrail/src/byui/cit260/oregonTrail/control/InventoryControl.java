@@ -17,6 +17,17 @@ import oregonTrail.OregonTrail;
  * @author Dresen_HP
  */
 public class InventoryControl {
+    // creates inventory list for game when new game is started.
+    public static InventoryItem[] createItems() {
+        
+        InventoryItem[] inventory = new InventoryItem[8];
+        inventory[InventoryType.Bullets.ordinal()] = new InventoryItem(InventoryType.Bullets ,0);
+        inventory[InventoryType.Clothing.ordinal()] = new InventoryItem(InventoryType.Clothing, 0);
+        System.out.println(InventoryType.Clothing.name()); //To change body of generated methods, choose Tools | Templates.
+        return inventory;
+    }
+    
+    
     /* Gets the player's inventory from the current game. 
     * Stores it in inventory to make it available to the controller to manipulate.
     */
@@ -25,6 +36,8 @@ public class InventoryControl {
         inventory = OregonTrail.getCurrentGame().getInventory();
         return inventory;
     }
+    
+    
     
     /* Gets one item from the player's inventory. 
     * Private because ?????. return type will be an InventoryItem. 

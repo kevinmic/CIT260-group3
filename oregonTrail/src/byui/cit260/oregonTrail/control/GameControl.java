@@ -12,8 +12,8 @@ import byui.cit260.oregonTrail.model.InventoryType;
 import static byui.cit260.oregonTrail.model.InventoryType.Money;
 import byui.cit260.oregonTrail.model.Occupation;
 import byui.cit260.oregonTrail.model.Player;
-import java.util.Map;
 import oregonTrail.OregonTrail;
+import byui.cit260.oregonTrail.model.Map;
 
 /**
  *
@@ -33,48 +33,75 @@ public class GameControl {
         
         return player; // returns player object back to doAction in StartProgramView
     }
+    
     public static int createNewGame(Player player) {
        if (player == null)  // if no player passed in, return null back to startNewGame() in MainMenuView
             return -1;
-            Game currentGame =  new Game(); // create new game object.
-            currentGame.setPlayer(player);
-            OregonTrail.setCurrentGame(currentGame);
-            InventoryItem[] items = createItems();
-            int noOfColumns = 0;
-            int noOfRows = 0;
-            byui.cit260.oregonTrail.model.Map map = MapControl.createMap(noOfRows, noOfColumns);
-            OregonTrail.getCurrentGame().setInventory(items); 
-            OregonTrail.getCurrentGame().setMap(map);
-            
-            
-            
-            
+            // create new game object.
+            Game game =  new Game();
+            // save a reference to the Player object in the game.
+            game.setPlayer(player);
+            // save a reference to the game in the mail class. 
+            OregonTrail.setCurrentGame(game);
+            // Initialize companions.
+            game.setCompanion1("");
+            game.setCompanion2("");
+            game.setCompanion3("");
+            // create inventory.
+            InventoryItem[] items = InventoryControl.createItems(); //TODO: finish createItems() in inventoryControl
+            // save list of items in the game object.
+            game.setInventory(items); 
+            // create map and set it in game
+            int noOfColumns = 15;
+            int noOfRows = 10;
+            Map map = MapControl.createMap(noOfRows, noOfColumns);
+            // make sure map was created.
+            if (map == null) 
+                return -1;
+            else {
+                game.setMap(map);
+                return 1; // indicates success
+            }
+
             /*
         actors = createActors()
         Save the list of actors in the Game object
         Assign an actor to the player
-        items = createItems()
-        Save the list of items in the game
-        map = createMap(noOfRows, noOfColumns)
-        IF map == null THEN
-        RETURN -1
-        ENDIF
-        Assign the map to the game
-        RETURN 1 // indicates success */
-        /*if (player == null)  // if no player passed in, return null back to startNewGame() in MainMenuView
-        return null;
-        Game currentGame =  new Game(); // create new game object.
-        currentGame.setPlayer(player);
-        currentGame.setCompanion1("");
-        currentGame.setCompanion2("");
-        currentGame.setCompanion3("");
-        OregonTrail.setCurrentGame(currentGame); // calls setCurrentGame() in OregonTrail.java and passes in the game object.
-        return currentGame; // returns current game back to StartGameView */
-        return 1;
+ */
+            
+
+        //OregonTrail.setCurrentGame(currentGame); // calls setCurrentGame() in OregonTrail.java and passes in the game object.
+        //return currentGame; // returns current game back to StartGameView */
+        //return 1;
     }
 
-
-
+    public void CreateNewPlayer(String name) { // called from doAction() in StartProgramView class
+        
+        Player player = new Player(); // creates new Player instance named player
+        String playerName = player.getName(); //calls getter function for player object to get player's name.
+        if (name != null) { // If the player doesn't have a name set, setter function called to set name with value passed in.
+            if (playerName == null) {
+                player.setName(name);
+            }               
+        } 
+    }
+    
+    public static void setCompanionName(String companion) { // called from doAction() in this class
+        Game game = OregonTrail.getCurrentGame(); // gets current game from main
+        String companion1 = game.getCompanion1(); // gets companion 1 name from game
+        String companion2 = game.getCompanion2(); // gets companion 1 name from game
+        String companion3 = game.getCompanion3(); // gets companion 1 name from game
+        if (companion1 == "")
+            OregonTrail.getCurrentGame().setCompanion1(companion); // sets companions
+        else if (companion2 == "")
+            OregonTrail.getCurrentGame().setCompanion2(companion);
+        else if (companion3 == "")
+            OregonTrail.getCurrentGame().setCompanion3(companion);
+        else
+            return;
+        
+    } // goes back to doAction()
+    
     
 
     public static void setOccupation(Occupation choice) {
@@ -101,45 +128,9 @@ public class GameControl {
         String calendarDate = null;
         // get month
         
-        
-        switch (monthNumber) {
-            case 1:
-                month = "January";
-                break;
-            case 2:
-                month = "February";
-                break;
-                case 3:
-                month = "March";
-                break;
-                case 4:
-                month = "April";
-                break;
-                case 5:
-                month = "May";
-                break;
-                case 6:
-                month = "June";
-                break;
-                case 7:
-                month = "July";
-                break;
-                case 8:
-                month = "August";
-                break;
-                case 9:
-                month = "September";
-                break;
-                case 10:
-                month = "October";
-                break;
-                case 11:
-                month = "November";
-                break;
-                case 12:
-                month = "December";
-                break;   
-        }
+        String[] monthList = {"January", "February", "March", "April", "May", "June",
+                               "July", "August", "September", "October", "November", "December"};
+        month = monthList[monthNumber];
         
         //construct calendarDate string of month and days
         calendarDate = month + day;
@@ -162,6 +153,7 @@ public class GameControl {
             monthNumber = monthNumber % 12;
         if (monthNumber == 0)
             monthNumber = 12;
+        monthNumber -=1;
 
         return monthNumber;
     }
@@ -178,39 +170,13 @@ public class GameControl {
         return days;
     }
 
-    private static InventoryItem[] createItems() {
-        System.out.println("\n*** createItems() called ***"); //To change body of generated methods, choose Tools | Templates.
-        InventoryItem[] inventoryItems = new InventoryItem[8];
-        return inventoryItems;
-    }
+
 
     
     
-   public void CreateNewPlayer(String name) { // called from doAction() in StartProgramView class
-        
-        Player player = new Player(); // creates new Player instance named player
-        String playerName = player.getName(); //calls getter function for player object to get player's name.
-        if (name != null) { // If the player doesn't have a name set, setter function called to set name with value passed in.
-            if (playerName == null) {
-                player.setName(name);
-            }               
-        }   
-   }}
-    /**public void startNewGame(String companion1, String companion2, String companion3, Occupation occupation) {
-        Game game = new Game();  //TODO: How do I start database with new game?
-        game.setCompanion1(companion1);
-        game.setCompanion2(companion2);
-        game.setCompanion3(companion3);
-        Database.INSTANCE.getGame().getPlayer().setOccupation(occupation);
-        Map<InventoryType, InventoryItem> items = Database.INSTANCE.getGame().getPlayer().getItems();
-        InventoryItem item = items.get(Money);
-        int startingPurse = 500;
-        if (occupation == Merchant) {
-            startingPurse = 700;
-        }
-        item.setQuantityInStock(startingPurse);
-    }
-    * **/
+  
+   }
+
     
     //public void saveGame(Player player, Game game, Database INSTANCE) {
         //TODO: Learn how to save the game.

@@ -14,13 +14,13 @@ import oregonTrail.OregonTrail;
  *
  * @author Dresen_HP
  */
-class StartGameView extends View {
+class CompanionView extends View {
     //class instance variables
 
 
 
     
-    public StartGameView() { // called from startNewGame() in MainMenuView
+    public CompanionView() { // called from startNewGame() in MainMenuView
         super("\nPlease enter the name of your companion.");
 
 }
@@ -29,12 +29,12 @@ class StartGameView extends View {
         
         String companion;
         do {
-            System.out.print(getCompanionList());
-            companion = this.getInput();
+            System.out.print(getCompanionList()); // calls getComanionList() in this class
+            companion = this.getInput(); // calls getInput() from this class.
             if (companion.toUpperCase().equals("Q")) 
                 return; //exit to startNewGame() in MainMenuView
 
-            this.doAction(companion);
+            this.doAction(companion); // calls doAction() in this class
         } while (OregonTrail.getCurrentGame().getCompanion3() == "");
         System.out.print(getCompanionList());
         this.displayNextView();
@@ -42,7 +42,7 @@ class StartGameView extends View {
         
     }
     
-    private String getCompanionList() {
+    private String getCompanionList() { // called from display() in this class
         String companion1 = OregonTrail.getCurrentGame().getCompanion1(); 
             String companion2 = OregonTrail.getCurrentGame().getCompanion2();
             String companion3 = OregonTrail.getCurrentGame().getCompanion3();
@@ -55,34 +55,20 @@ class StartGameView extends View {
                         +"\nCompanion 2: " + companion2
                         +"\nCompanion 3: " + companion3
                         +"\n----------------------------------------------------");
-            return companionList;
+            return companionList; // returns companionList to display()
     }
         
     @Override
-    public boolean doAction(String value) { // called from displayStartGameView in this class
+    public boolean doAction(String value) { // called from display() in this class
         if (value.length() < 2) {  // checks name length and prints error
             System.out.println("\nInvalid value:"
             + "The name must be greater than one character in length");
-            this.getInput(); // calls getCompanionName() from this class to prompt user to re-enter name.
+            this.getInput(); // calls getInput() from this class to prompt user to re-enter name.
         }
-        this.setCompanionName(value);
-        return false;
+        GameControl.setCompanionName(value); // calls setCompaninName() in GameControl
+        return false; // returns false to display() in this class
     } 
-    public static void setCompanionName(String companion) {
-        Game game = OregonTrail.getCurrentGame();
-        String companion1 = game.getCompanion1();
-        String companion2 = game.getCompanion2();
-        String companion3 = game.getCompanion3();
-        if (companion1 == "")
-            OregonTrail.getCurrentGame().setCompanion1(companion);
-        else if (companion2 == "")
-            OregonTrail.getCurrentGame().setCompanion2(companion);
-        else if (companion3 == "")
-            OregonTrail.getCurrentGame().setCompanion3(companion);
-        else
-            return;
-        
-    }
+    
     private void displayNextView() {
         OccupationView occupationView = new OccupationView();
         occupationView.display();

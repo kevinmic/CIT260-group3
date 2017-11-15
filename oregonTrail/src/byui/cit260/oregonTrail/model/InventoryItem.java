@@ -20,13 +20,15 @@ public class InventoryItem implements Serializable {
     
     //relationships with other classes
     private InventoryType inventoryType;
-    private Game game;
+
     
     
     
     //default constructor
 
-    public InventoryItem() {
+    public InventoryItem(InventoryType type, int quantity) {
+        this.setInventoryType(type);
+        this.setQuantityInStock(quantity);
     }
     
     //getter and setter methods
@@ -47,20 +49,14 @@ public class InventoryItem implements Serializable {
         this.quantityInStock = quantityInStock;
     }
 
-    public Game getGame() {
-        return game;
-    }
 
-    public void setGame(Game game) {
-        this.game = game;
-    }
 
     @Override
     public int hashCode() {
         int hash = 7;
         hash = 61 * hash + this.quantityInStock;
         hash = 61 * hash + Objects.hashCode(this.inventoryType);
-        hash = 61 * hash + Objects.hashCode(this.game);
+
         return hash;
     }
 
@@ -82,15 +78,13 @@ public class InventoryItem implements Serializable {
         if (this.inventoryType != other.inventoryType) {
             return false;
         }
-        if (!Objects.equals(this.game, other.game)) {
-            return false;
-        }
+
         return true;
     }
 
     @Override
     public String toString() {
-        return "InventoryItem{" + "quantityInStock=" + quantityInStock + ", inventoryType=" + inventoryType + ", game=" + game + '}';
+        return "InventoryItem{" + "quantityInStock=" + quantityInStock + ", inventoryType=" + inventoryType + '}';
     }
 
 

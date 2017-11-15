@@ -29,7 +29,6 @@ public class Player implements Serializable{
     // relationships with other classes 
     private List<Game> games = new ArrayList<>(); //0-* // TODO: Probably don't need because game higher.
     private Actor actor; // 1-1 TODO: Add player type and change this.
-    private InventoryItem[] inventory = new InventoryItem[8];
     private Occupation occupation; //
 
 
@@ -107,13 +106,7 @@ public class Player implements Serializable{
         this.occupation = occupation;
     }
 
-    public InventoryItem[] getInventory() {
-        return inventory;
-    }
 
-    public void setInventory(InventoryItem[] inventory) {
-        this.inventory = inventory;
-    }
 
     @Override
     public int hashCode() {
@@ -125,7 +118,7 @@ public class Player implements Serializable{
         hash = 79 * hash + this.currentScore;
         hash = 79 * hash + Objects.hashCode(this.games);
         hash = 79 * hash + Objects.hashCode(this.actor);
-        hash = 79 * hash + Arrays.deepHashCode(this.inventory);
+
         hash = 79 * hash + Objects.hashCode(this.occupation);
         return hash;
     }
@@ -163,9 +156,7 @@ public class Player implements Serializable{
         if (this.actor != other.actor) {
             return false;
         }
-        if (!Arrays.deepEquals(this.inventory, other.inventory)) {
-            return false;
-        }
+
         if (this.occupation != other.occupation) {
             return false;
         }
@@ -174,7 +165,7 @@ public class Player implements Serializable{
 
     @Override
     public String toString() {
-        return "Player{" + "name=" + name + ", savedGameFile=" + savedGameFile + ", pace=" + pace + ", totalHealth=" + totalHealth + ", currentScore=" + currentScore + ", games=" + games + ", actor=" + actor + ", inventory=" + inventory + ", occupation=" + occupation + '}';
+        return "Player{" + "name=" + name + ", savedGameFile=" + savedGameFile + ", pace=" + pace + ", totalHealth=" + totalHealth + ", currentScore=" + currentScore + ", games=" + games + ", actor=" + actor + ", occupation=" + occupation + '}';
     }
 
 

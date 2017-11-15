@@ -38,7 +38,7 @@ public class MainMenuView extends View {
         
         switch (value) {
             case "N": //Calls startNewGame() in this class. create and start a new game
-                this.createNewGame();
+                this.startNewGame();
                 break;
             case "G": //Calls startExistingGame() in this class. get and start an existing game
                 this.startExistingGame();
@@ -58,24 +58,24 @@ public class MainMenuView extends View {
                       // false will be returned to displayMainMenuView() triggering repeat of do-while loop.
     }
 
-    private boolean createNewGame() { // Called from doAction() case N in this class.
+    private boolean startNewGame() { // Called from doAction() case N in this class.
             
 
             //create a new game
-            /*Game currentGame = GameControl.createNewGame(OregonTrail.getPlayer()); //Calls createNewGame() from GameControl and passes in player object.
-            if (currentGame == null) { //Checks to see if player created. if unsuccessful, print error message.
+            int returnValue = GameControl.createNewGame(OregonTrail.getPlayer()); //Calls createNewGame() from GameControl and passes in player object.
+            if (returnValue < 0) { //Checks to see if player created. if unsuccessful, print error message.
             System.out.println("\nError creating the game.");
             return false; // if unsuccsful, returns false to doAction so loop is repeated.
         }
 
-            StartGameView startGameView = new StartGameView(); // creates new startGameView object by calling construtor function in StartGameView.
-            startGameView.display(); //calls DisplayStartGameView() in StartGameView
+            CompanionView companionView = new CompanionView(); // creates new companionView object by calling construtor function in companionView.
+            companionView.display(); //calls companionView() in companionView
             
             return true; //success!*/
             
         
         
-        return true;
+  
     }
 
     private void startExistingGame() {
