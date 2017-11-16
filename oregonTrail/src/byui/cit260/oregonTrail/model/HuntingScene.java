@@ -23,7 +23,7 @@ public class HuntingScene implements Serializable {
     // relationships with other classes
     
     private List<Animal> animal = new ArrayList<>();
-    private RegularSceneType regularSceneType; //-1
+
     private InventoryItem[] inventory = new InventoryItem[8];
     // default constructor
 

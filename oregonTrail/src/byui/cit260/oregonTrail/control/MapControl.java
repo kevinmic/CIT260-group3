@@ -12,6 +12,9 @@ import byui.cit260.oregonTrail.model.Location;
 import byui.cit260.oregonTrail.model.Game;
 import byui.cit260.oregonTrail.model.Map;
 import byui.cit260.oregonTrail.model.RegularSceneType;
+import byui.cit260.oregonTrail.model.RiverScene;
+import byui.cit260.oregonTrail.model.Scene;
+import byui.cit260.oregonTrail.model.SceneType;
 
 
 /**
@@ -38,71 +41,78 @@ public class MapControl {
         System.out.println("\n*** createMap() called ***");
         
         //if noOfRows < 0 OR numOfColumns < 0
-        //return null
-        //endif
-        //if items is null OR its length is < 1
-        //RETURN null
-            //endif
-        //Map map = new Map object
+        if (noOfRows < 0 || noOfColumns < 0) {
+            return null;
+        }
         Map gameMap = new Map();
-        //save the noOfRows in the map
-        //save the noOfColumns in the map
+        gameMap.setRows(noOfRows);
+        gameMap.setColumns(noOfColumns);
         //locations = createLocations(noOfRows, noOfColumns)
+        Location[][] locations = createLocations(noOfRows, noOfColumns);
         //Assign the locations array to the map
+        gameMap.setLocations(locations);
         //scenes = createScenes()
+        RegularSceneType[] scenes = createScenes();
         //questions = createQuestions()
+        CharacterDialog[] dialog = createDialog();
         //assignQuestionsToScenes()
-        //assignItemsToScenes() 
+        assignDialogToScenes(dialog, scenes);
+        assignScenesToLoctions(scenes, locations);
         return gameMap;
     }
-    private static Location[][] createLoctions(int rows, int columns) {
-        System.out.println("\n*** createLocations() called ***");
-        //IF rows < 1 OR columns < 1 THEN
-        //RETURN null
-        //ENDIF
-        //locations = new two-dimensional Location array
-        Location[][] location = null;
-        //FOR every row in the locations array
-        //FOR every column in the locations array
-        //location = create a new Location object
-        //set the row, and column attributes in the location
-        //set visited attribute to false
-        //Assign location to the row, and column in array
-        //ENDFOR
-        //RETURN locations 
-        
-        return location;
-    }
-    private static RegularSceneType[] createScenes() {
-        System.out.println("\n*** createScenes() called ***");
-        //scenes = Create an array Scene objects
-        RegularSceneType[] scene = null;
-        //scene1 = Create a new Scene object
-        //Assign values to each attribute in the Scene object
-        //Assign scene1 to its position in the scenes array
 
-        //scene2 = Create a new ConstructionScene object
-        //Assign values to each attribute in the Scene object
-        //Assign scene2 to its position in the scenes array
-        //scene2 = Create a new ResourceScene object
-        //Assign values to each attribute in the Scene object
-        //Assign scene2 to its position in the scenes array 
+    private static Location[][] createLocations(int rows, int columns) {
+        if (rows < 1 || columns < 1)
+            return null;
+        Location[][] locations = new Location[rows][columns];
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                Location location = new Location();
+                location.setRow(i);
+                location.setColumn(j);
+                location.setVisited(false);
+               locations[i][j] = location; 
+            }
+        }
+            return locations;
+
+    }
+    private static Scene[] createScenes() {
+        //scenes = Create an array Scene objects
+        Scene[] scene = new Scene[SceneType.values().length];
+        RegularSceneType scene1 = new RegularSceneType();
+        scene1.setDescription("Stopping point along trail.");
+        scene[SceneType.RegularScene.ordinal()] = scene1;
         
+        RegularSceneType scene2 = new RegularSceneType();
+        scene2.getRegularSceneType().setDescription("River Crossing");
+        scene2.setRiverHeight(3);
+        scene2.setSafetyWithGuide(0);
+        scene2.
+        scene[SceneType.RiverScene.ordinal()] = scene2;
+        
+        RegularSceneType scene3 = new RegularSceneType();
+        scene3.setDescription("High Mountain Pass");
+        scene[SceneType.MountainScene.ordinal()] = scene3;
+        
+        RegularSceneType scene4 = new RegularSceneType();
+        scene4.setDescription("Rolling Grassland");
+        scene[SceneType.PlainsScene.ordinal()] = scene4;
+        
+        RegularSceneType scene5 = new RegularSceneType();
+        scene5.setDescription("Military Fort");
+        scene[SceneType.FortScene.ordinal()] = scene5;
+        RegularSceneType scene6 = new RegularSceneType();
+        scene6.setDescription("Begin Your Journey");
+        scene[SceneType.StartScene.ordinal()] = scene6;
+        RegularSceneType scene7 = new RegularSceneType();
+        scene7.setDescription("You made it! Congratulations!");
+        scene[SceneType.EndScene.ordinal()] = scene7;
+
+                
         return scene;
     }
-    private static CharacterDialog[] createDialog() {
-        System.out.println("\n*** createScenes() called ***");
-        CharacterDialog[] dialog = null;
-        //questions = Create an array Question objects
-        //question1 = Create a new Question object
-        //Assign values to each attribute in the Question object
-        //Assign question1 to its position in the questions array
-        //question2 = Create a new Question object
-        //Assign values to each attribute in the Question object
-        //Assign question2 to its position in the questions array
-        //RETURN questions 
-        return dialog;
-    }
+
     private static void assignDialogToScenes(CharacterDialog[] dialog, RegularSceneType[] scenes) {
         System.out.println("\n*** assignDialogToScenes() called ***");
         // Assign questions to the first question scene
@@ -127,6 +137,12 @@ public class MapControl {
         // locations[0][0].setScene(scenes[SceneType.fort.ordinal()];
         // locations[0][1].setScene(scenes[SceneType.mountain.ordinal()];
     }
+
+    private static void setToFalse() {
+    
+        }
+
+
     
     
     

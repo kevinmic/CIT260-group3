@@ -10,7 +10,7 @@ import java.util.Objects;
  *
  * @author hannahwilliams
  */
-public class RiverScene implements Serializable{
+public class RiverScene extends Scene implements Serializable{
     // class instance variables
     
     private int riverHeight; 
@@ -18,7 +18,7 @@ public class RiverScene implements Serializable{
     private double safetyWithGuide; 
     
     // relationships with other classes
-    private RegularSceneType regularSceneType;
+
     
     // default constructor
     
@@ -27,13 +27,6 @@ public class RiverScene implements Serializable{
     
     // methods
 
-    public RegularSceneType getRegularSceneType() {
-        return regularSceneType;
-    }
-
-    public void setRegularSceneType(RegularSceneType regularSceneType) {
-        this.regularSceneType = regularSceneType;
-    }
 
     public int getRiverHeight() {
         return riverHeight;
@@ -61,13 +54,14 @@ public class RiverScene implements Serializable{
 
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 97 * hash + this.riverHeight;
-        hash = 97 * hash + Objects.hashCode(this.travelChoice);
-        hash = 97 * hash + (int) (Double.doubleToLongBits(this.safetyWithGuide) ^ (Double.doubleToLongBits(this.safetyWithGuide) >>> 32));
-        hash = 97 * hash + Objects.hashCode(this.regularSceneType);
+        int hash = 3;
+        hash = 67 * hash + this.riverHeight;
+        hash = 67 * hash + Objects.hashCode(this.travelChoice);
+        hash = 67 * hash + (int) (Double.doubleToLongBits(this.safetyWithGuide) ^ (Double.doubleToLongBits(this.safetyWithGuide) >>> 32));
         return hash;
     }
+
+
 
     @Override
     public boolean equals(Object obj) {
@@ -90,7 +84,7 @@ public class RiverScene implements Serializable{
         if (!Objects.equals(this.travelChoice, other.travelChoice)) {
             return false;
         }
-        if (!Objects.equals(this.regularSceneType, other.regularSceneType)) {
+        if (!super.equals(obj)) {
             return false;
         }
         return true;
@@ -100,7 +94,7 @@ public class RiverScene implements Serializable{
 
     @Override
     public String toString() {
-        return "RiverScene{" + "riverHeight=" + riverHeight + ", travelChoice=" + travelChoice + ", safetyWithGuide=" + safetyWithGuide + ", regularSceneType=" + regularSceneType + '}';
+        return "RiverScene{" + "riverHeight=" + riverHeight + ", travelChoice=" + travelChoice + ", safetyWithGuide=" + safetyWithGuide +  '}' + super.toString();
     }
     
     
