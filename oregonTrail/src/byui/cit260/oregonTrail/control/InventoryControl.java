@@ -17,15 +17,30 @@ import oregonTrail.OregonTrail;
  * @author Dresen_HP
  */
 public class InventoryControl {
-    // creates inventory list for game when new game is started.
+    
+
+// creates inventory list for game when new game is started.
     public static InventoryItem[] createItems() {
         
         InventoryItem[] inventory = new InventoryItem[8];
         inventory[InventoryType.Bullets.ordinal()] = new InventoryItem(InventoryType.Bullets ,0);
         inventory[InventoryType.Clothing.ordinal()] = new InventoryItem(InventoryType.Clothing, 0);
-        System.out.println(InventoryType.Clothing.name()); //To change body of generated methods, choose Tools | Templates.
+        inventory[InventoryType.Food.ordinal()] = new InventoryItem(InventoryType.Food, 0);
+        inventory[InventoryType.Guide.ordinal()] = new InventoryItem(InventoryType.Guide, 0);
+        inventory[InventoryType.Medicine.ordinal()] = new InventoryItem(InventoryType.Medicine, 0);
+        inventory[InventoryType.Money.ordinal()] = new InventoryItem(InventoryType.Money, 0);
+        inventory[InventoryType.Oxen.ordinal()] = new InventoryItem(InventoryType.Oxen, 0);
+        inventory[InventoryType.WagonWheel.ordinal()] = new InventoryItem(InventoryType.WagonWheel, 0);
         return inventory;
     }
+
+    public static InventoryItem[] riverFailureRemove(InventoryItem[] inventory) {
+        System.out.println("\n *** riverFailureRemove() called ***");
+        return inventory;
+    }
+
+
+    
     
     
     /* Gets the player's inventory from the current game. 
@@ -40,50 +55,57 @@ public class InventoryControl {
     
     
     /* Gets one item from the player's inventory. 
-    * Private because ?????. return type will be an InventoryItem. 
+    * return type will be an InventoryItem. 
     * parameter is the name of the inventory item to be gotten. (needs to be one of InventoryType class list). 
     * variable items is initialized. The datatype is Map with InventoryType InventoryItem key value pair. 
     * item variable is filled with the quantity in stock of the item requested. 
-    * Information is validated to make sure not null. If null, a new InventoryItem instance created and quantity set to 0.
+    * Information is validated to make sure not null. 
     * The variable item is returned.*/
     
-    /*private InventoryItem getItem(int type) {
+    private InventoryItem getItem(InventoryType type) {
         InventoryItem[] items = getItemDatabase();
-        InventoryItem item = items.;
+        
+        InventoryItem item = items[type.ordinal()];
         if (item == null) {
-           item = new InventoryItem();
-           item.setQuantityInStock(0);
-           item.setInventoryType(type);
-           items.put(type, item);
+            //TODO: how to validate this?
+           //item = new InventoryItem();
+           //item.setQuantityInStock(0);
+           //item.setInventoryType(type);
+           //items.put(type, item);
                   
         } 
         return item;
     }
     
     
+    
     /* Adds 1+ quantity of items to player's inventory.
-    * Public because needs to be accessed from hunt control. Will not return anything.
-    * Parameters are the type of item, and the quantity of items to be added.
     * New item variable is created and filled with the item from the player's inventory according to type.
     * The getQuantityInStock method is called for the item and the new quantity is added to it.
     * The total is stored in the item with the setQuantityInStock method.*/
     
-    /*public void addToInventory(InventoryType type, int quantity) {
+    public void addToInventory(InventoryType type, int quantity) {
        InventoryItem item = getItem(type);
        item.setQuantityInStock(item.getQuantityInStock() + quantity);  //How does this know where to set the Quantity?
     }
+    
+    
+    
     /* Removes 1+ quantity from player's inventory.
     * Public so can be accessed from hunt and game control. Void because it won't return anything. Parameters are 
     * the type from InventoryType class and the quantity of items to be removed.
     * A new item variable is created with datatype of InventoryType class and filled with item from player's inventory.*/
-    /*public void subtractFromInventory(InventoryType type, int quantity) {
+    public void subtractFromInventory(InventoryType type, int quantity) {
        InventoryItem item = getItem(type); 
        item.setQuantityInStock(item.getQuantityInStock() + quantity);
     }
     
+    
     public static double random() { // generate random number for barter success rate.
         return Math.random();
     }
+    
+    
     
     public int barter(InventoryType owned, InventoryType desired, int desiredQuantity) {
         // validate input
@@ -118,7 +140,7 @@ public class InventoryControl {
             * the farher along the trail you are. A random number is generated, and compared
             * with the percent complete divided by 2. If the random number is less than half the
             * percentComplete, then the trade will be declined.*/
-        /*    double success = random();
+            double success = random();
             if (success < percentComplete * .5) {
                 return 1; // 1 will display message "No one was willing to trade."
             }
@@ -126,7 +148,7 @@ public class InventoryControl {
             
         // call calcBarterPrice function to figure cost of purchase.
         int costForOne = calcBarterPrice(costDesired, costOwned, percentComplete, barterCoefficient);
-        int quantityOwned = itemOwned.getQuantityInStock();
+        double quantityOwned = itemOwned.getQuantityInStock();
         
         // test to see if player has enough of item to trade. 
         if (itemOwned.getQuantityInStock() < desiredQuantity) {
@@ -138,7 +160,7 @@ public class InventoryControl {
         subtractFromInventory(owned, desiredQuantity);
         return 3; // 3 will display message "Transaction successful.";
         }
-    }*/
+    }
     
     //calculate the price of one item for barter or purchase
     public int calcBarterPrice(int basePriceGet, int basePriceGive, double percentComplete, int barterCoefficient) {

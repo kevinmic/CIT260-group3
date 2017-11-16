@@ -16,7 +16,7 @@ import java.util.Arrays;
  */
 public class InventoryItem implements Serializable {
     //class instance variables
-    private int quantityInStock;
+    private double quantityInStock;
     
     //relationships with other classes
     private InventoryType inventoryType;
@@ -41,22 +41,19 @@ public class InventoryItem implements Serializable {
         this.inventoryType = inventoryType;
     }
 
-    public int getQuantityInStock() {
+    public double getQuantityInStock() {
         return quantityInStock;
     }
 
-    public void setQuantityInStock(int quantityInStock) {
+    public void setQuantityInStock(double quantityInStock) {
         this.quantityInStock = quantityInStock;
     }
 
-
-
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 61 * hash + this.quantityInStock;
-        hash = 61 * hash + Objects.hashCode(this.inventoryType);
-
+        int hash = 5;
+        hash = 47 * hash + (int) (Double.doubleToLongBits(this.quantityInStock) ^ (Double.doubleToLongBits(this.quantityInStock) >>> 32));
+        hash = 47 * hash + Objects.hashCode(this.inventoryType);
         return hash;
     }
 

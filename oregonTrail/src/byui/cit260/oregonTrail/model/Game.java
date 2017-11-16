@@ -21,7 +21,7 @@ public class Game implements Serializable{
     private int travelDays;
     private int startDate;
     private double percentComplete;
-    private int highScores;
+
     private int noPlayers;
     private String companion1;
     private String companion2;
@@ -88,13 +88,7 @@ public class Game implements Serializable{
         this.percentComplete = percentComplete;
     }
 
-    public int getHighScores() {
-        return highScores;
-    }
 
-    public void setHighScores(int highScores) {
-        this.highScores = highScores;
-    }
 
     public int getNoPlayers() {
         return noPlayers;
@@ -155,7 +149,6 @@ public class Game implements Serializable{
         hash = 37 * hash + this.travelDays;
         hash = 37 * hash + this.startDate;
         hash = 37 * hash + (int) (Double.doubleToLongBits(this.percentComplete) ^ (Double.doubleToLongBits(this.percentComplete) >>> 32));
-        hash = 37 * hash + this.highScores;
         hash = 37 * hash + this.noPlayers;
         hash = 37 * hash + Objects.hashCode(this.companion1);
         hash = 37 * hash + Objects.hashCode(this.companion2);
@@ -191,9 +184,7 @@ public class Game implements Serializable{
         if (Double.doubleToLongBits(this.percentComplete) != Double.doubleToLongBits(other.percentComplete)) {
             return false;
         }
-        if (this.highScores != other.highScores) {
-            return false;
-        }
+       
         if (this.noPlayers != other.noPlayers) {
             return false;
         }
@@ -223,7 +214,7 @@ public class Game implements Serializable{
 
     @Override
     public String toString() {
-        return "Game{" + "milesTraveled=" + milesTraveled + ", travelDays=" + travelDays + ", startDate=" + startDate + ", percentComplete=" + percentComplete + ", highScores=" + highScores + ", noPlayers=" + noPlayers + ", companion1=" + companion1 + ", companion2=" + companion2 + ", companion3=" + companion3 + ", player=" + player + ", map=" + map + ", actors=" + actors + ", inventory=" + inventory + '}';
+        return "Game{" + "milesTraveled=" + milesTraveled + ", travelDays=" + travelDays + ", startDate=" + startDate + ", percentComplete=" + percentComplete + ", noPlayers=" + noPlayers + ", companion1=" + companion1 + ", companion2=" + companion2 + ", companion3=" + companion3 + ", player=" + player + ", map=" + map + ", actors=" + actors + ", inventory=" + inventory + '}';
     }
 
 

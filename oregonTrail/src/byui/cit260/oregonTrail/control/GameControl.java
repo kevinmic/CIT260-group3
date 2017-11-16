@@ -33,27 +33,38 @@ public class GameControl {
         
         return player; // returns player object back to doAction in StartProgramView
     }
-    
+    /* Team Assignment #10 TODO list
+    * Implement createNewGame() method
+    *   Figure out number of columns and rows for line 62,63*    
+    * Implement createItems() in InventoryControl (pg 15)  
+    * Implement createMap() in MapControl (pg 20)
+    *   See line 24 of MapControl for TODO list
+    * Implement any other object needed to play the game ???
+    * Create new mapView class in view package
+    * Implement displayMap() in Game Menu View pg 39
+    */
     public static int createNewGame(Player player) {
        if (player == null)  // if no player passed in, return null back to startNewGame() in MainMenuView
-            return -1;
+            return -1;  // return error code
             // create new game object.
             Game game =  new Game();
             // save a reference to the Player object in the game.
             game.setPlayer(player);
-            // save a reference to the game in the mail class. 
+            // save a reference to the game in the main class. 
             OregonTrail.setCurrentGame(game);
-            // Initialize companions.
+            // create actors - not needed because enum class
+            // assign actor to the player - will do that in susequent occupationView
+            // Initialize companions. Will set names in subsequent companionView
             game.setCompanion1("");
             game.setCompanion2("");
             game.setCompanion3("");
-            // create inventory.
-            InventoryItem[] items = InventoryControl.createItems(); //TODO: finish createItems() in inventoryControl
+            // create inventory. TODO: finish createItems() in inventoryControl
+            InventoryItem[] items = InventoryControl.createItems(); 
             // save list of items in the game object.
             game.setInventory(items); 
             // create map and set it in game
-            int noOfColumns = 15;
-            int noOfRows = 10;
+            int noOfColumns = 0;
+            int noOfRows = 0;
             Map map = MapControl.createMap(noOfRows, noOfColumns);
             // make sure map was created.
             if (map == null) 
@@ -185,15 +196,8 @@ public class GameControl {
     //public void loadGame(Player player, Game game, Database INSTANCE) {
         //TODO: Add statements to load game.
     //}
-    //TODO: Create high scores list. Do we want to remove this to simplify? Probably need to create new class to hold high scores.
-    
-    //TODO: Create function to initialize map. Probably need to change how Location is structured, and add list of locations.
-    
+
     //public void quitGame() {
         //TODO: Add statements to function.
     //}
     
-    //public int calculateScore(Database INSTANCE) {
-        //TODO: Add statements to function. Do we want to remove score to simplify? Could just be you make it you win.
-        //int score = 5;
-       // return score;

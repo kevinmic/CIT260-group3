@@ -45,9 +45,8 @@ public class GameMenuView extends View{
                changePaceView.display();
                break;
            case "F":
-               System.out.println("*** RiverMenuView() function called ***");
-                //RiverMenuView riverMenuView = new RiverMenuView();
-               //riverMenuView.display();
+               RiverMenuView riverMenuView = new RiverMenuView();
+               riverMenuView.display();
                break;
            case "G":
                System.out.println("*** HireGuideView() function called ***");
@@ -70,11 +69,40 @@ public class GameMenuView extends View{
                //purchaseGoodsView.display();
                break;
            case "M":
-               System.out.println("*** DisplayMapView() function called ***");
-               //DisplayMapView displayMapView = new DisplayMapView();
-               //displayMapView.display();
+               this.displayMap();
+               break;
+           default:
+               System.out.println("*** Error: invalid choice entered. Try again. ***");
+               
                
            
        } return false;
    }
+
+    private void displayMap() {
+        System.out.println("\n*** displayMap() called ***");
+        //game = get the currentGame from the main class
+        //locations = get the 2-D locations array from the map
+        //Print the title
+        //Print the column numbers for each column
+        //for every row in map
+        //Print a row divider
+        //Print the row number on a new line
+        //for every column in the row
+        //Print a column divider
+        //location = locations[row][column]
+        //if location has been visited
+        //Get the mapSymbol for the scene in this location
+        //Print the mapSymbol
+        //else
+        //Print " ?? "
+        //endif
+        //endFor
+        //Print the ending column divider
+        //endFor
+        //Print the ending row divider
+        
+        //DisplayMapView displayMapView = new DisplayMapView();
+        //displayMapView.display();
+    }
 }

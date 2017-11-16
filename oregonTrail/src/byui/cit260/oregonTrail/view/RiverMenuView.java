@@ -5,7 +5,10 @@
  */
 package byui.cit260.oregonTrail.view;
 
+import byui.cit260.oregonTrail.control.InventoryControl;
 import byui.cit260.oregonTrail.control.RiverControl;
+import byui.cit260.oregonTrail.model.InventoryItem;
+import byui.cit260.oregonTrail.model.InventoryType;
 import java.util.Scanner;
 import oregonTrail.OregonTrail;
 
@@ -23,7 +26,7 @@ public class RiverMenuView extends View {
                     +"\n| River Menu                                       |"
                     +"\n----------------------------------------------------"
                     +"\nF - Ford the river"
-                    +"\nH - Hire a Guide"
+                    +"\nH - Hire a Guide for $10"
                     +"\nS - Save game"
                     +"\nQ - Quit"
                     +"\n----------------------------------------------------");
@@ -55,9 +58,30 @@ public class RiverMenuView extends View {
 
     private void fordRiver() {
         //ford the river
-        RiverControl.calcRiverSuccessProbability();
+        int riverHeight = getRiverHeight();
+        InventoryItem[] inventory = OregonTrail.getCurrentGame().getInventory();
+        double guide = inventory[InventoryType.Guide.ordinal()].getQuantityInStock();
+        long currentRiverWeather = getRiverWeather();
+        int success = success = RiverControl.calcRiverSuccessProbability(riverHeight, guide, currentRiverWeather);
+        if (success == 0) {
+            System.out.println("\n*************************************************"
+                          + "\n| Your attempt to cross the river failed."
+                          + "\n| You have lost 20% of your inventory."
+                          + "\n************************************************");
+            
+            InventoryItem[] afterInventory = InventoryControl.riverFailureRemove(inventory);
+            this.display();
+        } else if (success == 1) {
+            System.out.println("\n*************************************************"
+                          + "\n| Congratulations! "
+                          + "\n| Your attempt to cross the river succeeded."
+                          + "\n************************************************");
+            GameMenuView gameMenuView = new GameMenuView();
+            gameMenuView.display();
+        }
+        
     }
-
+    
     private void saveGame() {
         System.out.println("*** saveGame() function called ***");
     }
@@ -67,6 +91,20 @@ public class RiverMenuView extends View {
     }
 
     private void hireGuide() {
-        System.out.println("*** hireGuide() function called ***");
+        GuideMenuView guideView = new GuideMenuView();
+        guideView.display();
     }
+
+    private int getRiverHeight() {
+        System.out.println("*** getRiverHeight() function called ***");
+        int height = 0;
+        return height;
+    }
+
+    private long getRiverWeather() {
+        System.out.println("*** getRiverWeather() function called ***");
+        long weather = 0;
+        return weather;
+    }
+
 }
